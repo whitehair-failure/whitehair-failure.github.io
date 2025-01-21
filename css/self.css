@@ -1,23 +1,68 @@
 @font-face {
-  font-family: 'MyCustomFont';  /* 自定义字体的名称 */
-  src: url('https://raw.githubusercontent.com/white-hair-girl/own-picture-bed/refs/heads/main/font/%E8%90%9D%E8%8E%89%E4%BD%93.ttf') format('truetype');  /* 字体文件的URL路径 */
-       /* url('https://example.com/fonts/MyCustomFont.woff') format('woff');   字体文件的备选路径 */
-  font-weight: normal;  /* 字体粗细 */
-  font-style: normal;   /* 字体样式（正常、斜体等） */
-  font-display: swap;  /* 提高加载体验 */
+  font-family: "MyCustomFont"; /* 自定义字体的名称 */
+  src: url("https://cdn.jsdelivr.net/gh/whitehair-failure/own-picture-bed/font/%E8%90%9D%E8%8E%89%E4%BD%93.woff2")
+      format("woff2"),
+    url("https://jsd.cdn.zzko.cn/gh/whitehair-failure/own-picture-bed/font/%E8%90%9D%E8%8E%89%E4%BD%93.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/whitehair-failure/own-picture-bed/font/%E8%90%9D%E8%8E%89%E4%BD%93.woff")
+      format("woff"),
+    url("https://jsd.cdn.zzko.cn/gh/whitehair-failure/own-picture-bed/font/%E8%90%9D%E8%8E%89%E4%BD%93.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/whitehair-failure/own-picture-bed/font/%E8%90%9D%E8%8E%89%E4%BD%93.ttf")
+      format("truetype"),
+    /* 字体文件的URL路径 */
+      url("https://jsd.cdn.zzko.cn/gh/whitehair-failure/own-picture-bed/font/%E8%90%9D%E8%8E%89%E4%BD%93.ttf")
+      format("truetype"); /* 字体文件的URL路径 */
+  /* url('https://example.com/fonts/MyCustomFont.woff') format('woff');   字体文件的备选路径 */
+  font-weight: normal; /* 字体粗细 */
+  font-style: normal; /* 字体样式（正常、斜体等） */
+  font-display: swap; /* 提高加载体验 */
 }
 
 body {
   /* font-family: 'MyCustomFont', sans-serif !important;  使用本地托管的字体 */
-  font-family: 'MyCustomFont', sans-serif !important;
+  /* font-family: 'MyCustomFont', sans-serif !important; */
 }
 
 #recent-posts .recent-post-items .recent-post-item {
-  opacity: .9 !important;
+  opacity: 0.9 !important;
 }
 
 #aside-content .card-widget.card-info.text-center {
   /* background: linear-gradient(to right bottom, rgba(51, 204, 187, .9), rgba(153, 238, 221, .9), rgba(51, 221, 153, .9)) !important; */
-  background: linear-gradient(to right, rgba(238, 162, 162, .9) 0%, rgba(187, 193, 191, .9) 19%, rgba(87, 198, 225, .9) 42%, rgba(180, 159, 218, .9) 79%, #7ac5d8 100%) !important;
+  background: linear-gradient(
+    to right,
+    rgba(238, 162, 162, 0.9) 0%,
+    rgba(187, 193, 191, 0.9) 19%,
+    rgba(87, 198, 225, 0.9) 42%,
+    rgba(180, 159, 218, 0.9) 79%,
+    #7ac5d8 100%
+  ) !important;
   /* background-image: linear-gradient(to top, rgba(55, 236, 186, .9) 0%, rgb(114, 175, 211, .9) 100%); */
+}
+
+#aside-pixiv {
+  margin-bottom: 20px !important;
+}
+#aside-pixiv .item-content {
+  width: 100%;
+}
+#aside-pixiv .item-content iframe {
+  width: 100%;
+  /* max-width: 240px; */
+  height: 380px;
+  border: 0;
+}
+
+/* 使用 px 判断常规屏幕宽度 */
+@media (max-width: 900px) {
+  #aside-pixiv {
+    /* display: none; */
+  }
+}
+
+@media (max-width: 480px) and (min-height: 721px) {
+  #web_bg {
+    background-position-x: -185vw;
+  }
 }
