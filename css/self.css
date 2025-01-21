@@ -21,7 +21,7 @@
 
 body {
   /* font-family: 'MyCustomFont', sans-serif !important;  使用本地托管的字体 */
-  /* font-family: 'MyCustomFont', sans-serif !important; */
+  font-family: 'MyCustomFont', sans-serif !important;
 }
 
 #recent-posts .recent-post-items .recent-post-item {
