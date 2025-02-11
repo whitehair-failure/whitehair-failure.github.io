@@ -2064,362 +2064,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo Butterfly主题 自定义右键菜单</title>
-    <url>/2025/02/11/Hexo-Butterfly%E4%B8%BB%E9%A2%98-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>该文章基于 <a href="https://meuicat.com/posts/25b0b30e.html#%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88">Butterfly的魔改教程：右键菜单 | 爱吃肉的猫</a> 操作而来。</p>
-<p>在新建的<code>rightmenu.js</code> 中调用函数启用监听事件。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addRightMenuClickEvent</span>();</span><br></pre></td></tr></table></figure>
-
-<p>使用Butterfly主题并开启Pjax时，在页面切换后右键菜单的监听事件函数会失效。这里并不建议关闭Pjax。</p>
-<p>根据Butterfly官方文档描述</p>
-<ul>
-<li><p>Pjax优点</p>
-<p>當用户點擊鏈接，通過 ajax 更新頁面需要變化的部分，然後使用 HTML5 的 pushState 修改瀏覽器的 URL 地址。<br>這樣可以不用重複加載相同的資源（css&#x2F;js）， 從而提升網頁的加載速度。</p>
-</li>
-<li><p>Pjax缺点</p>
-<p>使用 pjax 後，一些自己 DIY 的 js 可能會無效，跳轉頁面時需要重新調用，請參考 <a href="https://github.com/MoOx/pjax">Pjax 文檔</a><br>使用 pjax 後，一些個別頁面加載的 js&#x2F;css，將會改為所有頁面都加載。</p>
-</li>
-</ul>
-<p>这里根据 <a href="https://github.com/MoOx/pjax">Pjax 文檔</a> 来对页面添加监听事件来重新调用函数即可。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 监听 pjax 页面跳转成功事件</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;pjax:success&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Pjax: New content loaded successfully&#x27;</span>);</span><br><span class="line">  <span class="comment">// 页面加载完成后执行操作，例如重新初始化插件</span></span><br><span class="line">  <span class="title function_">addRightMenuClickEvent</span>();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>HTML</title>
-    <url>/2023/07/06/HTML/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>HTML(hypertext markup langage)超文本标记语言 主要用于描述网页的结构和内容</p>
-<p>学习HTML主要学习HTML标签以及标签对应的属性, 标签就是一些特殊的符号</p>
-<p>  比如 </p>
-<p>  img图片标签(属性src,width,height,alt,tilte),在网页中显示图片</p>
-<p>  a超链接标签(属性href, target ), 实现网页的跳转</p>
-<p>  html文件名后缀名是.html , 使用浏览器可以直接解析html文件,因为浏览器里面有一个渲染引擎</p>
-<h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 文档类型 doc=&gt;document文档 type类型的意思   就是告诉别人,我这个文档是html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- head头部标签,这标签里面放的是,修饰网页的东西 比如引入样式表,引入js脚本文件,设置字符集,设置页面标题 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- title标签设置的是网页的标题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>我是网页标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- body身体主体标签,这标签里面就是网页的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        hello world!!!你好,html</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    HTML标签分类会分成两大类</span></span><br><span class="line"><span class="comment">    第一大类 单标签(只有结束标签) </span></span><br><span class="line"><span class="comment">    语法:</span></span><br><span class="line"><span class="comment">    &lt;标签名 /&gt; 或者 &lt;标签名/&gt; 或者 &lt;标签名&gt;</span></span><br><span class="line"><span class="comment">    比如:</span></span><br><span class="line"><span class="comment">    &lt;br /&gt;</span></span><br><span class="line"><span class="comment">    &lt;hr /&gt;</span></span><br><span class="line"><span class="comment">    &lt;input /&gt;</span></span><br><span class="line"><span class="comment">    &lt;img /&gt;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    第二大类 双标签(有开始标签,也有结束标签)</span></span><br><span class="line"><span class="comment">    语法:</span></span><br><span class="line"><span class="comment">    &lt;标签名&gt;标签内容&lt;/标签名&gt;</span></span><br><span class="line"><span class="comment">    比如: </span></span><br><span class="line"><span class="comment">    &lt;div&gt;div的内容&lt;/div&gt;</span></span><br><span class="line"><span class="comment">    &lt;span&gt;span的内容&lt;/span&gt;</span></span><br><span class="line"><span class="comment">    &lt;p&gt;p段落的内容&lt;/p&gt;</span></span><br><span class="line"><span class="comment">    &lt;a&gt;链接内容&lt;/a&gt; </span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 另外,在HTML标签不区分大小写,但是建议&quot;小写&quot; --&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="文本修饰标签"><a href="#文本修饰标签" class="headerlink" title="文本修饰标签"></a>文本修饰标签</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 加粗 b(bold) 与 strong(强壮)--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 倾斜,斜体 i(italic) 与 em --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">em</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 下划线 u(underline) 与 ins --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">u</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ins</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 删除线 s 与 del --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">s</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">del</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">del</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 可以嵌套使用 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">u</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 其中strong,ins,em,del是HTML5新增的语义化标签!更利于SEO优化,结构更清晰!  推荐使用使用语义化标签! --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 上标 sup --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 下标 sub --&gt;</span></span><br><span class="line">    a2 + b2</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    a<span class="tag">&lt;<span class="name">sup</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sup</span>&gt;</span> + b<span class="tag">&lt;<span class="name">sub</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sub</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="img标签"><a href="#img标签" class="headerlink" title="img标签"></a>img标签</h2><p><strong>img标签常用属性</strong></p>
-<ul>
-<li>src是source单词的简写, 设置图片文件所在路径</li>
-<li>border设置图片的边框 默认图片边框大小为0 0代表没有边框 属性取值可以写数值</li>
-<li>width设置图片的宽度, 默认不设置width,将使用图片默认的宽度  该属性取值可以写数值或者百分比,百分比会相对父元素</li>
-<li>height设置图片的高度, 默认不设置height,将使用图片默认的高度  该属性取值可以写数值或者百分比,百分比会相对父元素<br>  注意: 如果只设置width或者height其中一个, 另一个会跟随图片原始宽度高度比例,进行等比例缩小放大</li>
-<li>title设置鼠标悬停在图片元素上显示的文本内容信息</li>
-<li>alt设置图片无法正常显示时,显示在图片元素上的替换信息</li>
-<li>align设置图片元素”周围文字”的对齐方式 取值 left center right</li>
-</ul>
-<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><p>路径就是文件的存放位置经过的路线<br>为什么需要路径? 因为我们引入图片,引入外链式样式css文件,引入外链式脚本js文件以及超链接跳转到本地某个文件的时候,都需要通过路径找到对应的文件</p>
-<p><strong>路径主要又分为两种</strong></p>
-<ul>
-<li>第一种: 绝对路径, 以盘符开始的路径 , 比如 g:&#x2F;abc&#x2F;1.txt, 绝对路径移植性差,需要保证同样的盘符下有同样的文件</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- \反斜杠  /正斜杠 在window系统下, 正斜杠和反斜杠都可以识别, 但是在linux下只能使用正斜杠 而且linux系统下没有盘符的概念--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>绝对路径演示<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;E:\GZ2279\①HTMLCSS\02-HTML\4-代码\images\01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;E:/GZ2279/①HTMLCSS/02-HTML/4-代码/images/01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 有些浏览器,对绝对路径支持不是很友好, 需要添加file:/// 前缀 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;file:///E:\GZ2279\①HTMLCSS\02-HTML\4-代码\images\01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;file:///E:/GZ2279/①HTMLCSS/02-HTML/4-代码/images/01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>互联网的路径(直接使用网上的路径, 这种路径一般是https://或者http://开头的 前提是电脑需要连接互联网)<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>❤第二种: 相对路径, 相对路径就是会根据一个参考物,进行参考,这个参考物一般是”当前文件”</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>相对路径又有三种常见关系<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>第一种: 同级关系 目标文件在当前路径下 ./就可以代表当前路径<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./P_007.jpg&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>❤第二种: 下一级关系 目标文件在当前路径的某个目录下 需要告诉文件夹名称<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/P_057.jpg&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/a/b/c/P_033.jpg&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>第三种: 上一级关系 目标文件在当前路径的上一级路径下 ../代表上一级<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../P_089.jpg&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../../P_069.jpg&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="超链接a标签"><a href="#超链接a标签" class="headerlink" title="超链接a标签"></a>超链接a标签</h2><p><strong><font color='orange'>超链接是用于实现网页之间跳转的标签</font></strong><br><font color='orange'><strong>语法</strong>：</font><code>&lt;a href=&quot;跳转目标地址&quot; target=&quot;目标地址打开方式&quot;&gt;超链接的标签内容&lt;/a&gt;</code></p>
-<ul>
-<li>❤外部链接 跳转到互联网的某个地址 一般是https:&#x2F;&#x2F;或者http:&#x2F;&#x2F;开头的</li>
-<li>❤内部链接 跳转到本地文件 如果浏览器可以打开的文件,浏览器会帮我们打开 浏览器无法打开的文件,浏览器会提示我们下载</li>
-<li>❤空链接 要记 就是点击以后,不会跳转的链接 空链接主要用于书写css样式或者触发js事件的时候使用</li>
-<li>❤图片链接 要记 就是点击图片以后,会跳转到某个链接 使用a标签包括img图片标签</li>
-<li>链接到本页的某个部分(锚点)</li>
-</ul>
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C08-%E8%B6%85%E9%93%BE%E6%8E%A5(a%E9%93%BE%E6%8E%A5,a%E6%A0%87%E7%AD%BE).html">08-超链接(a链接,a标签).html</a> </p>
-<h3 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h3><ol>
-<li>onclick方法负责执行js函数，而void是一个操作符，void(0)返回undefined，地址不发生跳转。</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span>  <span class="attr">οnclick</span>= <span class="string">&quot;myjs( )&quot;</span>&gt;</span>  Click Me  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>和void(0)一样，都返回”undefined”</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:;&quot;</span> &gt;</span>  Click Me  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>是网上很常见的代码，#是标签内置的一个方法，用这种方法点击后网页后返回到页面的最顶端所以又有了“##”“#!”等,尽管解决了返回顶部的问题但仍存在其他缺陷</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>  Click Me  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>事件处理函数的工作机制中，在给某元素添加事件处理函数后，一旦事件发生，相应JavaScript代码就会执行，所调用的JavaScript代码的返回值被传递给事件处理函数。当我们给a标签添加onclick事件处理函数并点击a触发其后，<br>如果相应JavaScript代码返回true，onclick事件处理函数就会认为这个链接呗点击了，同样的若返回false即会认为链接未被点击</p>
-<p>当点击a标签时，JavaScript代码返回值为false，故此链接默认行为未被触发。</p>
-</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span> <span class="attr">οnclick</span>=<span class="string">&quot; myjs(); return false; &quot;</span>&gt;</span>   Click Me   <span class="tag">&lt;/<span class="name">a</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span> <span class="attr">οnclick</span>=<span class="string">&quot; return false; &quot;</span>&gt;</span>  Click Me  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>preventDefault()阻止事件的默认行为但不支持IE，所以在IE中使用returnValue阻止事件默认行为</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="variable language_">document</span>.<span class="title function_">getElementByTagName</span>(<span class="string">&#x27;a&#x27;</span>); </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">stopDefault</span>(<span class="params"> e </span>)</span><br><span class="line">&#123; </span><br><span class="line">   <span class="keyword">if</span> ( e &amp;&amp; e.<span class="property">preventDefault</span> ) </span><br><span class="line">      e.<span class="title function_">preventDefault</span>(); </span><br><span class="line">     <span class="keyword">else</span> </span><br><span class="line">        <span class="variable language_">window</span>.<span class="property">event</span>.<span class="property">returnValue</span> = <span class="literal">false</span>;  </span><br><span class="line">&#125; </span><br><span class="line">test.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">e</span>) </span><br><span class="line">&#123; </span><br><span class="line">     <span class="title function_">stopDefault</span>(e); </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li><strong>download属性(HTML 5 新增)：</strong> 接受一个 filename (文件名) 作为属性值或不设置任何属性，此属性指示浏览器下载 URL 而不是导航到它，因此将提示用户将其保存为本地文件。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>不添加download属性 直接在浏览器中打开图片<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;./images/btn.png&quot;</span>&gt;</span>图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>添加download属性,download需要使用http://协议或者https://协议才可以生效<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 我们可以在vscode中安装一个live server插件,使用这个插件打开的网页,就是一个本地服务器的网页 ,http协议开头的,  live server实时刷新的功能  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;./images/btn.png&quot;</span> <span class="attr">download</span>&gt;</span>下载图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>download设置属性值, 这个属性值将作为下载的文件名<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;./images/btn.png&quot;</span> <span class="attr">download</span>=<span class="string">&quot;美女&quot;</span>&gt;</span>下载图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>download设置属性值, 这个属性值将作为下载的文件名, 如果指定的download属性值中有\ /的话,会被转成下划线<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;./images/btn.png&quot;</span> <span class="attr">download</span>=<span class="string">&quot;性感\美女/01&quot;</span>&gt;</span>下载图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C01-%E8%B6%85%E9%93%BE%E6%8E%A5%E8%A1%A5%E5%85%85%E5%B1%9E%E6%80%A7download.html">01-超链接补充属性download.html</a> </p>
-<ul>
-<li><strong><font color='red'>基准参考点base标签 单标签 可以设置所有超链接的href属性以及target属性,base标签只能出现一次!!!</font></strong></li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">&quot;https://ent.163.com&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C02-%E5%9F%BA%E5%87%86%E5%8F%82%E8%80%83%E7%82%B9base%E6%A0%87%E7%AD%BE.html">02-基准参考点base标签.html</a> </p>
-<h2 id="表格基本使用以及表格属性"><a href="#表格基本使用以及表格属性" class="headerlink" title="表格基本使用以及表格属性"></a>表格基本使用以及表格属性</h2><ul>
-<li>table表示表格</li>
-<li>tr表示表格的行</li>
-<li>td或者th表格的列(单元格) th包括的内容会进行加粗并水平居中显示</li>
-<li>caption设置表格的标题</li>
-</ul>
-<h3 id="table标签的属性"><a href="#table标签的属性" class="headerlink" title="table标签的属性:"></a>table标签的属性:</h3><ul>
-<li><p>❤border设置表格的边框:</p>
-<p>表格边框合并:border&#x3D;”1”</p>
-</li>
-<li><p>bordercolor设置表格颜色</p>
-</li>
-<li><p>❤width设置表格的宽度 数值或者百分比</p>
-</li>
-<li><p>height设置表格的高度 数值或者百分比</p>
-</li>
-<li><p>❤align设置整个表格的水平对齐方式 left center right</p>
-</li>
-<li><p>bgcolor设置背景颜色</p>
-</li>
-<li><p>background设置背景图片, 背景图片会覆盖背景颜色</p>
-</li>
-<li><p>❤cellpadding设置单元格内容到边框的距离</p>
-</li>
-<li><p>❤cellspacing设置单元格与单元格之间的距离</p>
-</li>
-<li><p>❤rules&#x3D;”all”合并边框线</p>
-</li>
-</ul>
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C09-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%A1%A8%E6%A0%BC%E5%B1%9E%E6%80%A7.html">09-表格基本使用以及表格属性.html</a> </p>
-<h3 id="tr的属性"><a href="#tr的属性" class="headerlink" title="tr的属性:"></a>tr的属性:</h3><ul>
-<li>​    tr的align,bgcolor,background属性同table属性</li>
-<li>​    align属性是设置tr中所有单元格内容水平对齐方式,取值:left(左 默认),center(居中),right(右)</li>
-<li>​    还有一个valign属性是设置单元格内容垂直对齐方式,取值:top(上),middle(默认,垂直居中),bottom(下)</li>
-</ul>
-<p><strong>小结:</strong></p>
-<ol>
-<li><p>tr的align是设置单元格内容的水平对齐方式</p>
-</li>
-<li><p>如果tr跟table都设置的bgcolor跟background属性,以tr设置的为准,”靠近原则”</p>
-</li>
-</ol>
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C10-tr%E7%9A%84%E5%B1%9E%E6%80%A7.html">10-tr的属性.html</a> </p>
-<h3 id="th-td单元格的属性"><a href="#th-td单元格的属性" class="headerlink" title="th,td单元格的属性"></a>th,td单元格的属性</h3><ul>
-<li>​    th跟td都是单元格标签,但是th包裹的内容会加粗并且水平居中显示</li>
-<li>​    width,height,align,valign,bgcolor,background属性跟tr设置的时候,效果是一样的</li>
-</ul>
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C11-th,td%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E5%B1%9E%E6%80%A7.html">11-th,td单元格的属性.html</a> </p>
-<h3 id="合并单元格"><a href="#合并单元格" class="headerlink" title="合并单元格"></a>合并单元格</h3><p><strong>两个th,td单元格比较重要的属性:</strong></p>
-<ul>
-<li>rowspan row行的意思,跨行合并单元格,垂直(上下)方向合并几个单元格 取值数值</li>
-<li>colspan column列的意思,跨列合并单元格,水平(左右)方向合并几个单元格 取值数值</li>
-</ul>
-<p><strong>合并单元格的步骤</strong></p>
-<p>1.先找到你要合并的单元格,随便改成相同的内容</p>
-<p>2.确定左右合并单元格,还是上下合并单元格,再决定使用对应colspan或者rowspan,要几个单元格合成1个单元格</p>
-<p>3.删除多余的单元格</p>
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C12-%E5%90%88%E5%B9%B6%E5%8D%95%E5%85%83%E6%A0%BC.html">12-合并单元格.html</a> </p>
-<h3 id="thead-tbody-tfoot表格结构化标签"><a href="#thead-tbody-tfoot表格结构化标签" class="headerlink" title="thead,tbody,tfoot表格结构化标签"></a>thead,tbody,tfoot表格结构化标签</h3><ul>
-<li>没有被thead,tbody,tfoot这三个结构化标签包裹的内容,默认会把内容都放在一个tbody中</li>
-<li>thead表示表格的头部</li>
-<li>tbody表示表格的身体</li>
-<li>tfoot表示表格的底部</li>
-</ul>
-<p><strong>thead,tbody,tfoot都有align跟valign属性; 设置align跟valign属性的时候优先级:靠近原则</strong></p>
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C13-thead,tbody,tfoot%E8%A1%A8%E6%A0%BC%E7%BB%93%E6%9E%84%E5%8C%96%E6%A0%87%E7%AD%BE.html">13-thead,tbody,tfoot表格结构化标签.html</a> </p>
-<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><h3 id="表单介绍"><a href="#表单介绍" class="headerlink" title="表单介绍"></a>表单介绍</h3><ul>
-<li>表单是什么,就是一些可以让你填写或者选择的东西 </li>
-<li>表单作用是什么,收集用户所填写或者选择信息</li>
-<li>表单组成有哪些, 有三部分 :</li>
-</ul>
-<ol>
-<li>表单域(容器,存放表单的地方)</li>
-<li>提示信息(告诉用户需要填写的信息是什么)</li>
-<li>表单控件(收集用户信息的东西, 比如文本框,  单选按钮等 )</li>
-</ol>
-<h3 id="form标签表示表单域"><a href="#form标签表示表单域" class="headerlink" title="form标签表示表单域"></a>form标签表示表单域</h3><ul>
-<li><p>form标签的action属性,表示数据提交到哪里去, 取值是一个url</p>
-</li>
-<li><p>form标签的method属性,表示数据提交的方式 get(默认)或者post</p>
-</li>
-<li><p>get提交的数据会拼接到url(url是统一资源定位符,简单理解就是网址)地址栏中, 拼接形式是 url?键名1&#x3D;键值1&amp;键名2&#x3D;键值2…</p>
-</li>
-<li><p>post提交的数据不会出现在url中</p>
-</li>
-<li><p>注意: 表单控件需要设置name属性, 这样提交数据的时候,才是有效提交 并且后端才可以通过name属性区分是哪个控件提交过去的数据</p>
-</li>
-<li><p>注意: 某些控件需要设置value属性,value属性才是真正提交到后端的数据</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &lt;form action=&quot;https://www.baidu.com&quot; method=&quot;get&quot;&gt; --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;form action=&quot;abc.html&quot; method=&quot;post&quot;&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;abc.html&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 表单控件分类有input标签,button标签,textarea标签以及select标签 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 网页中表单控件有很多种类, 但是HTML作者又不想每个种类都设计一个标签,所以设计了一个input标签,使用&quot;type属性&quot;去区分他们 --&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- input是单标签 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>文本框:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码框:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;userpass&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            单选按钮(只能选择一个):</span><br><span class="line">            <span class="comment">&lt;!-- 设置checked属性,就可以表示选中 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 想要实现单选功能, 需要把多个radio设置相同的name属性 设置相同name属性值以后,就会认为他们是一组单选按钮,那么只能选中其中一个了--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">checked</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;man&quot;</span> /&gt;</span>男</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;woman&quot;</span> /&gt;</span>女</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            复选框(可以多选):</span><br><span class="line">            <span class="comment">&lt;!-- 设置checked属性,就可以表示选中 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">checked</span> <span class="attr">value</span>=<span class="string">&quot;eat&quot;</span> /&gt;</span>吃饭</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">checked</span> <span class="attr">value</span>=<span class="string">&quot;sleep&quot;</span> /&gt;</span>睡觉</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;dadoudou&quot;</span> /&gt;</span>打豆豆</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            上传文本框:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myfile&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            隐藏域(专门用于提交一些不想被用户看到的信息):</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rsv_iqid&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0xb7cfebb10007ffd7&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 通过value属性可以设置按钮等内容 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 普通按钮,不能提交数据,也不会重置数据 --&gt;</span></span><br><span class="line">            普通按钮:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;我是普通按钮&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            提交按钮:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交数据&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            重置按钮:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重新填写&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            图片按钮:</span><br><span class="line">            <span class="comment">&lt;!-- 通过src属性设置图片按钮的路径 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 图片按钮也有提交数据的功能 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/btn.png&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C04-%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6-input%E6%A0%87%E7%AD%BE.html">04-表单控件-input标签.html</a> </p>
-<h3 id="button按钮"><a href="#button按钮" class="headerlink" title="button按钮"></a>button按钮</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;https://www.baidu.com&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           用户名: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">button</span>&gt;</span>不设置type属性的按钮, 默认是提交按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>提交按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span>&gt;</span>重置按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span>&gt;</span>普通按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="项目标题标签label"><a href="#项目标题标签label" class="headerlink" title="项目标题标签label"></a>项目标题标签label</h3><p>​    <strong><label></strong> 元素（描述标签）表示用户界面中某个元素的说明。</p>
-<p>​    lablel标签主要目的是为了提高用户体验。 为用户提高最优质的服务。</p>
-<ul>
-<li>​    概念：label 标签为 input 元素定义标注（标签）。</li>
-<li>​    作用：用于绑定一个表单控件, 当点击label标签的时候, 被绑定的表单控件就会获得输入焦点。</li>
-</ul>
-<p>​    如何绑定元素呢？</p>
-<p>​    第一种用法:使用label标签包裹要设置的内容和表单元素</p>
-<p>​    第二种用法:使用label中的for属性  for&#x3D;”id名” 表单元素需要设置一个id属性</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 第一种用法:使用label标签包裹要设置的内容和表单元素 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">label</span>&gt;</span>用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 第二种用法:使用label中的for属性 for=&quot;id名&quot; 表单元素需要设置一个id属性 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;myPass&quot;</span>&gt;</span>密码:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myPass&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C06-%E9%A1%B9%E7%9B%AE%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BElabel.html">06-项目标题标签label.html</a> </p>
-<h3 id="placeholder属性"><a href="#placeholder属性" class="headerlink" title="placeholder属性"></a>placeholder属性</h3><ul>
-<li>placeholder属性,占位符,当某些表单控件value值为空的时候,placeholder属性设置的值才会显示出来</li>
-<li>placeholder属性,当input元素type为password, search, tel, text, url时，当表单控件为空时，控件中显示的内容</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 通过value属性也可以设置表单控件默认显示的内容 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;zhangsan&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C07-placeholder%E5%B1%9E%E6%80%A7.html">07-placeholder属性.html</a> </p>
-<h3 id="多行文本框-文本域"><a href="#多行文本框-文本域" class="headerlink" title="多行文本框(文本域):"></a>多行文本框(文本域):</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 通过rows设置高度 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 通过cols设置宽度 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;5&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;30&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请进行一个简短的自我介绍~&quot;</span>&gt;</span>我是张三<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>防止拖拽文本域resize</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">textarea</span> &#123;</span><br><span class="line">    <span class="attribute">resize</span>: none;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="select下拉框"><a href="#select下拉框" class="headerlink" title="select下拉框"></a>select下拉框</h3><ul>
-<li>通过option设置选项, 默认下拉框会选中第一项, 默认下拉框的宽度由最宽的选项内容决定</li>
-<li>给option选项设置selected属性,可以指定选中选中项</li>
-<li>如果option没有设置value属性,那么value属性值将使用option的标签内容 提交数据的时候,会提交选中项的value属性值</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;province&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;guangdong&quot;</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;hunan&quot;</span> <span class="attr">selected</span>&gt;</span>湖南省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;hubei&quot;</span>&gt;</span>湖北省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;sichuan&quot;</span>&gt;</span>四川省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;guangxi&quot;</span>&gt;</span>广西壮族自治区<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>select标签可以设置size属性,表示显示多少个选项</li>
-<li>select标签可以设置multiple属性, 表示允许多选 可以按ctrl或者shift键</li>
-<li>使用optgroup标签,可以对选项进行分组</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">size</span>=<span class="string">&quot;5&quot;</span> <span class="attr">multiple</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用optgroup标签,可以对选项进行分组 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optgroup</span> <span class="attr">label</span>=<span class="string">&quot;省份&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;guangdong&quot;</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;hunan&quot;</span> <span class="attr">selected</span>&gt;</span>湖南省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;hubei&quot;</span>&gt;</span>湖北省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;sichuan&quot;</span>&gt;</span>四川省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;jiangxi&quot;</span>&gt;</span>江西省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">optgroup</span> <span class="attr">label</span>=<span class="string">&quot;自治区&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;guangxi&quot;</span>&gt;</span>广西壮族自治区<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;ningxia&quot;</span>&gt;</span>宁夏回族自治区<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">optgroup</span> <span class="attr">label</span>=<span class="string">&quot;直辖市&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;chongqing&quot;</span>&gt;</span>重庆市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;shanghai&quot;</span>&gt;</span>上海市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;beijing&quot;</span>&gt;</span>北京市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;tianjin&quot;</span>&gt;</span>天津市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>multiple除了可以让下拉框可以选择多个选项,还可以让file上传框允许选择多个文件</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">multiple</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C10-%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6-select%EF%BC%88%E4%B8%8B%E6%8B%89%E6%A1%86%EF%BC%89.html">10-表单控件-select（下拉框）.html</a> </p>
-<h3 id="表单控件常用属性"><a href="#表单控件常用属性" class="headerlink" title="表单控件常用属性"></a>表单控件常用属性</h3><ul>
-<li>通过src属性可以设置图片按钮的图片, 通过width属性设置宽度, 通过height属性设置高度</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/btn_reg.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>disabled禁用控件,不能修改值也不能输入值 数据不会提交</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username2&quot;</span> <span class="attr">disabled</span> <span class="attr">value</span>=<span class="string">&quot;zhangsan2&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>readonly只读 内容不允许修改, 但是数据还可以提交</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username3&quot;</span> <span class="attr">readonly</span> <span class="attr">value</span>=<span class="string">&quot;zhangsan3&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>autofocus自动获取焦点,仅第一个使用的表单控件可以生效</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">autofocus</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>autocomplete：所有input元素，用于表单的自动填充功能       取值 off关闭自动填充 或者 on(默认,开启自动填充)</li>
-</ul>
-<p><font color='red'>注意：</font>想要使用autocomplete属性触发表单自动填充功能, 前提是这个表单控件需要有一个name属性, 并且成功提交过数据,才会把之前成功提交的数据记录下来 </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myAge&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入年龄&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;off&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myAge&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入年龄&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;on&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>required：绝大部分input元素,表示此值为必填项</li>
-<li>maxlength：当input元素type为password, search, tel, text, url时，value 的最大长度（最多字符数目）</li>
-<li>size：当input元素email, password, tel, text时,控件的大小 , 取值数值, 默认20</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">required</span> <span class="attr">maxlength</span>=<span class="string">&quot;6&quot;</span> <span class="attr">size</span>=<span class="string">&quot;30&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C11-%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7.html">11-表单控件常用属性.html</a> </p>
-<h3 id="H5新增表单输入类型"><a href="#H5新增表单输入类型" class="headerlink" title="H5新增表单输入类型"></a>H5新增表单输入类型</h3><ul>
-<li>number：只能输入数字的输入框。<ul>
-<li>max属性设置最大值</li>
-<li>min属性设置最小值</li>
-<li>step设置步长值</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	数字的输入框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span> <span class="attr">max</span>=<span class="string">&quot;12&quot;</span> <span class="attr">step</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>email：编辑邮箱地址的输入框。类似 text 输入，但在支持的浏览器上会有邮箱格式的规则验证提示。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>邮箱: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>search (H5新增)：用于搜索字符串的单行文字区域。输入文本中的换行会被自动去除。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>搜索框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;search&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>tel (H5新增)：用于输入电话号码的控件。拥有动态键盘的设备上会显示电话数字键盘。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>电话号码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;tel&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>url (H5新增)：用于输入 URL 的控件。类似 text 输入，在支持的浏览器上会有URL的规则验证提示，在支持动态键盘的设备上有相应的键盘。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>网址:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;url&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="表单日期类型："><a href="#表单日期类型：" class="headerlink" title="表单日期类型："></a>表单日期类型：</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- week：用于输入以年和周数组成的日期，不带时区。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>星期:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;week&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- month (H5新增)：输入年和月的控件，不带时区。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>月份:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;month&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- time (H5新增)：于输入时间的控件，不包括时区。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>时间:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;time&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!-- date (H5新增)：输入日期的控件（年、月、日，不包括时间）。在支持的浏览器激活时会打开日期选择器或年月日的数字滚轮。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>日期:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;date&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!-- datetime-local(H5新增)：输入日期和时间的控件，使用户所在时区。 --&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 在支持的浏览器激活时打开日期选择器或年月日的数字滚轮。(目前支持的浏览器为数不多) --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>日期时间:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;datetime-local&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="表单颜色类型"><a href="#表单颜色类型" class="headerlink" title="表单颜色类型"></a>表单颜色类型</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	颜色:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;color&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="表单范围控制类型"><a href="#表单范围控制类型" class="headerlink" title="表单范围控制类型"></a>表单范围控制类型</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	范围:</span><br><span class="line">	<span class="comment">&lt;!-- max属性设置最大值 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- min属性设置最小值 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- step设置步长值 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">step</span>=<span class="string">&quot;1&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myScore&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C12-H5%E6%96%B0%E5%A2%9E%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B.html">12-H5新增表单输入类型.html</a> </p>
-<h2 id="常用布局标签div与span"><a href="#常用布局标签div与span" class="headerlink" title="常用布局标签div与span"></a>常用布局标签div与span</h2><h3 id="div的特点"><a href="#div的特点" class="headerlink" title="div的特点"></a>div的特点</h3><pre><code>   1. 独占一行,默认只要有标签内容,不管内容多或者少,都会占满一行
-   2. 不会标签内容的样式(不会加粗,不会倾斜等)
-   3. div上下无空白距离
-   4. 所以div作为容器使用, 方便设置CSS样式
-</code></pre>
-<h3 id="span的特点"><a href="#span的特点" class="headerlink" title="span的特点"></a>span的特点</h3><pre><code>   1. 不独占一行, 一行可以存放多个, 直到放不下才会换行
-   2. 不会标签内容的样式(不会加粗,不会倾斜等)
-   3. span上下左右无空白距离
-   4. span的宽度由内容决定
-   5. span也是作为容器使用,方便设置CSS样式
-</code></pre>
-<h2 id="HTML全局属性"><a href="#HTML全局属性" class="headerlink" title="HTML全局属性"></a>HTML全局属性</h2><ul>
-<li><p>全局属性是所有 HTML 元素共有的属性；它们可以用于所有元素，尽管它们可能对某些元素没有影响。</p>
-<p>参考文档: <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes</a></p>
-</li>
-<li><p>class：我们将class的属性值称之为“类名”，只要是拥有相同的class的属性值  不管是什么标签  我们都可以将其称之为一类！class属性一般多用于CSS中</p>
-</li>
-<li><p>设置多个类名的时候,多个类名之间使用空格隔开</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span> <span class="attr">class</span>=<span class="string">&quot;one two three&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;three&quot;</span>&gt;</span>span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>id：id属性是标签的唯一标识，一个页面中可以有很多id属性，但是每个标签的id属性的值必须是唯一的 ;  它就好多我们的身份证号码一样！id属性一般多用于JavaScript中</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div1&quot;</span>&gt;</span>id为div1的内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div2&quot;</span>&gt;</span>id为div2的内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程</category>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DOM,BOM</title>
     <url>/2023/07/06/DOM,BOM/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="DOM（Document-Object-Model——文档对象模型）"><a href="#DOM（Document-Object-Model——文档对象模型）" class="headerlink" title="DOM（Document Object Model——文档对象模型）"></a>DOM（Document Object Model——文档对象模型）</h1><h2 id="DOM-介绍"><a href="#DOM-介绍" class="headerlink" title="DOM 介绍"></a>DOM 介绍</h2><ul>
@@ -3461,18 +3105,26 @@
       </tags>
   </entry>
   <entry>
-    <title>Next.js</title>
-    <url>/1970/01/01/Next-js/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>哥们还没学过，因为logo可爱所以就放上来了😄</p>
+    <title>Hexo Butterfly主题 自定义右键菜单</title>
+    <url>/2025/02/11/Hexo-Butterfly%E4%B8%BB%E9%A2%98-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>该文章基于 <a href="https://meuicat.com/posts/25b0b30e.html#%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88">Butterfly的魔改教程：右键菜单 | 爱吃肉的猫</a> 操作而来。</p>
+<p>在新建的<code>rightmenu.js</code> 中调用函数启用监听事件。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">addRightMenuClickEvent</span>();</span><br></pre></td></tr></table></figure>
+
+<p>使用Butterfly主题并开启Pjax时，在页面切换后右键菜单的监听事件函数会失效。这里并不建议关闭Pjax。</p>
+<p>根据Butterfly官方文档描述</p>
+<ul>
+<li><p>Pjax优点</p>
+<p>當用户點擊鏈接，通過 ajax 更新頁面需要變化的部分，然後使用 HTML5 的 pushState 修改瀏覽器的 URL 地址。<br>這樣可以不用重複加載相同的資源（css&#x2F;js）， 從而提升網頁的加載速度。</p>
+</li>
+<li><p>Pjax缺点</p>
+<p>使用 pjax 後，一些自己 DIY 的 js 可能會無效，跳轉頁面時需要重新調用，請參考 <a href="https://github.com/MoOx/pjax">Pjax 文檔</a><br>使用 pjax 後，一些個別頁面加載的 js&#x2F;css，將會改為所有頁面都加載。</p>
+</li>
+</ul>
+<p>这里根据 <a href="https://github.com/MoOx/pjax">Pjax 文檔</a> 来对页面添加监听事件来重新调用函数即可。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 监听 pjax 页面跳转成功事件</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;pjax:success&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Pjax: New content loaded successfully&#x27;</span>);</span><br><span class="line">  <span class="comment">// 页面加载完成后执行操作，例如重新初始化插件</span></span><br><span class="line">  <span class="title function_">addRightMenuClickEvent</span>();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 ]]></content>
-      <categories>
-        <category>编程</category>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>CSS3</title>
@@ -5124,9 +4776,329 @@
       </tags>
   </entry>
   <entry>
-    <title>Node.js</title>
-    <url>/1970/01/01/Node-js/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>哥们还没学过，因为logo可爱所以就放上来了😄</p>
+    <title>HTML</title>
+    <url>/2023/07/06/HTML/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>HTML(hypertext markup langage)超文本标记语言 主要用于描述网页的结构和内容</p>
+<p>学习HTML主要学习HTML标签以及标签对应的属性, 标签就是一些特殊的符号</p>
+<p>  比如 </p>
+<p>  img图片标签(属性src,width,height,alt,tilte),在网页中显示图片</p>
+<p>  a超链接标签(属性href, target ), 实现网页的跳转</p>
+<p>  html文件名后缀名是.html , 使用浏览器可以直接解析html文件,因为浏览器里面有一个渲染引擎</p>
+<h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 文档类型 doc=&gt;document文档 type类型的意思   就是告诉别人,我这个文档是html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- head头部标签,这标签里面放的是,修饰网页的东西 比如引入样式表,引入js脚本文件,设置字符集,设置页面标题 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- title标签设置的是网页的标题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>我是网页标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- body身体主体标签,这标签里面就是网页的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        hello world!!!你好,html</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    HTML标签分类会分成两大类</span></span><br><span class="line"><span class="comment">    第一大类 单标签(只有结束标签) </span></span><br><span class="line"><span class="comment">    语法:</span></span><br><span class="line"><span class="comment">    &lt;标签名 /&gt; 或者 &lt;标签名/&gt; 或者 &lt;标签名&gt;</span></span><br><span class="line"><span class="comment">    比如:</span></span><br><span class="line"><span class="comment">    &lt;br /&gt;</span></span><br><span class="line"><span class="comment">    &lt;hr /&gt;</span></span><br><span class="line"><span class="comment">    &lt;input /&gt;</span></span><br><span class="line"><span class="comment">    &lt;img /&gt;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    第二大类 双标签(有开始标签,也有结束标签)</span></span><br><span class="line"><span class="comment">    语法:</span></span><br><span class="line"><span class="comment">    &lt;标签名&gt;标签内容&lt;/标签名&gt;</span></span><br><span class="line"><span class="comment">    比如: </span></span><br><span class="line"><span class="comment">    &lt;div&gt;div的内容&lt;/div&gt;</span></span><br><span class="line"><span class="comment">    &lt;span&gt;span的内容&lt;/span&gt;</span></span><br><span class="line"><span class="comment">    &lt;p&gt;p段落的内容&lt;/p&gt;</span></span><br><span class="line"><span class="comment">    &lt;a&gt;链接内容&lt;/a&gt; </span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 另外,在HTML标签不区分大小写,但是建议&quot;小写&quot; --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文本修饰标签"><a href="#文本修饰标签" class="headerlink" title="文本修饰标签"></a>文本修饰标签</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 加粗 b(bold) 与 strong(强壮)--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 倾斜,斜体 i(italic) 与 em --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">em</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 下划线 u(underline) 与 ins --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">u</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ins</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 删除线 s 与 del --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">s</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">del</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">del</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 可以嵌套使用 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">u</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 其中strong,ins,em,del是HTML5新增的语义化标签!更利于SEO优化,结构更清晰!  推荐使用使用语义化标签! --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 上标 sup --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 下标 sub --&gt;</span></span><br><span class="line">    a2 + b2</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    a<span class="tag">&lt;<span class="name">sup</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sup</span>&gt;</span> + b<span class="tag">&lt;<span class="name">sub</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sub</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="img标签"><a href="#img标签" class="headerlink" title="img标签"></a>img标签</h2><p><strong>img标签常用属性</strong></p>
+<ul>
+<li>src是source单词的简写, 设置图片文件所在路径</li>
+<li>border设置图片的边框 默认图片边框大小为0 0代表没有边框 属性取值可以写数值</li>
+<li>width设置图片的宽度, 默认不设置width,将使用图片默认的宽度  该属性取值可以写数值或者百分比,百分比会相对父元素</li>
+<li>height设置图片的高度, 默认不设置height,将使用图片默认的高度  该属性取值可以写数值或者百分比,百分比会相对父元素<br>  注意: 如果只设置width或者height其中一个, 另一个会跟随图片原始宽度高度比例,进行等比例缩小放大</li>
+<li>title设置鼠标悬停在图片元素上显示的文本内容信息</li>
+<li>alt设置图片无法正常显示时,显示在图片元素上的替换信息</li>
+<li>align设置图片元素”周围文字”的对齐方式 取值 left center right</li>
+</ul>
+<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><p>路径就是文件的存放位置经过的路线<br>为什么需要路径? 因为我们引入图片,引入外链式样式css文件,引入外链式脚本js文件以及超链接跳转到本地某个文件的时候,都需要通过路径找到对应的文件</p>
+<p><strong>路径主要又分为两种</strong></p>
+<ul>
+<li>第一种: 绝对路径, 以盘符开始的路径 , 比如 g:&#x2F;abc&#x2F;1.txt, 绝对路径移植性差,需要保证同样的盘符下有同样的文件</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- \反斜杠  /正斜杠 在window系统下, 正斜杠和反斜杠都可以识别, 但是在linux下只能使用正斜杠 而且linux系统下没有盘符的概念--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>绝对路径演示<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;E:\GZ2279\①HTMLCSS\02-HTML\4-代码\images\01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;E:/GZ2279/①HTMLCSS/02-HTML/4-代码/images/01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 有些浏览器,对绝对路径支持不是很友好, 需要添加file:/// 前缀 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;file:///E:\GZ2279\①HTMLCSS\02-HTML\4-代码\images\01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;file:///E:/GZ2279/①HTMLCSS/02-HTML/4-代码/images/01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>互联网的路径(直接使用网上的路径, 这种路径一般是https://或者http://开头的 前提是电脑需要连接互联网)<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>❤第二种: 相对路径, 相对路径就是会根据一个参考物,进行参考,这个参考物一般是”当前文件”</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>相对路径又有三种常见关系<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>第一种: 同级关系 目标文件在当前路径下 ./就可以代表当前路径<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./P_007.jpg&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>❤第二种: 下一级关系 目标文件在当前路径的某个目录下 需要告诉文件夹名称<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/P_057.jpg&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./images/a/b/c/P_033.jpg&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>第三种: 上一级关系 目标文件在当前路径的上一级路径下 ../代表上一级<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../P_089.jpg&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../../P_069.jpg&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="超链接a标签"><a href="#超链接a标签" class="headerlink" title="超链接a标签"></a>超链接a标签</h2><p><strong><font color='orange'>超链接是用于实现网页之间跳转的标签</font></strong><br><font color='orange'><strong>语法</strong>：</font><code>&lt;a href=&quot;跳转目标地址&quot; target=&quot;目标地址打开方式&quot;&gt;超链接的标签内容&lt;/a&gt;</code></p>
+<ul>
+<li>❤外部链接 跳转到互联网的某个地址 一般是https:&#x2F;&#x2F;或者http:&#x2F;&#x2F;开头的</li>
+<li>❤内部链接 跳转到本地文件 如果浏览器可以打开的文件,浏览器会帮我们打开 浏览器无法打开的文件,浏览器会提示我们下载</li>
+<li>❤空链接 要记 就是点击以后,不会跳转的链接 空链接主要用于书写css样式或者触发js事件的时候使用</li>
+<li>❤图片链接 要记 就是点击图片以后,会跳转到某个链接 使用a标签包括img图片标签</li>
+<li>链接到本页的某个部分(锚点)</li>
+</ul>
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C08-%E8%B6%85%E9%93%BE%E6%8E%A5(a%E9%93%BE%E6%8E%A5,a%E6%A0%87%E7%AD%BE).html">08-超链接(a链接,a标签).html</a> </p>
+<h3 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h3><ol>
+<li>onclick方法负责执行js函数，而void是一个操作符，void(0)返回undefined，地址不发生跳转。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span>  <span class="attr">οnclick</span>= <span class="string">&quot;myjs( )&quot;</span>&gt;</span>  Click Me  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>和void(0)一样，都返回”undefined”</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:;&quot;</span> &gt;</span>  Click Me  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>是网上很常见的代码，#是标签内置的一个方法，用这种方法点击后网页后返回到页面的最顶端所以又有了“##”“#!”等,尽管解决了返回顶部的问题但仍存在其他缺陷</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>  Click Me  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>事件处理函数的工作机制中，在给某元素添加事件处理函数后，一旦事件发生，相应JavaScript代码就会执行，所调用的JavaScript代码的返回值被传递给事件处理函数。当我们给a标签添加onclick事件处理函数并点击a触发其后，<br>如果相应JavaScript代码返回true，onclick事件处理函数就会认为这个链接呗点击了，同样的若返回false即会认为链接未被点击</p>
+<p>当点击a标签时，JavaScript代码返回值为false，故此链接默认行为未被触发。</p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span> <span class="attr">οnclick</span>=<span class="string">&quot; myjs(); return false; &quot;</span>&gt;</span>   Click Me   <span class="tag">&lt;/<span class="name">a</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span> <span class="attr">οnclick</span>=<span class="string">&quot; return false; &quot;</span>&gt;</span>  Click Me  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>preventDefault()阻止事件的默认行为但不支持IE，所以在IE中使用returnValue阻止事件默认行为</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="variable language_">document</span>.<span class="title function_">getElementByTagName</span>(<span class="string">&#x27;a&#x27;</span>); </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">stopDefault</span>(<span class="params"> e </span>)</span><br><span class="line">&#123; </span><br><span class="line">   <span class="keyword">if</span> ( e &amp;&amp; e.<span class="property">preventDefault</span> ) </span><br><span class="line">      e.<span class="title function_">preventDefault</span>(); </span><br><span class="line">     <span class="keyword">else</span> </span><br><span class="line">        <span class="variable language_">window</span>.<span class="property">event</span>.<span class="property">returnValue</span> = <span class="literal">false</span>;  </span><br><span class="line">&#125; </span><br><span class="line">test.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">e</span>) </span><br><span class="line">&#123; </span><br><span class="line">     <span class="title function_">stopDefault</span>(e); </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>download属性(HTML 5 新增)：</strong> 接受一个 filename (文件名) 作为属性值或不设置任何属性，此属性指示浏览器下载 URL 而不是导航到它，因此将提示用户将其保存为本地文件。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>不添加download属性 直接在浏览器中打开图片<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;./images/btn.png&quot;</span>&gt;</span>图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>添加download属性,download需要使用http://协议或者https://协议才可以生效<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 我们可以在vscode中安装一个live server插件,使用这个插件打开的网页,就是一个本地服务器的网页 ,http协议开头的,  live server实时刷新的功能  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;./images/btn.png&quot;</span> <span class="attr">download</span>&gt;</span>下载图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>download设置属性值, 这个属性值将作为下载的文件名<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;./images/btn.png&quot;</span> <span class="attr">download</span>=<span class="string">&quot;美女&quot;</span>&gt;</span>下载图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>download设置属性值, 这个属性值将作为下载的文件名, 如果指定的download属性值中有\ /的话,会被转成下划线<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;./images/btn.png&quot;</span> <span class="attr">download</span>=<span class="string">&quot;性感\美女/01&quot;</span>&gt;</span>下载图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C01-%E8%B6%85%E9%93%BE%E6%8E%A5%E8%A1%A5%E5%85%85%E5%B1%9E%E6%80%A7download.html">01-超链接补充属性download.html</a> </p>
+<ul>
+<li><strong><font color='red'>基准参考点base标签 单标签 可以设置所有超链接的href属性以及target属性,base标签只能出现一次!!!</font></strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">&quot;https://ent.163.com&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C02-%E5%9F%BA%E5%87%86%E5%8F%82%E8%80%83%E7%82%B9base%E6%A0%87%E7%AD%BE.html">02-基准参考点base标签.html</a> </p>
+<h2 id="表格基本使用以及表格属性"><a href="#表格基本使用以及表格属性" class="headerlink" title="表格基本使用以及表格属性"></a>表格基本使用以及表格属性</h2><ul>
+<li>table表示表格</li>
+<li>tr表示表格的行</li>
+<li>td或者th表格的列(单元格) th包括的内容会进行加粗并水平居中显示</li>
+<li>caption设置表格的标题</li>
+</ul>
+<h3 id="table标签的属性"><a href="#table标签的属性" class="headerlink" title="table标签的属性:"></a>table标签的属性:</h3><ul>
+<li><p>❤border设置表格的边框:</p>
+<p>表格边框合并:border&#x3D;”1”</p>
+</li>
+<li><p>bordercolor设置表格颜色</p>
+</li>
+<li><p>❤width设置表格的宽度 数值或者百分比</p>
+</li>
+<li><p>height设置表格的高度 数值或者百分比</p>
+</li>
+<li><p>❤align设置整个表格的水平对齐方式 left center right</p>
+</li>
+<li><p>bgcolor设置背景颜色</p>
+</li>
+<li><p>background设置背景图片, 背景图片会覆盖背景颜色</p>
+</li>
+<li><p>❤cellpadding设置单元格内容到边框的距离</p>
+</li>
+<li><p>❤cellspacing设置单元格与单元格之间的距离</p>
+</li>
+<li><p>❤rules&#x3D;”all”合并边框线</p>
+</li>
+</ul>
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C09-%E8%A1%A8%E6%A0%BC%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E8%A1%A8%E6%A0%BC%E5%B1%9E%E6%80%A7.html">09-表格基本使用以及表格属性.html</a> </p>
+<h3 id="tr的属性"><a href="#tr的属性" class="headerlink" title="tr的属性:"></a>tr的属性:</h3><ul>
+<li>​    tr的align,bgcolor,background属性同table属性</li>
+<li>​    align属性是设置tr中所有单元格内容水平对齐方式,取值:left(左 默认),center(居中),right(右)</li>
+<li>​    还有一个valign属性是设置单元格内容垂直对齐方式,取值:top(上),middle(默认,垂直居中),bottom(下)</li>
+</ul>
+<p><strong>小结:</strong></p>
+<ol>
+<li><p>tr的align是设置单元格内容的水平对齐方式</p>
+</li>
+<li><p>如果tr跟table都设置的bgcolor跟background属性,以tr设置的为准,”靠近原则”</p>
+</li>
+</ol>
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C10-tr%E7%9A%84%E5%B1%9E%E6%80%A7.html">10-tr的属性.html</a> </p>
+<h3 id="th-td单元格的属性"><a href="#th-td单元格的属性" class="headerlink" title="th,td单元格的属性"></a>th,td单元格的属性</h3><ul>
+<li>​    th跟td都是单元格标签,但是th包裹的内容会加粗并且水平居中显示</li>
+<li>​    width,height,align,valign,bgcolor,background属性跟tr设置的时候,效果是一样的</li>
+</ul>
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C11-th,td%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E5%B1%9E%E6%80%A7.html">11-th,td单元格的属性.html</a> </p>
+<h3 id="合并单元格"><a href="#合并单元格" class="headerlink" title="合并单元格"></a>合并单元格</h3><p><strong>两个th,td单元格比较重要的属性:</strong></p>
+<ul>
+<li>rowspan row行的意思,跨行合并单元格,垂直(上下)方向合并几个单元格 取值数值</li>
+<li>colspan column列的意思,跨列合并单元格,水平(左右)方向合并几个单元格 取值数值</li>
+</ul>
+<p><strong>合并单元格的步骤</strong></p>
+<p>1.先找到你要合并的单元格,随便改成相同的内容</p>
+<p>2.确定左右合并单元格,还是上下合并单元格,再决定使用对应colspan或者rowspan,要几个单元格合成1个单元格</p>
+<p>3.删除多余的单元格</p>
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C12-%E5%90%88%E5%B9%B6%E5%8D%95%E5%85%83%E6%A0%BC.html">12-合并单元格.html</a> </p>
+<h3 id="thead-tbody-tfoot表格结构化标签"><a href="#thead-tbody-tfoot表格结构化标签" class="headerlink" title="thead,tbody,tfoot表格结构化标签"></a>thead,tbody,tfoot表格结构化标签</h3><ul>
+<li>没有被thead,tbody,tfoot这三个结构化标签包裹的内容,默认会把内容都放在一个tbody中</li>
+<li>thead表示表格的头部</li>
+<li>tbody表示表格的身体</li>
+<li>tfoot表示表格的底部</li>
+</ul>
+<p><strong>thead,tbody,tfoot都有align跟valign属性; 设置align跟valign属性的时候优先级:靠近原则</strong></p>
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C02_html%5C13-thead,tbody,tfoot%E8%A1%A8%E6%A0%BC%E7%BB%93%E6%9E%84%E5%8C%96%E6%A0%87%E7%AD%BE.html">13-thead,tbody,tfoot表格结构化标签.html</a> </p>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><h3 id="表单介绍"><a href="#表单介绍" class="headerlink" title="表单介绍"></a>表单介绍</h3><ul>
+<li>表单是什么,就是一些可以让你填写或者选择的东西 </li>
+<li>表单作用是什么,收集用户所填写或者选择信息</li>
+<li>表单组成有哪些, 有三部分 :</li>
+</ul>
+<ol>
+<li>表单域(容器,存放表单的地方)</li>
+<li>提示信息(告诉用户需要填写的信息是什么)</li>
+<li>表单控件(收集用户信息的东西, 比如文本框,  单选按钮等 )</li>
+</ol>
+<h3 id="form标签表示表单域"><a href="#form标签表示表单域" class="headerlink" title="form标签表示表单域"></a>form标签表示表单域</h3><ul>
+<li><p>form标签的action属性,表示数据提交到哪里去, 取值是一个url</p>
+</li>
+<li><p>form标签的method属性,表示数据提交的方式 get(默认)或者post</p>
+</li>
+<li><p>get提交的数据会拼接到url(url是统一资源定位符,简单理解就是网址)地址栏中, 拼接形式是 url?键名1&#x3D;键值1&amp;键名2&#x3D;键值2…</p>
+</li>
+<li><p>post提交的数据不会出现在url中</p>
+</li>
+<li><p>注意: 表单控件需要设置name属性, 这样提交数据的时候,才是有效提交 并且后端才可以通过name属性区分是哪个控件提交过去的数据</p>
+</li>
+<li><p>注意: 某些控件需要设置value属性,value属性才是真正提交到后端的数据</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &lt;form action=&quot;https://www.baidu.com&quot; method=&quot;get&quot;&gt; --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;form action=&quot;abc.html&quot; method=&quot;post&quot;&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;abc.html&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 表单控件分类有input标签,button标签,textarea标签以及select标签 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 网页中表单控件有很多种类, 但是HTML作者又不想每个种类都设计一个标签,所以设计了一个input标签,使用&quot;type属性&quot;去区分他们 --&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- input是单标签 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>文本框:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码框:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;userpass&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            单选按钮(只能选择一个):</span><br><span class="line">            <span class="comment">&lt;!-- 设置checked属性,就可以表示选中 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 想要实现单选功能, 需要把多个radio设置相同的name属性 设置相同name属性值以后,就会认为他们是一组单选按钮,那么只能选中其中一个了--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">checked</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;man&quot;</span> /&gt;</span>男</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;woman&quot;</span> /&gt;</span>女</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            复选框(可以多选):</span><br><span class="line">            <span class="comment">&lt;!-- 设置checked属性,就可以表示选中 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">checked</span> <span class="attr">value</span>=<span class="string">&quot;eat&quot;</span> /&gt;</span>吃饭</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">checked</span> <span class="attr">value</span>=<span class="string">&quot;sleep&quot;</span> /&gt;</span>睡觉</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;dadoudou&quot;</span> /&gt;</span>打豆豆</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            上传文本框:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myfile&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            隐藏域(专门用于提交一些不想被用户看到的信息):</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;rsv_iqid&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0xb7cfebb10007ffd7&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 通过value属性可以设置按钮等内容 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 普通按钮,不能提交数据,也不会重置数据 --&gt;</span></span><br><span class="line">            普通按钮:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;我是普通按钮&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            提交按钮:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交数据&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            重置按钮:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重新填写&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            图片按钮:</span><br><span class="line">            <span class="comment">&lt;!-- 通过src属性设置图片按钮的路径 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 图片按钮也有提交数据的功能 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/btn.png&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C04-%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6-input%E6%A0%87%E7%AD%BE.html">04-表单控件-input标签.html</a> </p>
+<h3 id="button按钮"><a href="#button按钮" class="headerlink" title="button按钮"></a>button按钮</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;https://www.baidu.com&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           用户名: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">button</span>&gt;</span>不设置type属性的按钮, 默认是提交按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>提交按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span>&gt;</span>重置按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span>&gt;</span>普通按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="项目标题标签label"><a href="#项目标题标签label" class="headerlink" title="项目标题标签label"></a>项目标题标签label</h3><p>​    <strong><label></strong> 元素（描述标签）表示用户界面中某个元素的说明。</p>
+<p>​    lablel标签主要目的是为了提高用户体验。 为用户提高最优质的服务。</p>
+<ul>
+<li>​    概念：label 标签为 input 元素定义标注（标签）。</li>
+<li>​    作用：用于绑定一个表单控件, 当点击label标签的时候, 被绑定的表单控件就会获得输入焦点。</li>
+</ul>
+<p>​    如何绑定元素呢？</p>
+<p>​    第一种用法:使用label标签包裹要设置的内容和表单元素</p>
+<p>​    第二种用法:使用label中的for属性  for&#x3D;”id名” 表单元素需要设置一个id属性</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 第一种用法:使用label标签包裹要设置的内容和表单元素 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">label</span>&gt;</span>用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 第二种用法:使用label中的for属性 for=&quot;id名&quot; 表单元素需要设置一个id属性 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;myPass&quot;</span>&gt;</span>密码:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myPass&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C06-%E9%A1%B9%E7%9B%AE%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BElabel.html">06-项目标题标签label.html</a> </p>
+<h3 id="placeholder属性"><a href="#placeholder属性" class="headerlink" title="placeholder属性"></a>placeholder属性</h3><ul>
+<li>placeholder属性,占位符,当某些表单控件value值为空的时候,placeholder属性设置的值才会显示出来</li>
+<li>placeholder属性,当input元素type为password, search, tel, text, url时，当表单控件为空时，控件中显示的内容</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 通过value属性也可以设置表单控件默认显示的内容 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;zhangsan&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C07-placeholder%E5%B1%9E%E6%80%A7.html">07-placeholder属性.html</a> </p>
+<h3 id="多行文本框-文本域"><a href="#多行文本框-文本域" class="headerlink" title="多行文本框(文本域):"></a>多行文本框(文本域):</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 通过rows设置高度 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 通过cols设置宽度 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;5&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;30&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请进行一个简短的自我介绍~&quot;</span>&gt;</span>我是张三<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>防止拖拽文本域resize</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">textarea</span> &#123;</span><br><span class="line">    <span class="attribute">resize</span>: none;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="select下拉框"><a href="#select下拉框" class="headerlink" title="select下拉框"></a>select下拉框</h3><ul>
+<li>通过option设置选项, 默认下拉框会选中第一项, 默认下拉框的宽度由最宽的选项内容决定</li>
+<li>给option选项设置selected属性,可以指定选中选中项</li>
+<li>如果option没有设置value属性,那么value属性值将使用option的标签内容 提交数据的时候,会提交选中项的value属性值</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;province&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;guangdong&quot;</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;hunan&quot;</span> <span class="attr">selected</span>&gt;</span>湖南省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;hubei&quot;</span>&gt;</span>湖北省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;sichuan&quot;</span>&gt;</span>四川省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;guangxi&quot;</span>&gt;</span>广西壮族自治区<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>select标签可以设置size属性,表示显示多少个选项</li>
+<li>select标签可以设置multiple属性, 表示允许多选 可以按ctrl或者shift键</li>
+<li>使用optgroup标签,可以对选项进行分组</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">size</span>=<span class="string">&quot;5&quot;</span> <span class="attr">multiple</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用optgroup标签,可以对选项进行分组 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optgroup</span> <span class="attr">label</span>=<span class="string">&quot;省份&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;guangdong&quot;</span>&gt;</span>广东省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;hunan&quot;</span> <span class="attr">selected</span>&gt;</span>湖南省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;hubei&quot;</span>&gt;</span>湖北省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;sichuan&quot;</span>&gt;</span>四川省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;jiangxi&quot;</span>&gt;</span>江西省<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">optgroup</span> <span class="attr">label</span>=<span class="string">&quot;自治区&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;guangxi&quot;</span>&gt;</span>广西壮族自治区<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;ningxia&quot;</span>&gt;</span>宁夏回族自治区<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">optgroup</span> <span class="attr">label</span>=<span class="string">&quot;直辖市&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;chongqing&quot;</span>&gt;</span>重庆市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;shanghai&quot;</span>&gt;</span>上海市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;beijing&quot;</span>&gt;</span>北京市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;tianjin&quot;</span>&gt;</span>天津市<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>multiple除了可以让下拉框可以选择多个选项,还可以让file上传框允许选择多个文件</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">multiple</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C10-%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6-select%EF%BC%88%E4%B8%8B%E6%8B%89%E6%A1%86%EF%BC%89.html">10-表单控件-select（下拉框）.html</a> </p>
+<h3 id="表单控件常用属性"><a href="#表单控件常用属性" class="headerlink" title="表单控件常用属性"></a>表单控件常用属性</h3><ul>
+<li>通过src属性可以设置图片按钮的图片, 通过width属性设置宽度, 通过height属性设置高度</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./images/btn_reg.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>disabled禁用控件,不能修改值也不能输入值 数据不会提交</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username2&quot;</span> <span class="attr">disabled</span> <span class="attr">value</span>=<span class="string">&quot;zhangsan2&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>readonly只读 内容不允许修改, 但是数据还可以提交</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username3&quot;</span> <span class="attr">readonly</span> <span class="attr">value</span>=<span class="string">&quot;zhangsan3&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>autofocus自动获取焦点,仅第一个使用的表单控件可以生效</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">autofocus</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>autocomplete：所有input元素，用于表单的自动填充功能       取值 off关闭自动填充 或者 on(默认,开启自动填充)</li>
+</ul>
+<p><font color='red'>注意：</font>想要使用autocomplete属性触发表单自动填充功能, 前提是这个表单控件需要有一个name属性, 并且成功提交过数据,才会把之前成功提交的数据记录下来 </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myAge&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入年龄&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;off&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myAge&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入年龄&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;on&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>required：绝大部分input元素,表示此值为必填项</li>
+<li>maxlength：当input元素type为password, search, tel, text, url时，value 的最大长度（最多字符数目）</li>
+<li>size：当input元素email, password, tel, text时,控件的大小 , 取值数值, 默认20</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">required</span> <span class="attr">maxlength</span>=<span class="string">&quot;6&quot;</span> <span class="attr">size</span>=<span class="string">&quot;30&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C11-%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7.html">11-表单控件常用属性.html</a> </p>
+<h3 id="H5新增表单输入类型"><a href="#H5新增表单输入类型" class="headerlink" title="H5新增表单输入类型"></a>H5新增表单输入类型</h3><ul>
+<li>number：只能输入数字的输入框。<ul>
+<li>max属性设置最大值</li>
+<li>min属性设置最小值</li>
+<li>step设置步长值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	数字的输入框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">value</span>=<span class="string">&quot;5&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span> <span class="attr">max</span>=<span class="string">&quot;12&quot;</span> <span class="attr">step</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>email：编辑邮箱地址的输入框。类似 text 输入，但在支持的浏览器上会有邮箱格式的规则验证提示。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>邮箱: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>search (H5新增)：用于搜索字符串的单行文字区域。输入文本中的换行会被自动去除。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>搜索框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;search&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>tel (H5新增)：用于输入电话号码的控件。拥有动态键盘的设备上会显示电话数字键盘。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>电话号码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;tel&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>url (H5新增)：用于输入 URL 的控件。类似 text 输入，在支持的浏览器上会有URL的规则验证提示，在支持动态键盘的设备上有相应的键盘。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>网址:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;url&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="表单日期类型："><a href="#表单日期类型：" class="headerlink" title="表单日期类型："></a>表单日期类型：</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- week：用于输入以年和周数组成的日期，不带时区。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>星期:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;week&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- month (H5新增)：输入年和月的控件，不带时区。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>月份:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;month&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- time (H5新增)：于输入时间的控件，不包括时区。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>时间:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;time&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!-- date (H5新增)：输入日期的控件（年、月、日，不包括时间）。在支持的浏览器激活时会打开日期选择器或年月日的数字滚轮。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>日期:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;date&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!-- datetime-local(H5新增)：输入日期和时间的控件，使用户所在时区。 --&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 在支持的浏览器激活时打开日期选择器或年月日的数字滚轮。(目前支持的浏览器为数不多) --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>日期时间:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;datetime-local&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="表单颜色类型"><a href="#表单颜色类型" class="headerlink" title="表单颜色类型"></a>表单颜色类型</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	颜色:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;color&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="表单范围控制类型"><a href="#表单范围控制类型" class="headerlink" title="表单范围控制类型"></a>表单范围控制类型</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	范围:</span><br><span class="line">	<span class="comment">&lt;!-- max属性设置最大值 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- min属性设置最小值 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- step设置步长值 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">value</span>=<span class="string">&quot;20&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">step</span>=<span class="string">&quot;1&quot;</span> <span class="attr">name</span>=<span class="string">&quot;myScore&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <a href="....%5Cweb%5C%E6%AF%8F%E6%97%A5%E4%BB%A3%E7%A0%81%5C03_css%5C12-H5%E6%96%B0%E5%A2%9E%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5%E7%B1%BB%E5%9E%8B.html">12-H5新增表单输入类型.html</a> </p>
+<h2 id="常用布局标签div与span"><a href="#常用布局标签div与span" class="headerlink" title="常用布局标签div与span"></a>常用布局标签div与span</h2><h3 id="div的特点"><a href="#div的特点" class="headerlink" title="div的特点"></a>div的特点</h3><pre><code>   1. 独占一行,默认只要有标签内容,不管内容多或者少,都会占满一行
+   2. 不会标签内容的样式(不会加粗,不会倾斜等)
+   3. div上下无空白距离
+   4. 所以div作为容器使用, 方便设置CSS样式
+</code></pre>
+<h3 id="span的特点"><a href="#span的特点" class="headerlink" title="span的特点"></a>span的特点</h3><pre><code>   1. 不独占一行, 一行可以存放多个, 直到放不下才会换行
+   2. 不会标签内容的样式(不会加粗,不会倾斜等)
+   3. span上下左右无空白距离
+   4. span的宽度由内容决定
+   5. span也是作为容器使用,方便设置CSS样式
+</code></pre>
+<h2 id="HTML全局属性"><a href="#HTML全局属性" class="headerlink" title="HTML全局属性"></a>HTML全局属性</h2><ul>
+<li><p>全局属性是所有 HTML 元素共有的属性；它们可以用于所有元素，尽管它们可能对某些元素没有影响。</p>
+<p>参考文档: <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes</a></p>
+</li>
+<li><p>class：我们将class的属性值称之为“类名”，只要是拥有相同的class的属性值  不管是什么标签  我们都可以将其称之为一类！class属性一般多用于CSS中</p>
+</li>
+<li><p>设置多个类名的时候,多个类名之间使用空格隔开</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b</span> <span class="attr">class</span>=<span class="string">&quot;one two three&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;three&quot;</span>&gt;</span>span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>id：id属性是标签的唯一标识，一个页面中可以有很多id属性，但是每个标签的id属性的值必须是唯一的 ;  它就好多我们的身份证号码一样！id属性一般多用于JavaScript中</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div1&quot;</span>&gt;</span>id为div1的内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div2&quot;</span>&gt;</span>id为div2的内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>编程</category>
@@ -5140,6 +5112,20 @@
   <entry>
     <title>React</title>
     <url>/1970/01/01/React/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>哥们还没学过，因为logo可爱所以就放上来了😄</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Node.js</title>
+    <url>/1970/01/01/Node-js/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>哥们还没学过，因为logo可爱所以就放上来了😄</p>
 ]]></content>
       <categories>
@@ -8128,6 +8114,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Next.js</title>
+    <url>/1970/01/01/Next-js/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>哥们还没学过，因为logo可爱所以就放上来了😄</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>jQuery</title>
     <url>/2023/07/06/jQuery/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="第三方库介绍"><a href="#第三方库介绍" class="headerlink" title="第三方库介绍"></a>第三方库介绍</h2><ul>
@@ -8948,246 +8948,6 @@
       </tags>
   </entry>
   <entry>
-    <title>无损音乐下载收听指南 p😭q</title>
-    <url>/2024/12/13/%E6%97%A0%E6%8D%9F%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><h2 id="富哥"><a href="#富哥" class="headerlink" title="富哥"></a>富哥</h2><h3 id="实体CD"><a href="#实体CD" class="headerlink" title="实体CD"></a>实体CD</h3><p>直接买实体CD，再扫盘提取为数据格式。你问我该怎么扫盘提取？我又没钱买CD😅</p>
-<h3 id="单曲购买下载"><a href="#单曲购买下载" class="headerlink" title="单曲购买下载"></a>单曲购买下载</h3><p><a href="https://ototoy.jp/_/default/p/1230148">しぐれうい &#x2F; まだ雨はやまない - OTOTOY</a></p>
-<h2 id="流媒体下载"><a href="#流媒体下载" class="headerlink" title="流媒体下载"></a>流媒体下载</h2><p>花小钱充个vip就能解决的问题，什么？花了钱下载下来还是加密格式的，vip过期就听不了了，所以就剩下两个选择了😤</p>
-<h3 id="继续花钱续费-💲"><a href="#继续花钱续费-💲" class="headerlink" title="继续花钱续费 💲"></a>继续花钱续费 💲</h3><p>花钱解决问题是最简单的方式，钱不是万能的，但能花钱解决的问题为什么要动脑子呢？🤑</p>
-<h3 id="加密音乐解锁-🧐"><a href="#加密音乐解锁-🧐" class="headerlink" title="加密音乐解锁 🧐"></a>加密音乐解锁 🧐</h3><p>官网解锁👉 <a href="https://um-react.netlify.app/">音乐解锁 - Unlock Music</a></p>
-<p>官网解锁有可能会解锁失败，这时候就需要用到源代码来解锁。原来的GitHub仓库因为一些神秘因素下架了，这个是官方搭建的第三方仓库。 👉 <a href="https://git.unlock-music.dev/um">Unlock Music Project</a></p>
-<p>有条件直接进官方电报群组防丢失 👉 <a href="https://t.me/unlock_music_chat">音乐解锁</a> </p>
-<h4 id="解密后的音乐标签信息缺失"><a href="#解密后的音乐标签信息缺失" class="headerlink" title="解密后的音乐标签信息缺失"></a>解密后的音乐标签信息缺失</h4><p>👉 <a href="#construct">音乐标签信息</a></p>
-<h2 id="磁力下载"><a href="#磁力下载" class="headerlink" title="磁力下载"></a>磁力下载</h2><p>磁力下载的的种子来源一般为方案一的富哥流媒体购买或者扫盘提取出来的文件。</p>
-<h3 id="磁力搜索"><a href="#磁力搜索" class="headerlink" title="磁力搜索"></a>磁力搜索</h3><p>磁力下载的做种的一般是为整个专辑，只要搜索专辑名称，再选择下载自己所需要的歌曲就行了</p>
-<p>磁力聚合搜索下载 👉 <a href="https://www.aiosearch.com/">AIO Search - Search Torrents Sites</a></p>
-<h3 id="磁力下载-1"><a href="#磁力下载-1" class="headerlink" title="磁力下载"></a>磁力下载</h3><p>找到磁力链接后，尽量不要用迅雷下载，常见的 BT 客户端为以下两个：</p>
-<ul>
-<li><a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition">qBittorrent Enhanced</a>：一个轻量级的磁力下载客户端，界面简洁且没有广告。</li>
-<li><a href="https://www.bitcomet.com/en">BitComet</a>：传统的磁力下载工具，支持多种协议。</li>
-</ul>
-<p>添加 tracker 👉 <a href="https://trackerslist.com/#/zh">XIU2&#x2F;TrackersListCollection</a></p>
-<p>磁力下载的速度通常取决于资源的种子数和你的网络连接，tracker 可以帮助你链接到更多的用户</p>
-<h2 id="电报👮‍♂️"><a href="#电报👮‍♂️" class="headerlink" title="电报👮‍♂️"></a>电报👮‍♂️</h2><p>电报（Telegram）作为全球资源的聚集地，提供了几乎所有种类的资源下载，只要你有账号，有办法注册到账号，你都有账号了，不会连首歌都找不到吧😅</p>
-<p>你问我怎么注册？我不知道啊🥴</p>
-<h2 id="第三方网站下载"><a href="#第三方网站下载" class="headerlink" title="第三方网站下载"></a>第三方网站下载</h2><p>用户自发以网盘方式分享的音乐平台。代表网站👉 <a href="https://www.acgjc.com/">ACG漫音社</a></p>
-<p>数据来源为解析国内各大音乐平台，下载下来的源文件已经解密后的了。 代表网站👉 <a href="https://flac.life/">无损生活</a></p>
-<h2 id="其它下载方式"><a href="#其它下载方式" class="headerlink" title="其它下载方式"></a>其它下载方式</h2><ul>
-<li><p>电商平台购买音乐资源聚合包，一般购买后会直接把你拉网盘资源群里面，内部资源索引复杂冗余，想要定向找到自己的资源相当麻烦，</p>
-</li>
-<li><p>直接购买已经下好的音乐U盘，质量没保障，不推荐</p>
-</li>
-</ul>
-<h1 id="收听"><a href="#收听" class="headerlink" title="收听"></a>收听</h1><h2 id="音源判断"><a href="#音源判断" class="headerlink" title="音源判断"></a>音源判断</h2><p>这里我们可以使用声谱分析软件 <a href="https://www.spek.cc/p/download">Spek Download</a> 进行分析，项目Github地址：<a href="https://github.com/alexkay/spek">alexkay&#x2F;spek: Acoustic spectrum analyser</a></p>
-<h3 id="标准MP3声谱"><a href="#标准MP3声谱" class="headerlink" title="标准MP3声谱"></a>标准MP3声谱</h3><p>正常的mp3有损音频，高频段（15kHz 以上）缺失，声谱有明显的高频缺失，音源仅保留了人耳易察觉的部分</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum03.png"></p>
-<h3 id="无损音乐声谱"><a href="#无损音乐声谱" class="headerlink" title="无损音乐声谱"></a>无损音乐声谱</h3><p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum01.png"></p>
-<h4 id="1-文件信息"><a href="#1-文件信息" class="headerlink" title="1. 文件信息"></a><strong>1. 文件信息</strong></h4><p><strong>位置</strong>: <code>F:\Music\jp\しぐれうい - 鳴聖!! ロリ神レクイエム☆.flac</code><br><strong>格式</strong>: FLAC（Free Lossless Audio Codec，无损音频格式）<br><strong>采样率</strong>: 48,000 Hz<br><strong>比特深度</strong>: 24 位<br><strong>声道</strong>: 立体声（Channel 1&#x2F;2）<br><strong>窗口大小与窗函数</strong>：W:2048, F:Hann</p>
-<p>这些信息告诉我们，这是一首由 <strong>しぐれうい（时雨羽衣）</strong> 演唱的歌曲，采用 <strong>FLAC</strong> 编码，采样率为 <strong>48kHz</strong>，说明其高频部分理论上可以达到 <strong>24kHz</strong>（根据 <strong>Nyquist 采样定理</strong>，最高可还原 采样率&#x2F;2 的频率）。比特深度 24-bit 表示音频动态范围更大，通常用于高质量音频。分析过程中使用的 <strong>FFT 窗口大小</strong> 为 <strong>2048</strong>，使用 <strong>Hann 窗函数</strong> 进行频谱平滑处理。</p>
-<h4 id="2-频谱图基本构造"><a href="#2-频谱图基本构造" class="headerlink" title="2. 频谱图基本构造"></a><strong>2. 频谱图基本构造</strong></h4><p><strong>X 轴（水平方向）</strong>: <strong>时间 (0:00 - 4:33)</strong></p>
-<ul>
-<li>代表音频的时间进度，从 <strong>0:00</strong> 到 <strong>4:33</strong>，即整个音频文件的时长。</li>
-</ul>
-<p><strong>Y 轴（垂直方向）</strong>: <strong>频率 (0 kHz - 24 kHz)</strong></p>
-<ul>
-<li>从 <strong>0 kHz</strong>（低频）到 <strong>24 kHz</strong>（高频），用于表示声音的频率范围。</li>
-<li>人耳的听觉范围一般在 <strong>20 Hz - 20 kHz</strong>，高于 <strong>20 kHz</strong> 的部分通常对人耳不可闻。</li>
-</ul>
-<p><strong>颜色（强度）</strong>:</p>
-<ul>
-<li><strong>黄色&#x2F;白色</strong>：表示信号较强（接近 0 dB），音量较高。</li>
-<li><strong>红色</strong>：表示中等强度（约 -40 dB 至 -60 dB）。</li>
-<li><strong>蓝色&#x2F;紫色&#x2F;黑色</strong>：表示较弱或无信号（-80 dB 以下）。</li>
-</ul>
-<h4 id="3-具体频谱分析"><a href="#3-具体频谱分析" class="headerlink" title="3. 具体频谱分析"></a><strong>3. 具体频谱分析</strong></h4><ol>
-<li><strong>低频（0 - 5 kHz）</strong><ul>
-<li>该部分主要包含 <strong>鼓点、贝斯、低音人声</strong>，通常是音轨的核心基础。</li>
-<li>这里可以看到密集的红色和黄色区域，说明有较强的低频信号。</li>
-</ul>
-</li>
-<li><strong>中频（5 - 15 kHz）</strong><ul>
-<li>这部分是 <strong>人声、乐器（如吉他、钢琴）</strong> 主要频率所在区域。</li>
-<li>这里有大量红色和紫色的区域，说明该音频文件有人声和乐器的丰富细节。</li>
-</ul>
-</li>
-<li><strong>高频（15 - 24 kHz）</strong><ul>
-<li>这里通常是 <strong>金属乐器、环境氛围、空气感</strong> 的频率范围。</li>
-<li>可以看到高频仍然有信号（紫色、红色部分），但比中低频弱，说明音频质量较高，并未因有损压缩导致高频损失。</li>
-</ul>
-</li>
-</ol>
-<h4 id="4-结论"><a href="#4-结论" class="headerlink" title="4. 结论"></a><strong>4. 结论</strong></h4><ol>
-<li><strong>音频质量</strong><ul>
-<li>该文件采用 FLAC 格式，<strong>无损音质</strong>，没有明显的高频削减，说明其来源质量较高。</li>
-<li>高频段（15kHz 以上）仍然有较多信息，没有像 MP3 等有损格式那样严重衰减，符合 48kHz 采样率的特性。</li>
-</ul>
-</li>
-<li><strong>歌曲动态</strong><ul>
-<li>频谱分布均衡，说明混音处理得当，保留了较多高频和低频信息。</li>
-<li>中高频段清晰，符合 <strong>J-POP 或 VTuber 曲风</strong> 的特点，即强调人声和电子乐器。</li>
-</ul>
-</li>
-</ol>
-<p>*根据歌曲的类型不同，无损音乐的声谱也会有所差异，比如歌曲本身就是抒情慢歌，声谱断断续续的也是正常的</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum02.png"></p>
-<h3 id="真假无损"><a href="#真假无损" class="headerlink" title="真假无损"></a>真假无损</h3><p>真无损和假无损声谱对比，假无损的声谱高频采样的范围中有明显的横向截断，为人为以mp3升频假冒的无损音乐</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum04.png"></p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum05.png"></p>
-<h2 id="本地播放器推荐"><a href="#本地播放器推荐" class="headerlink" title="本地播放器推荐"></a>本地播放器推荐</h2><h3 id="PC"><a href="#PC" class="headerlink" title="PC"></a>PC</h3><p>​	个人首推的就是QQ音乐</p>
-<ul>
-<li><p>优点：桌面歌词有逐字对照，日语歌词还有片假名标识，对于语言学习有一定的帮助</p>
-<p>例：<img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide01.png"></p>
-</li>
-<li><p>缺点：直接把你电脑当成了服务器，后台偷跑带宽，浪费流量</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide02.png"></p>
-<p>解决方法：下载软件 <a href="https://www.netlimiter.com/">NetLimiter</a> 来对QQ音乐进行上传限制，这样就是PC最好的播放器了。老版本的下载的音乐的加密也并不严格。</p>
-</li>
-</ul>
-<p>其它的比如什么 <a href="https://github.com/zhongyang219/MusicPlayer2">MusicPlayer2</a>，<a href="https://github.com/imsyy/SPlayer">Splayer</a>，<a href="https://www.foobar2000.org/">foobar2000</a> 什么的个人觉得其实功能都大差不差，主要是界面的不同。</p>
-<p>我认为光是桌面歌词这一点QQ音乐就完胜其它播放器了，QQ音乐还会对本地歌曲和云端歌曲自动进行对照匹配，自动获取到对应歌词</p>
-<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>个人首推的就是 <a href="https://github.com/Moriafly/SaltPlayerSource">SaltPlayer</a> 了，页面简洁美观，功能全面，非常好用。</p>
-<h2 id="音乐标签信息"><a href="#音乐标签信息" class="headerlink" title="音乐标签信息"></a><span id="construct">音乐标签信息</span></h2><p>如果你是像哥们一样有追求的人的话，对信息缺失、标签空白的歌曲难以忍受的话，可以用软件 <a href="https://www.cnblogs.com/vinlxc/p/11347744.html">音乐标签pc版</a> 来添加和修正标签信息，确保每首歌都有完整的曲目信息。</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide03.png"></p>
-<h2 id="歌词搜索"><a href="#歌词搜索" class="headerlink" title="歌词搜索"></a>歌词搜索</h2><ul>
-<li><p>本地批量获取歌词： <a href="https://docs.myzony.com/#/">ZonyLrcToolsX</a></p>
-<p>个人自用下载命令，详情可以去看文档</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">.\ZonyLrcTools.Cli.exe download -d &quot;F:\Music\jp&quot; -l -n 2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地单独获取歌词： <a href="https://github.com/jitwxs/163MusicLyrics">163MusicLyrics</a></p>
-<p>输入歌曲id获取到对应的歌词，详情可以去看文档</p>
-</li>
-</ul>
-<h2 id="硬件推荐"><a href="#硬件推荐" class="headerlink" title="硬件推荐"></a>硬件推荐</h2><p>鄙人只是个木耳穷哥们，下载音乐只是出于兴趣爱好，声卡小尾巴什么的感觉就是割发烧友韭菜的，烧不起烧不起，直接买原道就行了。p😭q</p>
-<p>佩戴舒适度：⭐⭐⭐⭐⭐</p>
-<p>音质：⭐⭐⭐⭐</p>
-<p>功能性：⭐</p>
-<p>性价比：⭐⭐⭐⭐⭐</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>下载</tag>
-        <tag>教程</tag>
-        <tag>资源检索</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新世纪🀄文学习指南💯</title>
-    <url>/2024/12/13/%E6%96%B0%E4%B8%96%E7%BA%AA%E4%B8%AD%E6%96%87%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试.（提示：勿忘国耻😢）" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d361729f577ec3927d75bf710b4a75a2003f876c1d8e9a5fb18e24b036be5cf0">f1361f5d8850aea0e378713933613951c3bfacb10f1d4a0ee323dd45d4a617a35377708b12003bdb480101d606d05e89e083deeea1b54b9a696a026d2a966fdcafb6b26b4f89970dc879ac48cbe3fa86da5dacc6be1d623d00d23853bba9f3948d31e960b82b06d95b55543db87761b67a6f819f19d224fcb0da024254f20814b97acfc0cf9f4607cebd0e617dd263e757f06e953e277f1510821eba73494ad074ff610f3274fe49886656e8faccc9c1f6922e251cc59dfb7e4e6682bbfa67b0bfd6d7e2c5cfee391eefa36a0e63a73d442edfbec289d9cdadab02598cfed8e7de9e90ef6a84e5b7c9e1a84320a063cfd7a6f57164848ad27c0c7ef47f0ea5a9187bff0be5b944bf9a02e2edc20387138651af22e3edd1635266ece97b33fc703e23fd4520a04ae97653e0278603b65a12d98547b84061b247763aa541fa8018bbbb5b77b758f46e633b2caab083a3234f1a5717da8b0755fc4506bca9e642d96d19d45ce7a1814e43908c392cc625987011de936536e7fab5185eb22213ab21d8bbf417bb08933137565ddb78313a3b464c9cc5b13d28adca0d5285b2a99d57ddbe1220f557be9068d84fc8d3bfa8236b859001677157925e608cddd751aa6c10f8d26558b4e80afb87da4684b19e5982c55fe62424e3cd0e7def4610b4ca5972e0fd722dd753c25d6ca2b7572de5ae21c2c74d0dc11947d36872a4dea48997304f364c243e661d016ff87fdcc94e7079a3640939bcf26045fa2d47e1fd9b05ddc1c9f84fcbe0f49ab21b098a7c2b95db5a7c67f7dc7c6989d5696878dcf09806292dd21ef777837116884e179e28efca193bf32cf82d281954346459890ab15f655628959ddd854386b89b8c8b933aa487ed08f4be94480bcbd7bb83a8999aa6d1f45caac6386b48e2c33993eb20c5e3d12175806d0af3c6f4368eb3f0291379138359a63699bece97872de1e32f7e2b7949c9c725849bf618f5fb0853565d42908ff07d471481476b767ca02d174082e7604000a940ec801465bda0e1dadd9f7cc450d74b46791a411150296437cc2c0a2c453a2b2b01477e51f80a52dd11937428140dbd3c0ab303ff03832142d68ab6cf0e8b3a7cd231a13d2ee6abb752bddae8964d7717a85cef229c0e84c661dd3b1c273b47f7ebfcfee4d459e5c10fe9da41b91947a8e8410b6ac0dc1ee5f54e997b366dbec1ac28e8e9774de84792274c9769be7242a1a22eb699228dc9570eb7d8c200a79a7213ba766d9999cdb93861ae4ec1c5b974cf4b18f2780d0953e9419b5dacd8f109cc0eecc5d851f6680b88f0e29f351f1adc59b0e51a957ae3adc089c425731a42a2188f7dd89f56989b156efa55c35e104fcb81a73270d8de1a47c58e800e45c28b298afb4e5f37a40b10a1f264dabe623116ebe31e0bc4d972f111f7677abc92e6e671e276efcd05b93145283d000bed401b9295ec591132957a95f3bb9e08e7f5735b0742dba47ddcac49b6f2cbc294ea4de0c81d72ad963f3d5b534861fcaf4e3aff698a668da2100426efe48345074de1c37bd3f2212ef6aa6f0c9a79e287771789548d6778fac26ecf9f8974792045c806a7c415423321bc9ef3704812ea1a3e90a30858a62d0e247edc851c2d54a1b07ffe32a35dd9eec0781ea0ac4da2b841c046ec49bb6d91ef304866ea1227c35739855df40bd036d876d0bfa2d9c772d9e2237d6dcd446e5fc144fe3434c27dbdc964275e13d62f3b655d4470fee34dc0259895891d8860789885f8f0b70ab99564292ca2e9b2f9f14c567753983fd164412cda25cbc196855723b493ce7d2859aa9e0c2b463ddb2017ca331deb5acace8fd7d25442841f37106c1530cbb5921af10456aac07b58aa3ec356cac24cc2ebf636e53b631ebbd96b58f446e4eef6f42e5d8e03873dee5fe3cfcd8fe59f53e091f6fc668478d255c5f2a2c93361ad1a0a895490e55d3db25db764dc4fc2c98b08b1dcb51e739815a0172cbb9b3b81eee76de4708e68c1ea4eb2084aa4bbcf4932ee78fc0e24bb20aaafc045bc28a7d1d25ef2152ddf2274c028ef71f70ea042f4bae2b4c85085198eef2798e10541e358b634c7db363335a7690099488e6746acbab21a9b93f66ecd939f88c55fc7844ff7c9c0198750807938cdbadebaffcd901e89859970dd332833a2a5793f6c0f04c6bbcd96011e27087ad1cb52a5ac7874a9f97ee82bd00775e1d5b7e33a9890208703b98d0c90d74d2132ccebdd62b4f80dc6b67771c668fde9778857c3575999511a4a810e6669ba99866e50d966621186fa48ca6c877b83ea68f142f1be80094d8b585ad0e919e250cd1b21744b85c1d654bc4fc02bc5d499478710e2415303d8d53e63b02f4c59c45062a5f1579bad47f0a909d181bf41289c092a7d08b1a3a3b88f9b78e2477d5bc1ed924ffff180c8e271455199ecd1928cae7319e8ab8c7ce09b74f13c92116c79874c4d9314a7e344a13412d0515e53623af906dd1e2626c9494f19ed9362c4384528363fba4ec25b11e54a61343f2b19ec6a6ea841ab993f13e68582eadffcc449175f125bc49eaeb8f3eb7096f1333907620586a911f4398829aaf022c249b0309e4cd112108e8721282087fd74d6c1b2dc476d0cccfc816207a4f5217b04de508ef921fc213a1089495f5aff56ad397a606b0c8f9df395027e9f5c6958f8ec4e8a523579e9d0ccfde6f8b4e38c30d3267b92eb73da802c3e7eaa4e8f856d2b204803817a2f7b6f65bed3eb9cd26378ddb363f382be5472c2c79b9a76ea9a991d7bfca185c6f1821809660e15dd0edac76a34d325d8766be553d6a418c88cfa7bae80e19731115eaaae31d0be6cb2dc0e0e48524160ecfd520fe1badf52eef50ffa91433670e0ca7e54b83c64a245807f86f50a753ccb27b4272388007b2520dee8bcfd433dddcbfc6c42ef0210e93fab9c45cb882a636e51d9a81c9f8f98dfc1d735a3b81e704eab6e4d041a8c81cb90c73cc484adeafd719b5eaaa5be4ade5f24d808cacf92a31ef6afb701d21547438ae0214eb6cef79a2575a5bd5fb30d44602385b8eda566ef62f71d4ebab2e20d57a52e70384ab1410bf4975a92b4d0beae174ecc661760482872b63859f04c476679517e18d603de3ad57a6a7369bd179ea7129cd37763cd3890784976037e636beb34a61ef5290bb95960a62a8aa9aafaab572e830af3e244a3584eef8042d91e537e5d170ebec247235fb6531d8833eaf1510f2b94c0623eea23e69fc28df873cd321a0b7496e6c47beeb9a46ab23a9edf110e24f2d9b0b4f094047d1ad9dd4a7859eceec98a223ed4815a7a6d649585f7399e844d9a0044589c83e0ef1d8b3be76f61a8429f1554bd3968105fe8c65dbd6bc1a5e90f85a70ed11a28610afdb8f6a74c0001b42c53619dc529be10b1cdd0c91392b481767eb6627b7842cb1a68f1c7f546f87c78689946693681285e9999bbd533e22b21b621685677127fbab864dcd98a69ad3ac3e8f3d2b6ce17046195dc6ab1ec860ebd0c79a5b7a8818cd5b1f9444609197c60cae9e3c34dff7dd509ea239e168a5ab5d9c78c7224999bcb4a23fae716d0133bb8781273f19c351e8cd2abc3f5d3a51055c312531b26a8e9779df29878fe6fcdeb3eabfc20b824bb4058b32b99d76007381ecaa323da57e3aeca1a4e3c6a9564c654a6a8f45d4c2a7fcf1bf10706f4bd6da5fed6a02c3765f102dab238a05754f6ccafbf64f742f9cb83d45c26bd22a6a20dfb40b7d2846ce5ba3276291603b5f45107e9b8003228ff3c8423265564a7bf2fd024c82bfb87981d3be65dab7ada6d0d55d2f0a29f40bfee480fcd9fb200729c3fdbc6d31dece1a49148761766010df6f0d8c831d04d47a58053fb546e7eb86d127e8943754ba4f3a7b715658fb9b3e66739c8106b91794b4b47ecf8df1ba262097bc5468e3511217f2d9abf79fc88dc7cd4fce57072c04efa9b31fd2f44c4e85ebd3d918372c6b54494d3a09cb0574f82e33e9f8c3903708e4c7ab0255d61f7c6c4e3a037322366bb32575d5ebfd99544a0196d24bf903f8ac14dbd10a65c15b63f7d74e80d05f202dded4a34f0e1f7c639839986ff9d02d5df9e151c5e72eb7d60e32be2ebd57f3c0915e089e8de7e681e4e5ca8a981bf224037b899a3743a4016111062e05ef4fde9725be1554d9a8cfa27d848b10ea4ec108e91c90199caefb901bf011a5398238a9e66058d003741c3fb1ac88ccd6654c482f5755f8076fef93f0907f3f8c347b3f98453e1e532dd36619ba692f92af0ede2fb1093bb469e8c692da43429a91e6544e18517e7f65ee2d9826e747f58db15ba4ef15f4d6bfa83d4a606ca77172313638291bf25d4e303868e1b6f27a501b8ff7620edb93685cd157aac949da91aa7940e6d4eb4068d2d18fce1b2df18f5fd0982d8ba71d1c4fa4abe2903d062aeaa9aad72ddaa89a22ea22f06cddfaa7c32e538d839fa4f04208371627759b89f159348f7e061cc6ebcb92a598927cbb73641d2d568ed700ae0e8ea5ef72228aed3ceb7fbb292949fe45d3d52d7766ad92827ed2a4fdcd49564dfc08776dbcc9b46cf82bd4b443eb20511a1830159ece0c722fc2c1c10796609cfaaf4f6425490be9189f351f4666e53a9a972d2936b61e683c3b641f8a24345a4a6bfe84e6e5bfc0a6c9096caec7e49b527599a7f52a7fb54067d9471955693ceae4fd123a915fc4f25ab9011858bf4c5686140e0149c49fe485ada6b70aef978ddfc1be93fb42825eb27d767adf7a090bf7220c9889a19b6e143f36381d0a69700af695cbd85fcd8fc1d3bb34ebb186f31755cd28c593686cf3176ddfcecfbcdb2b44ceafae16760e20c2384edfaed4c9e0050dc630ccb1f6cb9ad7031fca97bd36a01bb2ab6ad74f2b9bd7ea45e228eee950b51f6413d6154f047ad1a2be9144a53884a735d373fc969c64a0a3aea791383fa3dc4f0f37d5dcca53b32fed599488fd17a91d1d14f68fa72cb12703ebb27e4ba59b18144e157fbacf6edc1a1eb5be5038a0237f1d3ba77aa6c11a293aa601deb65907795c5be0c9c0667a33b58410451e1fc04141c5be59888d6c7d1525983f9de67212822b3c2ee25904f88f86b4f82a530e4febe68538d117ad3e416de2b558afb19441f24d60da2933f1f16a433e372f748579601bfd6f4ce2ba63a354c4643870d4c95a2fd404427443d0ad0761c7dfac709b5f34507bb107a733a5b855f3bd3ee4b372825c1f3d0c5cead6611ac715cfd290b7d7fb35854ac5cede266bfc9a4aa14d61b2111838b6ed3fbd9fa35c763a977f40b9bb3dac52a389340ab0d52d94a2b21d6d36b904d59db5b9e78f5e38fede08f64833444a359168c3540f309ea60343e61c9c9d1527941851674bd4479dab5497010d2b1bc6c361ad4a00b709b23f3b7f61726a9c2869023524bfa5b6ea53f134574873e9df8df720d5e1bf77f09c704979744f0bcb9e14188b2a00ffc87edbc4ac3d9b421adf5cee9633a4419f216f86144e7b6d221a8373ad0031425da5fb7903897d6f5f449c1d54acb5df646a4f75e3f07706c8053970eb8ac6e4703f1a877b96281a36bf1005a8e8443119fb1450e0edb087b317f8b177b98d73ee34422bf22b1bc65d050f01e24c08e1556dccae940ed2279bb60ae19db9a6563724a7048e98afa51db576222f0987ac49b8bab12d7a673e0c350a9a4587ffd53bc618d27e8acd268abdf490efa8cd69a366f4c7e4898984623ae25d1ae24b12ab71eba16657f5baceb952dd7a296b08bbfaae99fedac812f3c85fa701d3aba64d6fd19aaa341f89b4b4af181a4340d00ee30cc9e3c5f41277f2cb66bb20dba7c7143a17acf58ccb62dd4d0afc197e4a2c48a7eb095e0acfafde3c6ad7d547634b87d7986c54b3e3cd39b8e92cb360c54d46c76e1688871db7041605b66d50aab11461e607f4746c65ebf6441df74fea1f348a9e69ad1d56af489dbc9656b37e827433e9643e437e028ab782f6b01e00aba6fee9301bf04aa7507daa9dfbd0d9439a94112e9f8f97a30bf169aa78d2f58182270a8755d7f518302c65bc2753e437bb5ce78a5de006df8b8e9c82cf4471fc9036b24c892e30414cce645e65f8e74916f4a4d366ad0736d5a6f397a82e6ef6d91aa718a002573760f85879a1f4271cda3ddb13ee96b5fde740c5d98c00cfb229292c36b2116f6385f4c00f1c44adcdc212b6b550473ac8d15c204c25f5fbfb3d61358567749a498328cbc5c0a3c543512c4c344a064c2311cc0dae1320510bcd42d87adf49a5ac83a04912213859118c1a759ae4e80778774ad92f4fbe9af7be9e6b205915c9c83e210d683110227ddf45c9d4c537862118ec36a35c875da10ae45060ff4cb4c8fd24526342bcfb29f5ef8838543eb5baccf09617bfc0ecd7de9b2fc963aaf756f64f2cfeb17c6b1bceca9707210352d3bfb471dc6e90fb05b39292e823a9bc9d5b62e0f7994869c426d676d2bece54fbecc28c5f9e6a23413dfe9678603a19c3f379eedc80d994f9fec713a410fd04ab883b5757dc4ef17f9a2897f67027f494105d66eb37bf72381a6a29f4fd2d8e23442f890e7ede3b35616f2088acc62bddcbb068db89688c956be859cfbab6948bfb939f5c564e91ddf6323093ade81cc0fb0f63c62d22191209e309dac6daee9d0f8e38b59a7ead4a3e7d8407c37d497c9592e3cefee658143ee633e471ddb4eefac9ccffa25b2126c98c4e107b24d218fe7655bdb3f5a3c01bca5fed8f599471d51ce0409716e827c43751f1e9e91817aa80e51159eafea34a8eda026fb4c4b584255310951bc126365c32e846d4e73dcbdddc3071d854c35c03e921c3863e42c37ab732111b695f4343a6592f562266751943fa138b7b19165c94f34f8f2c6c60bd84510f6f75973f6bde09e64180e12cdd3170f73f24e6a68ab14fbb04002206959f673b7faf563523f4f422f6da4a96e0d8e47d0c08c367e30db3c483ee1803da1d9fec93ed54422e79b08b18c805511a97533f2f87dadf6ae47ec8c47b5d4eb650e59497b92e00466b90cf21f4191930fa4f53b6fbcf94a33439697725cf47f9d7ccdd3e61db84832d1fc4bf1107b4f6e71fcd834a56ce9c52e442a64adc51c49ac5fd7cfeab7b41e1f63580a3f4837684b227bc69881b121daae46ea5e49b90d849708787fdd570ba6c6c820bd603686303fcf9b5f5d515b3aded935d1fb9c71790ad61396c96440edcc95f4fdff6568c90ebf7f032ac95c5b1c17f62a61e2ed2a3117c5272d58d6fac6bf3fc368a59c51e7befae5832b85c3ec434212c8e6b52d1cc85a2a31c38ad905e59b</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>语言</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>语言学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>追番补番最佳体验教程。网盘挂载，三方弹幕🧐</title>
-    <url>/2024/12/19/%E6%9C%80%E8%88%92%E6%9C%8D%E7%9A%84%E7%9C%8B%E7%95%AA%E8%A7%82%E5%BD%B1%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>因为现在国内的视频网站码率压得太狠了，B站的码率在国内已经算是高的了，但也依旧达不到正经的1080P画质标准，1080P还不如YouTube的720P。 </p>
-<p>详情可以看视频 👉 <a href="https://www.bilibili.com/video/BV1nW4y1V7kR/">视频网站的“蓝光”是怎么骗你的？——视频画质全解析【柴知道】</a></p>
-<p>这篇2020年的文章也早就说明了国内视频网站画质下降是必然的结果了 👉 <a href="https://www.huxiu.com/article/368600.html">谁也成为不了中国的 YouTube</a></p>
-<p><strong>省流：谷歌一家独大，对全球各国众多宽带运营商议价能力极强，实现了油管的0宽带成本，而B站没有这个优势。</strong></p>
-<p>而且因为国内审核的因素，模糊的审核标准，让国内大部分网站进行自我阉割，老番删减的删减，下架的下架，支持正版反倒成为了正版受害者。</p>
-<p>综上所述，B站已经不是追番的好选择了，不过补番的话，有些许的漏网之鱼还是能看的。</p>
-<p>教程的流程主要分以下三步走：</p>
-<ol>
-<li>本地挂载云盘</li>
-<li>资源搜寻</li>
-<li>弹幕观看</li>
-</ol>
-<p>目标结果如图所示：<img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/watchAnimeUltimateGoal.webp" alt="目标结果展示"></p>
-<p>ps：哥们之前是磁力下载党，等字幕组更新后再下载下来后做种，穷哥们的单硬盘电脑健康顶不住了，虽然并不影响使用，但硬盘健康度掉了就是绷不住啊😢</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/hardDriveHealthStatus.png" alt="hardDriveHealthStatus"></p>
-<h2 id="本地挂载云盘"><a href="#本地挂载云盘" class="headerlink" title="本地挂载云盘"></a>本地挂载云盘</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>AList 是一个支持多个存储提供商，包括本地存储、阿里云盘、OneDrive、Google Drive 等，支持网页浏览和 WebDAV 的文件列表软件，由 gin 和 Solidjs 驱动。简单的来说就是能够帮你整合管理各种云盘。当然，AList 除了支持网盘存储之外，还支持对象存储，本地存储，FTP 等等。</p>
-<p>通俗来说，就是可以让你以本地文件的形式来管理云端文件。</p>
-<h3 id="下载-Alist："><a href="#下载-Alist：" class="headerlink" title="下载 Alist："></a>下载 <a href="https://github.com/alist-org/alist/releases">Alist</a>：</h3><ol>
-<li><p>以64位的 Windows 为例，下载指定版本：Dalist-windows-amd64.zip  </p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_01.png"></p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_02.png"></p>
-</li>
-<li><p>解压 alist.exe 放入到新文件夹中，在路径栏输入 cmd 回车运行。<br><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_03.png"></p>
-</li>
-<li><p>在命令行输入 alist start ，设置自定义密码后浏览器打开：127.0.0.1:5244。（注意不要关闭终端窗口，若要关闭窗口，执行命令 alist.exe server 启动全局服务后方可关闭）</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_04.png" alt="PixPin_2024-12-19_02-09-58"></p>
-</li>
-</ol>
-<h3 id="登录-Alist"><a href="#登录-Alist" class="headerlink" title="登录 Alist"></a>登录 Alist</h3><ol>
-<li><p>初始用户名默认是：admin ，初始密码为之前设置的自定义密码（114514）<br><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_05.png"></p>
-</li>
-<li><p>登录成功后，进入管理修改用户名和密码  </p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_06.png"></p>
-</li>
-</ol>
-<h3 id="添加网盘"><a href="#添加网盘" class="headerlink" title="添加网盘"></a>添加网盘</h3><ol>
-<li><p>以 夸克网盘 为例<br><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_08.png"></p>
-</li>
-<li><p>用chrome浏览器打开F12控制台，其它浏览器F12控制台网络里的请求可能为空，再登录即可获取到所需的cookie</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_07.png"></p>
-</li>
-<li><p>代理为本地代理，粘贴从浏览器复制到的cookie即可</p>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_09.png"></p>
-</li>
-<li><p>更多网盘挂载方法，请查看<a href="https://alist.nn.ci/zh/guide/drivers/common.html">官方文档</a></p>
-</li>
-</ol>
-<h3 id="安装-RaiDrive："><a href="#安装-RaiDrive：" class="headerlink" title="安装 RaiDrive："></a>安装 <a href="https://www.raidrive.com/">RaiDrive</a>：</h3><p>安装完成后，点击添加 → 选择 NAS → WebDav → 然后取消地址选项，在<code>http://</code>处填入 127.0.0.1，端口：5244，路径：&#x2F;dav → 最后填写 Alist 账号和密码，点击连接即可。<br><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/alist_mount_10.png"></p>
-<h3 id="设置-Alist-开机自启"><a href="#设置-Alist-开机自启" class="headerlink" title="设置 Alist 开机自启"></a>设置 Alist 开机自启</h3><p>每次使用，都需要通过 cmd 运行程序很繁琐。所以，我们最好设置 alist.exe 开机自启动</p>
-<ol>
-<li><p>在 alist 目录下新建一个文本文档，将以下代码复制进去，然后将文件重命名为 alist.vbs</p>
-<figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Set</span> ws = <span class="built_in">CreateObject</span>(<span class="string">&quot;Wscript.Shell&quot;</span>) </span><br><span class="line">ws.run <span class="string">&quot;alist.exe server&quot;</span>,vbhide</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意：\alist.exe server 前面是你本机 alist.exe 所在的文件路径地址</p>
-<p>注意：文本文档重命名为 alist.vbs 前，必须有打开文件扩展名，将. txt 修改成. vbs</p>
-</li>
-<li><p>鼠标右键 alist.vbs，创建快捷方式</p>
-<p>然后 Win+R 打开命令窗口，输入 shell:startup 后回车，将刚创建的 alist.vbs 快捷方式粘贴到打开的文件夹中。</p>
-<p>这样，Alist 开机自启动就大功告成了。每次开机时网络位置都会自动挂载云盘。</p>
-</li>
-</ol>
-<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/alist_mount_11.png"></p>
-<h2 id="番剧资源搜寻"><a href="#番剧资源搜寻" class="headerlink" title="番剧资源搜寻"></a>番剧资源搜寻</h2><h3 id="追番"><a href="#追番" class="headerlink" title="追番"></a>追番</h3><p>曾经第三方阿里云盘不限速的时候，非常好用，现在就剩下夸克网盘能用了，番剧的更新速度非常快，几乎和磁力种子的发布速度一致，而且各个汉化组的资源都有，想要体验中日双语的话，可以等待自己喜欢的字幕组更新。</p>
-<p>新番实时更新文档 <a href="https://link3.cc/ruach">Ruach. | Link3</a></p>
-<p>新番夸克文档：<a href="https://docs.qq.com/doc/DRHpGcnBJbWRTemh3">日漫新番文档 夸克</a></p>
-<h3 id="补番"><a href="#补番" class="headerlink" title="补番"></a>补番</h3><p>番剧完结后，会出售画质更高的BD，动画基本上会根据BD的销售量来判断会不会有续作<del>(游戏人生:你说什么？😄)</del>，相比于网络版，BD有画面修正和更高的画质。</p>
-<p>压制组和字幕组合作压制出来的资源，有专门的压制组出来的资源没有字幕，</p>
-<p>这时候就需要自己来寻找字幕了，英剧美剧什么的，人人影视，射手字幕网都有。</p>
-<p>外挂字幕，字体缺失的话，番剧的字体就会使用电脑的默认字体</p>
-<p>动漫字幕论坛：<a href="https://bbs.acgrip.com/">Anime字幕论坛 - Powered by Discuz!</a></p>
-<p>动漫资源论坛：<a href="https://www.tsdm39.com/forum.php">天使动漫论坛-梦开始的地方</a></p>
-<p>电报频道：<a href="https://t.me/YXHMd">高画质动漫分享 Anime share</a></p>
-<h2 id="弹幕"><a href="#弹幕" class="headerlink" title="弹幕"></a>弹幕</h2><h3 id="B站下载弹幕本地观看"><a href="#B站下载弹幕本地观看" class="headerlink" title="B站下载弹幕本地观看"></a>B站下载弹幕本地观看</h3><p>合并短时间内出现的重复弹幕，优化观看体验</p>
-<p><a href="https://github.com/xmcp/pakku.js?tab=readme-ov-file">pakku.js: 拯救B站的弹幕体验！</a></p>
-<p>下载弹幕，也可以用来下载视频，字幕。</p>
-<p><a href="https://github.com/the1812/Bilibili-Evolved">Bilibili-Evolved: 强大的哔哩哔哩增强脚本</a></p>
-<h3 id="弹弹play"><a href="#弹弹play" class="headerlink" title="弹弹play"></a>弹弹play</h3><p>可以用弹弹play，保存了B站大部分下架了的老番剧的弹幕，新番还可以直链视频网页弹幕，B站弹幕，台湾巴哈姆特动画疯的弹幕。不过正常新番不建议外挂用B站的弹幕。</p>
-<p>现在B站新番删减和谐严重，而且弹幕低龄化也是问题，容易弹幕和画面不一致的情况，不过B站港澳台的弹幕还是可以一用的。</p>
-<p><a href="https://www.dandanplay.com/">弹弹play - 全功能“本地视频+弹幕”播放器</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>资源检索</tag>
-        <tag>番剧</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue</title>
     <url>/2023/08/06/Vue/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Vue介绍"><a href="#Vue介绍" class="headerlink" title="Vue介绍"></a>Vue介绍</h2><blockquote>
@@ -9879,6 +9639,246 @@
       <tags>
         <tag>编程</tag>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新世纪🀄文学习指南💯</title>
+    <url>/2024/12/13/%E6%96%B0%E4%B8%96%E7%BA%AA%E4%B8%AD%E6%96%87%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试.（提示：勿忘国耻😢）" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="129fa600bb333a6cfe29c24e7356f23a77e1b40c4280589338e4c12a027b24df">f1361f5d8850aea0e378713933613951c3bfacb10f1d4a0ee323dd45d4a617a35377708b12003bdb480101d606d05e89e083deeea1b54b9a696a026d2a966fdcafb6b26b4f89970dc879ac48cbe3fa86da5dacc6be1d623d00d23853bba9f3948d31e960b82b06d95b55543db87761b67a6f819f19d224fcb0da024254f20814b97acfc0cf9f4607cebd0e617dd263e757f06e953e277f1510821eba73494ad074ff610f3274fe49886656e8faccc9c1f6922e251cc59dfb7e4e6682bbfa67b0bfd6d7e2c5cfee391eefa36a0e63a73d442edfbec289d9cdadab02598cfed8e7de9e90ef6a84e5b7c9e1a84320a063cfd7a6f57164848ad27c0c7ef47f0ea5a9187bff0be5b944bf9a02e2edc20387138651af22e3edd1635266ece97b33fc703e23fd4520a04ae97653e0278603b65a12d98547b84061b247763aa541fa8018bbbb5b77b758f46e633b2caab083a3234f1a5717da8b0755fc4506bca9e642d96d19d45ce7a1814e43908c392cc625987011de936536e7fab5185eb22213ab21d8bbf417bb08933137565ddb78313a3b464c9cc5b13d28adca0d5285b2a99d57ddbe1220f557be9068d84fc8d3bfa8236b859001677157925e608cddd751aa6c10f8d26558b4e80afb87da4684b19e5982c55fe62424e3cd0e7def4610b4ca5972e0fd722dd753c25d6ca2b7572de5ae21c2c74d0dc11947d36872a4dea48997304f364c243e661d016ff87fdcc94e7079a3640939bcf26045fa2d47e1fd9b05ddc1c9f84fcbe0f49ab21b098a7c2b95db5a7c67f7dc7c6989d5696878dcf09806292dd21ef777837116884e179e28efca193bf32cf82d281954346459890ab15f655628959ddd854386b89b8c8b933aa487ed08f4be94480bcbd7bb83a8999aa6d1f45caac6386b48e2c33993eb20c5e3d12175806d0af3c6f4368eb3f0291379138359a63699bece97872de1e32f7e2b7949c9c725849bf618f5fb0853565d42908ff07d471481476b767ca02d174082e7604000a940ec801465bda0e1dadd9f7cc450d74b46791a411150296437cc2c0a2c453a2b2b01477e51f80a52dd11937428140dbd3c0ab303ff03832142d68ab6cf0e8b3a7cd231a13d2ee6abb752bddae8964d7717a85cef229c0e84c661dd3b1c273b47f7ebfcfee4d459e5c10fe9da41b91947a8e8410b6ac0dc1ee5f54e997b366dbec1ac28e8e9774de84792274c9769be7242a1a22eb699228dc9570eb7d8c200a79a7213ba766d9999cdb93861ae4ec1c5b974cf4b18f2780d0953e9419b5dacd8f109cc0eecc5d851f6680b88f0e29f351f1adc59b0e51a957ae3adc089c425731a42a2188f7dd89f56989b156efa55c35e104fcb81a73270d8de1a47c58e800e45c28b298afb4e5f37a40b10a1f264dabe623116ebe31e0bc4d972f111f7677abc92e6e671e276efcd05b93145283d000bed401b9295ec591132957a95f3bb9e08e7f5735b0742dba47ddcac49b6f2cbc294ea4de0c81d72ad963f3d5b534861fcaf4e3aff698a668da2100426efe48345074de1c37bd3f2212ef6aa6f0c9a79e287771789548d6778fac26ecf9f8974792045c806a7c415423321bc9ef3704812ea1a3e90a30858a62d0e247edc851c2d54a1b07ffe32a35dd9eec0781ea0ac4da2b841c046ec49bb6d91ef304866ea1227c35739855df40bd036d876d0bfa2d9c772d9e2237d6dcd446e5fc144fe3434c27dbdc964275e13d62f3b655d4470fee34dc0259895891d8860789885f8f0b70ab99564292ca2e9b2f9f14c567753983fd164412cda25cbc196855723b493ce7d2859aa9e0c2b463ddb2017ca331deb5acace8fd7d25442841f37106c1530cbb5921af10456aac07b58aa3ec356cac24cc2ebf636e53b631ebbd96b58f446e4eef6f42e5d8e03873dee5fe3cfcd8fe59f53e091f6fc668478d255c5f2a2c93361ad1a0a895490e55d3db25db764dc4fc2c98b08b1dcb51e739815a0172cbb9b3b81eee76de4708e68c1ea4eb2084aa4bbcf4932ee78fc0e24bb20aaafc045bc28a7d1d25ef2152ddf2274c028ef71f70ea042f4bae2b4c85085198eef2798e10541e358b634c7db363335a7690099488e6746acbab21a9b93f66ecd939f88c55fc7844ff7c9c0198750807938cdbadebaffcd901e89859970dd332833a2a5793f6c0f04c6bbcd96011e27087ad1cb52a5ac7874a9f97ee82bd00775e1d5b7e33a9890208703b98d0c90d74d2132ccebdd62b4f80dc6b67771c668fde9778857c3575999511a4a810e6669ba99866e50d966621186fa48ca6c877b83ea68f142f1be80094d8b585ad0e919e250cd1b21744b85c1d654bc4fc02bc5d499478710e2415303d8d53e63b02f4c59c45062a5f1579bad47f0a909d181bf41289c092a7d08b1a3a3b88f9b78e2477d5bc1ed924ffff180c8e271455199ecd1928cae7319e8ab8c7ce09b74f13c92116c79874c4d9314a7e344a13412d0515e53623af906dd1e2626c9494f19ed9362c4384528363fba4ec25b11e54a61343f2b19ec6a6ea841ab993f13e68582eadffcc449175f125bc49eaeb8f3eb7096f1333907620586a911f4398829aaf022c249b0309e4cd112108e8721282087fd74d6c1b2dc476d0cccfc816207a4f5217b04de508ef921fc213a1089495f5aff56ad397a606b0c8f9df395027e9f5c6958f8ec4e8a523579e9d0ccfde6f8b4e38c30d3267b92eb73da802c3e7eaa4e8f856d2b204803817a2f7b6f65bed3eb9cd26378ddb363f382be5472c2c79b9a76ea9a991d7bfca185c6f1821809660e15dd0edac76a34d325d8766be553d6a418c88cfa7bae80e19731115eaaae31d0be6cb2dc0e0e48524160ecfd520fe1badf52eef50ffa91433670e0ca7e54b83c64a245807f86f50a753ccb27b4272388007b2520dee8bcfd433dddcbfc6c42ef0210e93fab9c45cb882a636e51d9a81c9f8f98dfc1d735a3b81e704eab6e4d041a8c81cb90c73cc484adeafd719b5eaaa5be4ade5f24d808cacf92a31ef6afb701d21547438ae0214eb6cef79a2575a5bd5fb30d44602385b8eda566ef62f71d4ebab2e20d57a52e70384ab1410bf4975a92b4d0beae174ecc661760482872b63859f04c476679517e18d603de3ad57a6a7369bd179ea7129cd37763cd3890784976037e636beb34a61ef5290bb95960a62a8aa9aafaab572e830af3e244a3584eef8042d91e537e5d170ebec247235fb6531d8833eaf1510f2b94c0623eea23e69fc28df873cd321a0b7496e6c47beeb9a46ab23a9edf110e24f2d9b0b4f094047d1ad9dd4a7859eceec98a223ed4815a7a6d649585f7399e844d9a0044589c83e0ef1d8b3be76f61a8429f1554bd3968105fe8c65dbd6bc1a5e90f85a70ed11a28610afdb8f6a74c0001b42c53619dc529be10b1cdd0c91392b481767eb6627b7842cb1a68f1c7f546f87c78689946693681285e9999bbd533e22b21b621685677127fbab864dcd98a69ad3ac3e8f3d2b6ce17046195dc6ab1ec860ebd0c79a5b7a8818cd5b1f9444609197c60cae9e3c34dff7dd509ea239e168a5ab5d9c78c7224999bcb4a23fae716d0133bb8781273f19c351e8cd2abc3f5d3a51055c312531b26a8e9779df29878fe6fcdeb3eabfc20b824bb4058b32b99d76007381ecaa323da57e3aeca1a4e3c6a9564c654a6a8f45d4c2a7fcf1bf10706f4bd6da5fed6a02c3765f102dab238a05754f6ccafbf64f742f9cb83d45c26bd22a6a20dfb40b7d2846ce5ba3276291603b5f45107e9b8003228ff3c8423265564a7bf2fd024c82bfb87981d3be65dab7ada6d0d55d2f0a29f40bfee480fcd9fb200729c3fdbc6d31dece1a49148761766010df6f0d8c831d04d47a58053fb546e7eb86d127e8943754ba4f3a7b715658fb9b3e66739c8106b91794b4b47ecf8df1ba262097bc5468e3511217f2d9abf79fc88dc7cd4fce57072c04efa9b31fd2f44c4e85ebd3d918372c6b54494d3a09cb0574f82e33e9f8c3903708e4c7ab0255d61f7c6c4e3a037322366bb32575d5ebfd99544a0196d24bf903f8ac14dbd10a65c15b63f7d74e80d05f202dded4a34f0e1f7c639839986ff9d02d5df9e151c5e72eb7d60e32be2ebd57f3c0915e089e8de7e681e4e5ca8a981bf224037b899a3743a4016111062e05ef4fde9725be1554d9a8cfa27d848b10ea4ec108e91c90199caefb901bf011a5398238a9e66058d003741c3fb1ac88ccd6654c482f5755f8076fef93f0907f3f8c347b3f98453e1e532dd36619ba692f92af0ede2fb1093bb469e8c692da43429a91e6544e18517e7f65ee2d9826e747f58db15ba4ef15f4d6bfa83d4a606ca77172313638291bf25d4e303868e1b6f27a501b8ff7620edb93685cd157aac949da91aa7940e6d4eb4068d2d18fce1b2df18f5fd0982d8ba71d1c4fa4abe2903d062aeaa9aad72ddaa89a22ea22f06cddfaa7c32e538d839fa4f04208371627759b89f159348f7e061cc6ebcb92a598927cbb73641d2d568ed700ae0e8ea5ef72228aed3ceb7fbb292949fe45d3d52d7766ad92827ed2a4fdcd49564dfc08776dbcc9b46cf82bd4b443eb20511a1830159ece0c722fc2c1c10796609cfaaf4f6425490be9189f351f4666e53a9a972d2936b61e683c3b641f8a24345a4a6bfe84e6e5bfc0a6c9096caec7e49b527599a7f52a7fb54067d9471955693ceae4fd123a915fc4f25ab9011858bf4c5686140e0149c49fe485ada6b70aef978ddfc1be93fb42825eb27d767adf7a090bf7220c9889a19b6e143f36381d0a69700af695cbd85fcd8fc1d3bb34ebb186f31755cd28c593686cf3176ddfcecfbcdb2b44ceafae16760e20c2384edfaed4c9e0050dc630ccb1f6cb9ad7031fca97bd36a01bb2ab6ad74f2b9bd7ea45e228eee950b51f6413d6154f047ad1a2be9144a53884a735d373fc969c64a0a3aea791383fa3dc4f0f37d5dcca53b32fed599488fd17a91d1d14f68fa72cb12703ebb27e4ba59b18144e157fbacf6edc1a1eb5be5038a0237f1d3ba77aa6c11a293aa601deb65907795c5be0c9c0667a33b58410451e1fc04141c5be59888d6c7d1525983f9de67212822b3c2ee25904f88f86b4f82a530e4febe68538d117ad3e416de2b558afb19441f24d60da2933f1f16a433e372f748579601bfd6f4ce2ba63a354c4643870d4c95a2fd404427443d0ad0761c7dfac709b5f34507bb107a733a5b855f3bd3ee4b372825c1f3d0c5cead6611ac715cfd290b7d7fb35854ac5cede266bfc9a4aa14d61b2111838b6ed3fbd9fa35c763a977f40b9bb3dac52a389340ab0d52d94a2b21d6d36b904d59db5b9e78f5e38fede08f64833444a359168c3540f309ea60343e61c9c9d1527941851674bd4479dab5497010d2b1bc6c361ad4a00b709b23f3b7f61726a9c2869023524bfa5b6ea53f134574873e9df8df720d5e1bf77f09c704979744f0bcb9e14188b2a00ffc87edbc4ac3d9b421adf5cee9633a4419f216f86144e7b6d221a8373ad0031425da5fb7903897d6f5f449c1d54acb5df646a4f75e3f07706c8053970eb8ac6e4703f1a877b96281a36bf1005a8e8443119fb1450e0edb087b317f8b177b98d73ee34422bf22b1bc65d050f01e24c08e1556dccae940ed2279bb60ae19db9a6563724a7048e98afa51db576222f0987ac49b8bab12d7a673e0c350a9a4587ffd53bc618d27e8acd268abdf490efa8cd69a366f4c7e4898984623ae25d1ae24b12ab71eba16657f5baceb952dd7a296b08bbfaae99fedac812f3c85fa701d3aba64d6fd19aaa341f89b4b4af181a4340d00ee30cc9e3c5f41277f2cb66bb20dba7c7143a17acf58ccb62dd4d0afc197e4a2c48a7eb095e0acfafde3c6ad7d547634b87d7986c54b3e3cd39b8e92cb360c54d46c76e1688871db7041605b66d50aab11461e607f4746c65ebf6441df74fea1f348a9e69ad1d55d1eb46a1af64bd13f65b789e5a2686e6f08f50a915e606acde72340c72953b7e6c3cd210453a93a7d73ce5e114d3756e848f7578a9e34dcc9ed5c68616f8502ef40c965a8cf4c3b4c1e343b47e6b051aaaabef69683f650b7f6e919af41a402989ce2725464e3d20f4b87ba3b11c8a6c1493fe591377e91cf6627b18b63e4ddc44fec9e760b7f85b5c325f79556620707e9292877a2157221abd8f0263a38650d146c58acd379ce68dfed5c208b73ee199bf296f1020b7fec578ad72f4b18b6163a7c495aedb182b9f15927a9a0d0bde22531b1164945ea5bfb8c6beb917f4fcd391c6bb81218dbe59e9aaec099b7c82bfe86a0b4df080cff2c20c2de7e34b08ae3195a4dbc2ba7d46b5bc1da9c726a3ec7385aa3e4ce96606e2d416e8136d9d17e70598a10b954e50b68e60e7082a90ee8de9d3ac520e6a0048f5756a704fb4b474792694bc4308adc9e566ca70dcadab175605f33f4c93cd74d311a8e5ad0090f83595e80c9e1552c83a96f4d8b16c41cecedab4083ff27fdabd9cef6cb3d1e69ccd3b280ae9f05fab143935661657d2493f78a520cbb30671d680c808efe782b04731abf35bc5f306405a457c9069ccb5406601e07887a83b736509c2630e65a66a7f3e74ac39bc9472dc2f7650766b63fde9f58a1a586276e1f106cb77de8debe60af9109e18f3b7a6ffd8f432e9e01f962a349eaf67919df7611e23ba5f5b4b70c49267f9b5fe03e25f457c5303fdeb0f829958853bd08f1a401ffc43e1a508b4083cfa624ac717e611f6f0012388abecd8993fb8419e21c9c0de306636f80108de635c995a03d0d1c751901c06ad121d10f5bfd925baada6732d50c02cbb58d5459a59f13e4fbc630a2718aee56cbe2a06294116674995990038100f77fa5a343f53aee0b551f5161ce38605e69aa445c57aaa4832f1fa86c744523d45af25fd23cf1b128f1e5c2ba5bf649ad19f4ca1caf4900498eeced41b008b1131a6d284538484b5578618d7584c04076b0441eee51e90da24859be163a9fcb50c7ef4243155c3a59781be73e045cc034b1bb9fa7b875d01caccf00c41bec14e917a426a5148c83f60eed4ba811f400e6bfae8342a5cc1685c77b85c97b62b119060b1be869f04c6f5c7af865910b7d9e0c9406d7db1a2921f8d5a3c74cdf3b79615fc80508158bb71898d0833aa4c6182194794d72b934a7c2521e63f19080f99b438672eba05e3b03c1ab7b41de2ef3c02a03f114d2bbcb7540059efa93f83d0e073dff0fc7df8f479252199e2ab6a0f9692ab7518688c252dd00e6b50c85322d7d779ac2e96643f966112c1dd7e8a6c787b5a010f321b89c7e4f2164ca0be6</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>语言</category>
+      </categories>
+      <tags>
+        <tag>语言学习</tag>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>无损音乐下载收听指南 p😭q</title>
+    <url>/2024/12/13/%E6%97%A0%E6%8D%9F%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><h2 id="富哥"><a href="#富哥" class="headerlink" title="富哥"></a>富哥</h2><h3 id="实体CD"><a href="#实体CD" class="headerlink" title="实体CD"></a>实体CD</h3><p>直接买实体CD，再扫盘提取为数据格式。你问我该怎么扫盘提取？我又没钱买CD😅</p>
+<h3 id="单曲购买下载"><a href="#单曲购买下载" class="headerlink" title="单曲购买下载"></a>单曲购买下载</h3><p><a href="https://ototoy.jp/_/default/p/1230148">しぐれうい &#x2F; まだ雨はやまない - OTOTOY</a></p>
+<h2 id="流媒体下载"><a href="#流媒体下载" class="headerlink" title="流媒体下载"></a>流媒体下载</h2><p>花小钱充个vip就能解决的问题，什么？花了钱下载下来还是加密格式的，vip过期就听不了了，所以就剩下两个选择了😤</p>
+<h3 id="继续花钱续费-💲"><a href="#继续花钱续费-💲" class="headerlink" title="继续花钱续费 💲"></a>继续花钱续费 💲</h3><p>花钱解决问题是最简单的方式，钱不是万能的，但能花钱解决的问题为什么要动脑子呢？🤑</p>
+<h3 id="加密音乐解锁-🧐"><a href="#加密音乐解锁-🧐" class="headerlink" title="加密音乐解锁 🧐"></a>加密音乐解锁 🧐</h3><p>官网解锁👉 <a href="https://um-react.netlify.app/">音乐解锁 - Unlock Music</a></p>
+<p>官网解锁有可能会解锁失败，这时候就需要用到源代码来解锁。原来的GitHub仓库因为一些神秘因素下架了，这个是官方搭建的第三方仓库。 👉 <a href="https://git.unlock-music.dev/um">Unlock Music Project</a></p>
+<p>有条件直接进官方电报群组防丢失 👉 <a href="https://t.me/unlock_music_chat">音乐解锁</a> </p>
+<h4 id="解密后的音乐标签信息缺失"><a href="#解密后的音乐标签信息缺失" class="headerlink" title="解密后的音乐标签信息缺失"></a>解密后的音乐标签信息缺失</h4><p>👉 <a href="#construct">音乐标签信息</a></p>
+<h2 id="磁力下载"><a href="#磁力下载" class="headerlink" title="磁力下载"></a>磁力下载</h2><p>磁力下载的的种子来源一般为方案一的富哥流媒体购买或者扫盘提取出来的文件。</p>
+<h3 id="磁力搜索"><a href="#磁力搜索" class="headerlink" title="磁力搜索"></a>磁力搜索</h3><p>磁力下载的做种的一般是为整个专辑，只要搜索专辑名称，再选择下载自己所需要的歌曲就行了</p>
+<p>磁力聚合搜索下载 👉 <a href="https://www.aiosearch.com/">AIO Search - Search Torrents Sites</a></p>
+<h3 id="磁力下载-1"><a href="#磁力下载-1" class="headerlink" title="磁力下载"></a>磁力下载</h3><p>找到磁力链接后，尽量不要用迅雷下载，常见的 BT 客户端为以下两个：</p>
+<ul>
+<li><a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition">qBittorrent Enhanced</a>：一个轻量级的磁力下载客户端，界面简洁且没有广告。</li>
+<li><a href="https://www.bitcomet.com/en">BitComet</a>：传统的磁力下载工具，支持多种协议。</li>
+</ul>
+<p>添加 tracker 👉 <a href="https://trackerslist.com/#/zh">XIU2&#x2F;TrackersListCollection</a></p>
+<p>磁力下载的速度通常取决于资源的种子数和你的网络连接，tracker 可以帮助你链接到更多的用户</p>
+<h2 id="电报👮‍♂️"><a href="#电报👮‍♂️" class="headerlink" title="电报👮‍♂️"></a>电报👮‍♂️</h2><p>电报（Telegram）作为全球资源的聚集地，提供了几乎所有种类的资源下载，只要你有账号，有办法注册到账号，你都有账号了，不会连首歌都找不到吧😅</p>
+<p>你问我怎么注册？我不知道啊🥴</p>
+<h2 id="第三方网站下载"><a href="#第三方网站下载" class="headerlink" title="第三方网站下载"></a>第三方网站下载</h2><p>用户自发以网盘方式分享的音乐平台。代表网站👉 <a href="https://www.acgjc.com/">ACG漫音社</a></p>
+<p>数据来源为解析国内各大音乐平台，下载下来的源文件已经解密后的了。 代表网站👉 <a href="https://flac.life/">无损生活</a></p>
+<h2 id="其它下载方式"><a href="#其它下载方式" class="headerlink" title="其它下载方式"></a>其它下载方式</h2><ul>
+<li><p>电商平台购买音乐资源聚合包，一般购买后会直接把你拉网盘资源群里面，内部资源索引复杂冗余，想要定向找到自己的资源相当麻烦，</p>
+</li>
+<li><p>直接购买已经下好的音乐U盘，质量没保障，不推荐</p>
+</li>
+</ul>
+<h1 id="收听"><a href="#收听" class="headerlink" title="收听"></a>收听</h1><h2 id="音源判断"><a href="#音源判断" class="headerlink" title="音源判断"></a>音源判断</h2><p>这里我们可以使用声谱分析软件 <a href="https://www.spek.cc/p/download">Spek Download</a> 进行分析，项目Github地址：<a href="https://github.com/alexkay/spek">alexkay&#x2F;spek: Acoustic spectrum analyser</a></p>
+<h3 id="标准MP3声谱"><a href="#标准MP3声谱" class="headerlink" title="标准MP3声谱"></a>标准MP3声谱</h3><p>正常的mp3有损音频，高频段（15kHz 以上）缺失，声谱有明显的高频缺失，音源仅保留了人耳易察觉的部分</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum03.png"></p>
+<h3 id="无损音乐声谱"><a href="#无损音乐声谱" class="headerlink" title="无损音乐声谱"></a>无损音乐声谱</h3><p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum01.png"></p>
+<h4 id="1-文件信息"><a href="#1-文件信息" class="headerlink" title="1. 文件信息"></a><strong>1. 文件信息</strong></h4><p><strong>位置</strong>: <code>F:\Music\jp\しぐれうい - 鳴聖!! ロリ神レクイエム☆.flac</code><br><strong>格式</strong>: FLAC（Free Lossless Audio Codec，无损音频格式）<br><strong>采样率</strong>: 48,000 Hz<br><strong>比特深度</strong>: 24 位<br><strong>声道</strong>: 立体声（Channel 1&#x2F;2）<br><strong>窗口大小与窗函数</strong>：W:2048, F:Hann</p>
+<p>这些信息告诉我们，这是一首由 <strong>しぐれうい（时雨羽衣）</strong> 演唱的歌曲，采用 <strong>FLAC</strong> 编码，采样率为 <strong>48kHz</strong>，说明其高频部分理论上可以达到 <strong>24kHz</strong>（根据 <strong>Nyquist 采样定理</strong>，最高可还原 采样率&#x2F;2 的频率）。比特深度 24-bit 表示音频动态范围更大，通常用于高质量音频。分析过程中使用的 <strong>FFT 窗口大小</strong> 为 <strong>2048</strong>，使用 <strong>Hann 窗函数</strong> 进行频谱平滑处理。</p>
+<h4 id="2-频谱图基本构造"><a href="#2-频谱图基本构造" class="headerlink" title="2. 频谱图基本构造"></a><strong>2. 频谱图基本构造</strong></h4><p><strong>X 轴（水平方向）</strong>: <strong>时间 (0:00 - 4:33)</strong></p>
+<ul>
+<li>代表音频的时间进度，从 <strong>0:00</strong> 到 <strong>4:33</strong>，即整个音频文件的时长。</li>
+</ul>
+<p><strong>Y 轴（垂直方向）</strong>: <strong>频率 (0 kHz - 24 kHz)</strong></p>
+<ul>
+<li>从 <strong>0 kHz</strong>（低频）到 <strong>24 kHz</strong>（高频），用于表示声音的频率范围。</li>
+<li>人耳的听觉范围一般在 <strong>20 Hz - 20 kHz</strong>，高于 <strong>20 kHz</strong> 的部分通常对人耳不可闻。</li>
+</ul>
+<p><strong>颜色（强度）</strong>:</p>
+<ul>
+<li><strong>黄色&#x2F;白色</strong>：表示信号较强（接近 0 dB），音量较高。</li>
+<li><strong>红色</strong>：表示中等强度（约 -40 dB 至 -60 dB）。</li>
+<li><strong>蓝色&#x2F;紫色&#x2F;黑色</strong>：表示较弱或无信号（-80 dB 以下）。</li>
+</ul>
+<h4 id="3-具体频谱分析"><a href="#3-具体频谱分析" class="headerlink" title="3. 具体频谱分析"></a><strong>3. 具体频谱分析</strong></h4><ol>
+<li><strong>低频（0 - 5 kHz）</strong><ul>
+<li>该部分主要包含 <strong>鼓点、贝斯、低音人声</strong>，通常是音轨的核心基础。</li>
+<li>这里可以看到密集的红色和黄色区域，说明有较强的低频信号。</li>
+</ul>
+</li>
+<li><strong>中频（5 - 15 kHz）</strong><ul>
+<li>这部分是 <strong>人声、乐器（如吉他、钢琴）</strong> 主要频率所在区域。</li>
+<li>这里有大量红色和紫色的区域，说明该音频文件有人声和乐器的丰富细节。</li>
+</ul>
+</li>
+<li><strong>高频（15 - 24 kHz）</strong><ul>
+<li>这里通常是 <strong>金属乐器、环境氛围、空气感</strong> 的频率范围。</li>
+<li>可以看到高频仍然有信号（紫色、红色部分），但比中低频弱，说明音频质量较高，并未因有损压缩导致高频损失。</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-结论"><a href="#4-结论" class="headerlink" title="4. 结论"></a><strong>4. 结论</strong></h4><ol>
+<li><strong>音频质量</strong><ul>
+<li>该文件采用 FLAC 格式，<strong>无损音质</strong>，没有明显的高频削减，说明其来源质量较高。</li>
+<li>高频段（15kHz 以上）仍然有较多信息，没有像 MP3 等有损格式那样严重衰减，符合 48kHz 采样率的特性。</li>
+</ul>
+</li>
+<li><strong>歌曲动态</strong><ul>
+<li>频谱分布均衡，说明混音处理得当，保留了较多高频和低频信息。</li>
+<li>中高频段清晰，符合 <strong>J-POP 或 VTuber 曲风</strong> 的特点，即强调人声和电子乐器。</li>
+</ul>
+</li>
+</ol>
+<p>*根据歌曲的类型不同，无损音乐的声谱也会有所差异，比如歌曲本身就是抒情慢歌，声谱断断续续的也是正常的</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum02.png"></p>
+<h3 id="真假无损"><a href="#真假无损" class="headerlink" title="真假无损"></a>真假无损</h3><p>真无损和假无损声谱对比，假无损的声谱高频采样的范围中有明显的横向截断，为人为以mp3升频假冒的无损音乐</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum04.png"></p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide_AcousticSpectrum05.png"></p>
+<h2 id="本地播放器推荐"><a href="#本地播放器推荐" class="headerlink" title="本地播放器推荐"></a>本地播放器推荐</h2><h3 id="PC"><a href="#PC" class="headerlink" title="PC"></a>PC</h3><p>​	个人首推的就是QQ音乐</p>
+<ul>
+<li><p>优点：桌面歌词有逐字对照，日语歌词还有片假名标识，对于语言学习有一定的帮助</p>
+<p>例：<img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide01.png"></p>
+</li>
+<li><p>缺点：直接把你电脑当成了服务器，后台偷跑带宽，浪费流量</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide02.png"></p>
+<p>解决方法：下载软件 <a href="https://www.netlimiter.com/">NetLimiter</a> 来对QQ音乐进行上传限制，这样就是PC最好的播放器了。老版本的下载的音乐的加密也并不严格。</p>
+</li>
+</ul>
+<p>其它的比如什么 <a href="https://github.com/zhongyang219/MusicPlayer2">MusicPlayer2</a>，<a href="https://github.com/imsyy/SPlayer">Splayer</a>，<a href="https://www.foobar2000.org/">foobar2000</a> 什么的个人觉得其实功能都大差不差，主要是界面的不同。</p>
+<p>我认为光是桌面歌词这一点QQ音乐就完胜其它播放器了，QQ音乐还会对本地歌曲和云端歌曲自动进行对照匹配，自动获取到对应歌词</p>
+<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>个人首推的就是 <a href="https://github.com/Moriafly/SaltPlayerSource">SaltPlayer</a> 了，页面简洁美观，功能全面，非常好用。</p>
+<h2 id="音乐标签信息"><a href="#音乐标签信息" class="headerlink" title="音乐标签信息"></a><span id="construct">音乐标签信息</span></h2><p>如果你是像哥们一样有追求的人的话，对信息缺失、标签空白的歌曲难以忍受的话，可以用软件 <a href="https://www.cnblogs.com/vinlxc/p/11347744.html">音乐标签pc版</a> 来添加和修正标签信息，确保每首歌都有完整的曲目信息。</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Hi-Res_guide03.png"></p>
+<h2 id="歌词搜索"><a href="#歌词搜索" class="headerlink" title="歌词搜索"></a>歌词搜索</h2><ul>
+<li><p>本地批量获取歌词： <a href="https://docs.myzony.com/#/">ZonyLrcToolsX</a></p>
+<p>个人自用下载命令，详情可以去看文档</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">.\ZonyLrcTools.Cli.exe download -d &quot;F:\Music\jp&quot; -l -n 2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地单独获取歌词： <a href="https://github.com/jitwxs/163MusicLyrics">163MusicLyrics</a></p>
+<p>输入歌曲id获取到对应的歌词，详情可以去看文档</p>
+</li>
+</ul>
+<h2 id="硬件推荐"><a href="#硬件推荐" class="headerlink" title="硬件推荐"></a>硬件推荐</h2><p>鄙人只是个木耳穷哥们，下载音乐只是出于兴趣爱好，声卡小尾巴什么的感觉就是割发烧友韭菜的，烧不起烧不起，直接买原道就行了。p😭q</p>
+<p>佩戴舒适度：⭐⭐⭐⭐⭐</p>
+<p>音质：⭐⭐⭐⭐</p>
+<p>功能性：⭐</p>
+<p>性价比：⭐⭐⭐⭐⭐</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>下载</tag>
+        <tag>资源检索</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>追番补番最佳体验教程。网盘挂载，三方弹幕🧐</title>
+    <url>/2024/12/19/%E6%9C%80%E8%88%92%E6%9C%8D%E7%9A%84%E7%9C%8B%E7%95%AA%E8%A7%82%E5%BD%B1%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>因为现在国内的视频网站码率压得太狠了，B站的码率在国内已经算是高的了，但也依旧达不到正经的1080P画质标准，1080P还不如YouTube的720P。 </p>
+<p>详情可以看视频 👉 <a href="https://www.bilibili.com/video/BV1nW4y1V7kR/">视频网站的“蓝光”是怎么骗你的？——视频画质全解析【柴知道】</a></p>
+<p>这篇2020年的文章也早就说明了国内视频网站画质下降是必然的结果了 👉 <a href="https://www.huxiu.com/article/368600.html">谁也成为不了中国的 YouTube</a></p>
+<p><strong>省流：谷歌一家独大，对全球各国众多宽带运营商议价能力极强，实现了油管的0宽带成本，而B站没有这个优势。</strong></p>
+<p>而且因为国内审核的因素，模糊的审核标准，让国内大部分网站进行自我阉割，老番删减的删减，下架的下架，支持正版反倒成为了正版受害者。</p>
+<p>综上所述，B站已经不是追番的好选择了，不过补番的话，有些许的漏网之鱼还是能看的。</p>
+<p>教程的流程主要分以下三步走：</p>
+<ol>
+<li>本地挂载云盘</li>
+<li>资源搜寻</li>
+<li>弹幕观看</li>
+</ol>
+<p>目标结果如图所示：<img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/watchAnimeUltimateGoal.webp" alt="目标结果展示"></p>
+<p>ps：哥们之前是磁力下载党，等字幕组更新后再下载下来后做种，穷哥们的单硬盘电脑健康顶不住了，虽然并不影响使用，但硬盘健康度掉了就是绷不住啊😢</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/hardDriveHealthStatus.png" alt="hardDriveHealthStatus"></p>
+<h2 id="本地挂载云盘"><a href="#本地挂载云盘" class="headerlink" title="本地挂载云盘"></a>本地挂载云盘</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>AList 是一个支持多个存储提供商，包括本地存储、阿里云盘、OneDrive、Google Drive 等，支持网页浏览和 WebDAV 的文件列表软件，由 gin 和 Solidjs 驱动。简单的来说就是能够帮你整合管理各种云盘。当然，AList 除了支持网盘存储之外，还支持对象存储，本地存储，FTP 等等。</p>
+<p>通俗来说，就是可以让你以本地文件的形式来管理云端文件。</p>
+<h3 id="下载-Alist："><a href="#下载-Alist：" class="headerlink" title="下载 Alist："></a>下载 <a href="https://github.com/alist-org/alist/releases">Alist</a>：</h3><ol>
+<li><p>以64位的 Windows 为例，下载指定版本：Dalist-windows-amd64.zip  </p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_01.png"></p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_02.png"></p>
+</li>
+<li><p>解压 alist.exe 放入到新文件夹中，在路径栏输入 cmd 回车运行。<br><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_03.png"></p>
+</li>
+<li><p>在命令行输入 alist start ，设置自定义密码后浏览器打开：127.0.0.1:5244。（注意不要关闭终端窗口，若要关闭窗口，执行命令 alist.exe server 启动全局服务后方可关闭）</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_04.png" alt="PixPin_2024-12-19_02-09-58"></p>
+</li>
+</ol>
+<h3 id="登录-Alist"><a href="#登录-Alist" class="headerlink" title="登录 Alist"></a>登录 Alist</h3><ol>
+<li><p>初始用户名默认是：admin ，初始密码为之前设置的自定义密码（114514）<br><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_05.png"></p>
+</li>
+<li><p>登录成功后，进入管理修改用户名和密码  </p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_06.png"></p>
+</li>
+</ol>
+<h3 id="添加网盘"><a href="#添加网盘" class="headerlink" title="添加网盘"></a>添加网盘</h3><ol>
+<li><p>以 夸克网盘 为例<br><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_08.png"></p>
+</li>
+<li><p>用chrome浏览器打开F12控制台，其它浏览器F12控制台网络里的请求可能为空，再登录即可获取到所需的cookie</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_07.png"></p>
+</li>
+<li><p>代理为本地代理，粘贴从浏览器复制到的cookie即可</p>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed//blog_img/alist_mount_09.png"></p>
+</li>
+<li><p>更多网盘挂载方法，请查看<a href="https://alist.nn.ci/zh/guide/drivers/common.html">官方文档</a></p>
+</li>
+</ol>
+<h3 id="安装-RaiDrive："><a href="#安装-RaiDrive：" class="headerlink" title="安装 RaiDrive："></a>安装 <a href="https://www.raidrive.com/">RaiDrive</a>：</h3><p>安装完成后，点击添加 → 选择 NAS → WebDav → 然后取消地址选项，在<code>http://</code>处填入 127.0.0.1，端口：5244，路径：&#x2F;dav → 最后填写 Alist 账号和密码，点击连接即可。<br><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/alist_mount_10.png"></p>
+<h3 id="设置-Alist-开机自启"><a href="#设置-Alist-开机自启" class="headerlink" title="设置 Alist 开机自启"></a>设置 Alist 开机自启</h3><p>每次使用，都需要通过 cmd 运行程序很繁琐。所以，我们最好设置 alist.exe 开机自启动</p>
+<ol>
+<li><p>在 alist 目录下新建一个文本文档，将以下代码复制进去，然后将文件重命名为 alist.vbs</p>
+<figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Set</span> ws = <span class="built_in">CreateObject</span>(<span class="string">&quot;Wscript.Shell&quot;</span>) </span><br><span class="line">ws.run <span class="string">&quot;alist.exe server&quot;</span>,vbhide</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：\alist.exe server 前面是你本机 alist.exe 所在的文件路径地址</p>
+<p>注意：文本文档重命名为 alist.vbs 前，必须有打开文件扩展名，将. txt 修改成. vbs</p>
+</li>
+<li><p>鼠标右键 alist.vbs，创建快捷方式</p>
+<p>然后 Win+R 打开命令窗口，输入 shell:startup 后回车，将刚创建的 alist.vbs 快捷方式粘贴到打开的文件夹中。</p>
+<p>这样，Alist 开机自启动就大功告成了。每次开机时网络位置都会自动挂载云盘。</p>
+</li>
+</ol>
+<p><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/alist_mount_11.png"></p>
+<h2 id="番剧资源搜寻"><a href="#番剧资源搜寻" class="headerlink" title="番剧资源搜寻"></a>番剧资源搜寻</h2><h3 id="追番"><a href="#追番" class="headerlink" title="追番"></a>追番</h3><p>曾经第三方阿里云盘不限速的时候，非常好用，现在就剩下夸克网盘能用了，番剧的更新速度非常快，几乎和磁力种子的发布速度一致，而且各个汉化组的资源都有，想要体验中日双语的话，可以等待自己喜欢的字幕组更新。</p>
+<p>新番实时更新文档 <a href="https://link3.cc/ruach">Ruach. | Link3</a></p>
+<p>新番夸克文档：<a href="https://docs.qq.com/doc/DRHpGcnBJbWRTemh3">日漫新番文档 夸克</a></p>
+<h3 id="补番"><a href="#补番" class="headerlink" title="补番"></a>补番</h3><p>番剧完结后，会出售画质更高的BD，动画基本上会根据BD的销售量来判断会不会有续作<del>(游戏人生:你说什么？😄)</del>，相比于网络版，BD有画面修正和更高的画质。</p>
+<p>压制组和字幕组合作压制出来的资源，有专门的压制组出来的资源没有字幕，</p>
+<p>这时候就需要自己来寻找字幕了，英剧美剧什么的，人人影视，射手字幕网都有。</p>
+<p>外挂字幕，字体缺失的话，番剧的字体就会使用电脑的默认字体</p>
+<p>动漫字幕论坛：<a href="https://bbs.acgrip.com/">Anime字幕论坛 - Powered by Discuz!</a></p>
+<p>动漫资源论坛：<a href="https://www.tsdm39.com/forum.php">天使动漫论坛-梦开始的地方</a></p>
+<p>电报频道：<a href="https://t.me/YXHMd">高画质动漫分享 Anime share</a></p>
+<h2 id="弹幕"><a href="#弹幕" class="headerlink" title="弹幕"></a>弹幕</h2><h3 id="B站下载弹幕本地观看"><a href="#B站下载弹幕本地观看" class="headerlink" title="B站下载弹幕本地观看"></a>B站下载弹幕本地观看</h3><p>合并短时间内出现的重复弹幕，优化观看体验</p>
+<p><a href="https://github.com/xmcp/pakku.js?tab=readme-ov-file">pakku.js: 拯救B站的弹幕体验！</a></p>
+<p>下载弹幕，也可以用来下载视频，字幕。</p>
+<p><a href="https://github.com/the1812/Bilibili-Evolved">Bilibili-Evolved: 强大的哔哩哔哩增强脚本</a></p>
+<h3 id="弹弹play"><a href="#弹弹play" class="headerlink" title="弹弹play"></a>弹弹play</h3><p>可以用弹弹play，保存了B站大部分下架了的老番剧的弹幕，新番还可以直链视频网页弹幕，B站弹幕，台湾巴哈姆特动画疯的弹幕。不过正常新番不建议外挂用B站的弹幕。</p>
+<p>现在B站新番删减和谐严重，而且弹幕低龄化也是问题，容易弹幕和画面不一致的情况，不过B站港澳台的弹幕还是可以一用的。</p>
+<p><a href="https://www.dandanplay.com/">弹弹play - 全功能“本地视频+弹幕”播放器</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>资源检索</tag>
+        <tag>番剧</tag>
       </tags>
   </entry>
   <entry>
@@ -13105,8 +13105,8 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>教程</tag>
         <tag>语言学习</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
 </search>
