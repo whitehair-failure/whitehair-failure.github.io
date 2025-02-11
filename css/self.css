@@ -74,7 +74,7 @@ body.modal-open {
 
 
 #adultModal.modal {
-  display: none;
+  /* display: none; */
   position: fixed;
   top: 0;
   left: 0;
@@ -117,7 +117,7 @@ body.modal-open {
 }
 
 #adultModal.modal #confirmAdult:hover {
-  background-color: #f44336;
+  background-color: rgb(76, 175, 80, .8);
   color: white;
 }
 
@@ -126,6 +126,10 @@ body.modal-open {
   color: white;
 }
 
+#adultModal.modal #cancelAdult:hover {
+  background-color: rgb(244, 67, 54, .8);
+  color: white;
+}
 
 /* 弹窗出现动画 */
 @keyframes fadeIn {
