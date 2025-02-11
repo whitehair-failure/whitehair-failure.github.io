@@ -89,6 +89,7 @@ body.modal-open {
 }
 
 #adultModal.modal .modal-content {
+  max-width: 90vw;
   background: white;
   padding: 20px;
   text-align: center;
