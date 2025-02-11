@@ -1349,8 +1349,8 @@ canvas:not(#ribbon-canvas),
   --global-font-size: 14px;
   --global-bg: #fff;
   --font-color: #4c4948;
-  --hr-border: #a4d8fa;
-  --hr-before-color: #80c8f8;
+  --hr-border: #d2ebfd;
+  --hr-before-color: #bfe4fb;
   --search-bg: #f6f8fa;
   --search-input-color: #4c4948;
   --search-a-color: #4c4948;
@@ -4433,7 +4433,7 @@ figure.highlight pre .javascript .function {
   overflow-wrap: break-word;
 }
 .container a {
-  color: #49b1f5;
+  color: #99a9bf;
 }
 .container a:hover {
   text-decoration: underline;
@@ -4818,6 +4818,146 @@ figure.highlight pre .javascript .function {
 .post-reward .reward-main .reward-all .reward-item .post-qr-code-desc {
   width: 130px;
   color: #858585;
+}
+:root {
+  --icat-maskbgdeep: #fff /* 背景颜色 */;
+  --style-border: 1px solid #ccc /* 边框样式 */;
+  --style-border-hover-always: 1px solid #007bff /* 鼠标悬停时的边框 */;
+  --icat-shadow-black: 0px 2px 10px rgba(0,0,0,0.2) /* 阴影 */;
+  --icat-blue: #007bff /* 蓝色 */;
+  --icat-white: #fff /* 白色 */;
+  --font-color: #333 /* 字体颜色 */;
+  --icat-card-border: #e0e0e0 /* 卡片边框 */;
+  --icat-transition: 0.3s /* 动画过渡时间 */;
+}
+html[data-theme="dark"] {
+  --icat-maskbgdeep: rgba(0,0,0,0.7) /* 背景颜色：黑色半透明 */;
+  --style-border: 1px solid #444 /* 边框样式：深灰色边框 */;
+  --style-border-hover-always: 1px solid #1e90ff /* 鼠标悬停时的边框：亮蓝色 */;
+  --icat-shadow-black: 0px 2px 15px rgba(0,0,0,0.5) /* 阴影：深色阴影 */;
+  --icat-blue: #1e90ff /* 蓝色：亮蓝色 */;
+  --icat-white: #f1f1f1 /* 白色：浅灰色 */;
+  --font-color: #f1f1f1 /* 字体颜色：浅灰色 */;
+  --icat-card-border: #444 /* 卡片边框：深灰色 */;
+  --icat-transition: 0.3s /* 动画过渡时间 */;
+}
+#rightMenu {
+  display: none;
+  position: fixed;
+  width: 160px;
+  height: fit-content;
+  top: 10%;
+  left: 10%;
+  background-color: var(--icat-maskbgdeep);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  border: var(--style-border);
+  border-radius: 8px;
+  z-index: 99994;
+  -webkit-box-shadow: var(--icat-shadow-black);
+  box-shadow: var(--icat-shadow-black);
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  -ms-transition: border 0.3s;
+  transition: border 0.3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#rightMenu:hover {
+  border: var(--style-border-hover-always);
+}
+#rightMenu .rightMenu-group {
+  padding: 6px 6px;
+}
+#rightMenu .rightMenu-group:not(:nth-last-child(1)) {
+  border-bottom: 1px solid var(--icat-card-border);
+}
+#rightMenu .rightMenu-group.rightMenu-small {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+#rightMenu .rightMenu-group.rightMenu-line .rightMenu-item {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  height: 40px;
+  padding: 0 4px;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -o-transition: 0.6s;
+  -ms-transition: 0.6s;
+  transition: 0.6s;
+}
+#rightMenu .rightMenu-group .rightMenu-item {
+  height: 30px;
+  border-radius: 6px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  color: var(--font-color);
+  cursor: pointer;
+}
+#rightMenu .rightMenu-group .rightMenu-item * {
+  height: 40px;
+  line-height: 40px;
+}
+#rightMenu .rightMenu-group .rightMenu-item:not(:last-child) {
+  margin-bottom: 4px;
+}
+#rightMenu .rightMenu-group .rightMenu-item:hover {
+  background-color: var(--icat-blue);
+  color: var(--icat-white);
+}
+#rightMenu .rightMenu-group .rightMenu-item i {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  padding: 0 5px;
+}
+#rightMenu .rightMenu-group .rightMenu-item .icat-refresh,
+#rightMenu .rightMenu-group .rightMenu-item .icat-changing-over,
+#rightMenu .rightMenu-group .rightMenu-item .icat-simple-complex {
+  font-weight: 900;
+}
+#rightMenu-mask {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: 0 0;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 998;
 }
 #rightside {
   position: fixed;
@@ -6856,4 +6996,62 @@ blockquote.pullquote.right {
   z-index: 1000;
   display: none;
   background: rgba(0,0,0,0.6);
+}
+#local-search .search-dialog .local-search-box {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+#local-search .search-dialog .local-search-box input {
+  padding: 5px 14px;
+  width: 100%;
+  outline: none;
+  border: 2px solid #49b1f5;
+  border-radius: 40px;
+  background: var(--search-bg);
+  color: var(--search-input-color);
+  -webkit-appearance: none;
+}
+#local-search .search-dialog .search-wrap {
+  display: none;
+}
+#local-search .search-dialog .local-search-hit-item {
+  margin-left: 24px;
+  padding-left: 3px;
+  line-height: 1.8;
+}
+#local-search .search-dialog .local-search-hit-item::marker {
+  color: #49b1f5;
+  font-weight: bold;
+  font-style: italic;
+}
+#local-search .search-dialog .local-search-hit-item a {
+  color: var(--search-a-color);
+}
+#local-search .search-dialog .local-search-hit-item a:hover {
+  color: #49b1f5;
+}
+#local-search .search-dialog .local-search-hit-item .search-result-title {
+  font-weight: 600;
+}
+#local-search .search-dialog .local-search-hit-item .search-result {
+  margin: 0 0 8px;
+  word-break: break-all;
+  font-size: 0.9em;
+}
+#local-search .search-dialog .search-result-list {
+  overflow-y: overlay;
+  margin: 0 -20px;
+  padding: 0 22px;
+  max-height: calc(80vh - 180px);
+}
+@media screen and (max-width: 768px) {
+  #local-search .search-dialog .search-result-list {
+    max-height: calc(var(--search-height) - 190px) !important;
+  }
+}
+.search-keyword {
+  background: transparent;
+  color: #f47466;
+  font-weight: 600;
 }
