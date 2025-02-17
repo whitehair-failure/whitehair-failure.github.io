@@ -62,3 +62,27 @@ window.addEventListener("load", function () {
     });
   }
 });
+
+// 首页隐藏最新文章侧边栏
+document.addEventListener("DOMContentLoaded", function () {
+  // 获取当前页面的完整 URL
+  const currentUrl = window.location.href;
+
+  if (currentUrl == 'https://www.lolimama.love/' || currentUrl == 'http://localhost:4000/') {
+    document.querySelector(".card-recent-post").style.display = "none";
+  } else {
+    document.querySelector(".card-recent-post").style.display = "block";
+  }
+});
+
+// 监听 pjax 页面跳转成功事件
+document.addEventListener("pjax:success", function () {
+  // 获取当前页面的完整 URL
+  const currentUrl = window.location.href;
+
+  if (currentUrl == 'https://www.lolimama.love/' || currentUrl == 'http://localhost:4000/') {
+    document.querySelector(".card-recent-post").style.display = "none";
+  } else {
+    document.querySelector(".card-recent-post").style.display = "block";
+  }
+});
