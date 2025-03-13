@@ -3,7 +3,7 @@ window.addEventListener("load", function () {
   const adultCertification = localStorage.getItem("AdultCertification");
 
   // 如果 AdultCertification 不存在或为 0，显示弹窗
-  if (!adultCertification || adultCertification === "0") {
+  if ((!adultCertification || adultCertification === "0") && GLOBAL_CONFIG_SITE.isHome) {
     const body = document.body;
 
     // 动态创建弹窗元素
@@ -68,10 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // 获取当前页面的完整 URL
   const currentUrl = window.location.href;
 
-  if (currentUrl == 'https://www.lolimama.love/' || currentUrl == 'http://localhost:4000/') {
+  if (GLOBAL_CONFIG_SITE.isHome) {
     document.querySelector(".card-recent-post").style.display = "none";
   } else {
     document.querySelector(".card-recent-post").style.display = "block";
+  }
+
+  if (!GLOBAL_CONFIG_SITE.isHome) {
+    let contentInner = document.querySelector("#content-inner");
+    let firstChildDiv = contentInner.querySelector("div:first-child");
+    firstChildDiv.style.transition = "0s";
+    firstChildDiv.style.width = "76%";
+    // firstChildDiv.style.transition = "0.3s";
+    console.log("firstChildDiv", firstChildDiv); // 输出第一个子元素 div
   }
 });
 
@@ -80,9 +89,51 @@ document.addEventListener("pjax:success", function () {
   // 获取当前页面的完整 URL
   const currentUrl = window.location.href;
 
-  if (currentUrl == 'https://www.lolimama.love/' || currentUrl == 'http://localhost:4000/') {
+  if (GLOBAL_CONFIG_SITE.isHome) {
     document.querySelector(".card-recent-post").style.display = "none";
+    // document.querySelector("#aside-left").style.display = "block";
   } else {
     document.querySelector(".card-recent-post").style.display = "block";
+    // document.querySelector("#aside-left").style.display = "none";
+  }
+  console.log("GLOBAL_CONFIG_SITE", GLOBAL_CONFIG_SITE); // 输出是否为文章页
+
+  if (!GLOBAL_CONFIG_SITE.isHome) {
+    let contentInner = document.querySelector("#content-inner");
+    let firstChildDiv = contentInner.querySelector("div:first-child");
+    firstChildDiv.style.transition = "0s";
+    firstChildDiv.style.width = "76%";
+    // firstChildDiv.style.transition = "0.3s";
+    console.log("firstChildDiv", firstChildDiv); // 输出第一个子元素 div
   }
 });
+
+let counter = 0; // 用于计数触发次数
+
+// 头像 URL 数组
+const avatars = [
+  "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/shigureui.png",
+  "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/GawrGura.png",
+  "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/TadokoroKoji.png",
+  "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Madman.png",
+];
+
+setInterval(() => {
+  let asideContent = document.querySelector("#aside-left");
+  let avatarBox = asideContent.querySelector(".avatar-img");
+  let avatarImg = avatarBox.querySelector("img");
+
+  // 头像模糊效果
+  avatarImg.style.filter = "blur(40px)";
+
+  setTimeout(() => {
+    // 根据触发次数选择头像，使用数组和模运算来循环头像
+    avatarImg.src = avatars[counter % avatars.length];
+
+    // 头像清晰
+    avatarImg.style.filter = "blur(0px)";
+
+    // 增加触发次数
+    counter++;
+  }, 2000); // 延迟2秒后更新头像
+}, 4000); // 每4秒触发一次

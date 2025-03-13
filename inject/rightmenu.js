@@ -196,7 +196,7 @@ window.oncontextmenu = function(e) {
         if (t + rmHeight > window.innerHeight) {
             t -= t + rmHeight - window.innerHeight;
         }
-
+        
         rm.showRightMenu(true, t, n);
         document.getElementById("rightMenu-mask").style.display = "flex";
         return false;
@@ -220,8 +220,11 @@ rm.hideRightMenu = function() {
     document.getElementById("rightMenu-mask").style.display = "none";
 },
 rm.reloadrmSize = function() {
-    rmWidth = document.getElementById("rightMenu").offsetWidth;
-    rmHeight = document.getElementById("rightMenu").offsetHeight;
+    const rightMenu = document.getElementById("rightMenu");
+    rightMenu.style.display = "block"; // Ensure the element is visible
+    rmWidth = rightMenu.offsetWidth;
+    rmHeight = rightMenu.offsetHeight;
+    rightMenu.style.display = "none"; // Hide it again if necessary
 },
 rm.switchDarkMode = function() {
     const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
