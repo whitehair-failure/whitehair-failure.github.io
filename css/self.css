@@ -28,11 +28,11 @@ body {
   opacity: 0.9 !important;
 }
 
-#aside-content .card-widget.card-info.text-center {
+/* #aside-content .card-widget.card-info.text-center {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
-}
+} */
 
 #aside-left .card-widget.card-info.text-center {
   /* background: linear-gradient(to right bottom, rgba(51, 204, 187, .9), rgba(153, 238, 221, .9), rgba(51, 221, 153, .9)) !important; */
@@ -81,6 +81,12 @@ main#content-inner.layout {
   /* max-width: 240px; */
   height: 320px;
   border: 0;
+}
+
+
+/* 文章内容使用系统默认字体 */
+#post {
+  font-family: system-ui, sans-serif !important;
 }
 
 /* 使用 px 判断常规屏幕宽度 */

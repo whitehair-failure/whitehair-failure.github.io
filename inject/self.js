@@ -65,14 +65,12 @@ window.addEventListener("load", function () {
 
 // 首页隐藏最新文章侧边栏
 document.addEventListener("DOMContentLoaded", function () {
-  // 获取当前页面的完整 URL
-  const currentUrl = window.location.href;
 
-  if (GLOBAL_CONFIG_SITE.isHome) {
-    document.querySelector(".card-recent-post").style.display = "none";
-  } else {
-    document.querySelector(".card-recent-post").style.display = "block";
-  }
+  // if (GLOBAL_CONFIG_SITE.isHome) {
+  //   document.querySelector(".card-recent-post").style.display = "none";
+  // } else {
+  //   document.querySelector(".card-recent-post").style.display = "block";
+  // }
 
   if (!GLOBAL_CONFIG_SITE.isHome) {
     let contentInner = document.querySelector("#content-inner");
@@ -86,16 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 监听 pjax 页面跳转成功事件
 document.addEventListener("pjax:success", function () {
-  // 获取当前页面的完整 URL
-  const currentUrl = window.location.href;
 
-  if (GLOBAL_CONFIG_SITE.isHome) {
-    document.querySelector(".card-recent-post").style.display = "none";
-    // document.querySelector("#aside-left").style.display = "block";
-  } else {
-    document.querySelector(".card-recent-post").style.display = "block";
-    // document.querySelector("#aside-left").style.display = "none";
-  }
+  // if (GLOBAL_CONFIG_SITE.isHome) {
+  //   document.querySelector(".card-recent-post").style.display = "none";
+  // } else {
+  //   document.querySelector(".card-recent-post").style.display = "block";
+  // }
   console.log("GLOBAL_CONFIG_SITE", GLOBAL_CONFIG_SITE); // 输出是否为文章页
 
   if (!GLOBAL_CONFIG_SITE.isHome) {
