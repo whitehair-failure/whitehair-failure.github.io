@@ -106,11 +106,18 @@ let counter = 0; // 用于计数触发次数
 
 // 头像 URL 数组
 const avatars = [
+  "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Char.jpg",
   "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/shigureui.png",
   "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/GawrGura.png",
   "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/TadokoroKoji.png",
   "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Madman.png",
 ];
+
+// ✅ 预加载头像图片
+avatars.forEach(url => {
+  const img = new Image();
+  img.src = url;
+});
 
 setInterval(() => {
   let asideContent = document.querySelector("#aside-left");
@@ -121,13 +128,14 @@ setInterval(() => {
   avatarImg.style.filter = "blur(40px)";
 
   setTimeout(() => {
-    // 根据触发次数选择头像，使用数组和模运算来循环头像
+    // 切换头像
     avatarImg.src = avatars[counter % avatars.length];
 
     // 头像清晰
     avatarImg.style.filter = "blur(0px)";
 
-    // 增加触发次数
+    // 计数器增加
     counter++;
-  }, 2000); // 延迟2秒后更新头像
-}, 4000); // 每4秒触发一次
+  }, 2000);
+}, 4000);
+
