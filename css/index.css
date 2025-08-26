@@ -5228,7 +5228,7 @@ figure.highlight pre .javascript .function {
   top: calc(50% - 7px);
   left: 0;
   color: #f47466;
-  content: '\f0c1';
+  content: '📌';
   line-height: 1;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;

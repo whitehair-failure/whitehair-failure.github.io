@@ -94,6 +94,9 @@ main#content-inner.layout {
   #aside-pixiv {
     /* display: none; */
   }
+  #recent-posts .recent-post-items .recent-post-item {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 480px) and (min-height: 721px) {
@@ -101,7 +104,6 @@ main#content-inner.layout {
     background-position-x: -185vw;
   }
 }
-
 /* 背景模糊效果 */
 body.modal-open {
   overflow: hidden; /* 禁止滚动 */
