@@ -107,17 +107,14 @@ let counter = 0; // 用于计数触发次数
 // 头像 URL 数组
 const avatars = [
   "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Char.jpg",
-  "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/shigureui.png",
-  "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/GawrGura.png",
-  "https://img.lolimama.love/gh/whitehair-failure/easy-go-resume/img/TadokoroKoji.png",
   "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Madman.png",
 ];
 
 // ✅ 预加载头像图片
-avatars.forEach(url => {
+/* avatars.forEach(url => {
   const img = new Image();
   img.src = url;
-});
+}); */
 
 setInterval(() => {
   let asideContent = document.querySelector("#aside-left");
