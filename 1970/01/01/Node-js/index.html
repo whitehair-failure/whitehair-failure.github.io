@@ -1,0 +1,422 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Node.js | make逸努お宅</title><meta name="author" content="make逸努"><meta name="copyright" content="make逸努"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="哥们还没学过，因为logo可爱所以就放上来了😄">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js">
+<meta property="og:url" content="https://lolimama.love/1970/01/01/Node-js/index.html">
+<meta property="og:site_name" content="make逸努お宅">
+<meta property="og:description" content="哥们还没学过，因为logo可爱所以就放上来了😄">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Node.js.png">
+<meta property="article:published_time" content="1969-12-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-18T01:57:03.184Z">
+<meta property="article:author" content="make逸努">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Node.js.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Node.js",
+  "url": "https://lolimama.love/1970/01/01/Node-js/",
+  "image": "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Node.js.png",
+  "datePublished": "1969-12-31T16:00:00.000Z",
+  "dateModified": "2025-09-18T01:57:03.184Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "make逸努",
+      "url": "https://lolimama.love"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://lolimama.love/1970/01/01/Node-js/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://www.youtube.com/@wangzhian" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Node.js',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/self.css"><meta name="generator" content="Hexo 8.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-image: url(https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Happy%20Birthday%EF%BC%81%EF%BC%812024%20-%20KusanagiKusanagi_Nene.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Char.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-lightbulb"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/About/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Node.js.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">make逸努お宅</span></a><a class="nav-page-title" href="/"><span class="site-name">Node.js</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-lightbulb"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/About/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Node.js</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="1969-12-31T16:00:00.000Z" title="发表于 1970-01-01 00:00:00">1970-01-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-18T01:57:03.184Z" title="更新于 2025-09-18 09:57:03">2025-09-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">18</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>哥们还没学过，因为logo可爱所以就放上来了😄</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://lolimama.love">make逸努</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://lolimama.love/1970/01/01/Node-js/">https://lolimama.love/1970/01/01/Node-js/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://lolimama.love" target="_blank">make逸努お宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post-share"><div class="social-share" data-image="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Node.js.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/1970/01/01/React/" title="React"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/React.png" onerror="onerror=null;src='/img/404_NotFound.png'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">React</div></div><div class="info-2"><div class="info-item-1">哥们还没学过，因为logo可爱所以就放上来了😄 </div></div></div></a><a class="pagination-related" href="/1970/01/01/Next-js/" title="Next.js"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Next.js.png" onerror="onerror=null;src='/img/404_NotFound.png'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Next.js</div></div><div class="info-2"><div class="info-item-1">哥们还没学过，因为logo可爱所以就放上来了😄 </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2023/07/06/CSS/" title="CSS 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-css.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-06</div><div class="info-item-2">CSS 学习笔记</div></div><div class="info-2"><div class="info-item-1">CSS介绍 ​    HTML主要用于描述网页的结构和内容  ​    CSS美化网页,给网页化妆  ​    所以需要先有HTML结构, 再写CSS样式  ​    CSS 的全称是 Cascading Style Sheet（层叠样式表），它主要用来控制网页的样式（美化网页）。CSS 早已被所有主流浏览器采用，它允许你轻松控制以下样式：  颜色 color  背景 background  字体 font  浮动 float  位置 position  显示 display  边框 border  内边距 padding  外边距 margin  行高 line-height  装饰 text-decoration  过渡 transtion  变化 transform  动画 animation   页面样式的属性有几百个，但常用的不过几十个  CSS需要学习两大内容(CSS选择器, CSS属性)  CSS选择器用于选择目标标签使用,一个网页可以有很多很多标签,给某个或者某些标签设置样式,就需要用到选择器  CSS属性就是用什么工具化妆   CSS的书写位置 嵌入式也可以叫内...</div></div></div></a><a class="pagination-related" href="/2023/07/06/HTML/" title="HTML 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-html.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-06</div><div class="info-item-2">HTML 学习笔记</div></div><div class="info-2"><div class="info-item-1">介绍HTML(hypertext markup langage)超文本标记语言 主要用于描述网页的结构和内容 学习HTML主要学习HTML标签以及标签对应的属性, 标签就是一些特殊的符号   比如    img图片标签(属性src,width,height,alt,tilte),在网页中显示图片   a超链接标签(属性href, target ), 实现网页的跳转   html文件名后缀名是.html , 使用浏览器可以直接解析html文件,因为浏览器里面有一个渲染引擎 基本结构123456789101112131415&lt;!DOCTYPE html&gt;&lt;!-- 文档类型 doc=&gt;document文档 type类型的意思   就是告诉别人,我这个文档是html --&gt;&lt;html&gt;    &lt;!-- head头部标签,这标签里面放的是,修饰网页的东西 比如引入样式表,引入js脚本文件,设置字符集,设置页面标题 --&gt;    &lt;head&gt;        &lt;!-- title标签设置的是网页的标题 --&gt;    ...</div></div></div></a><a class="pagination-related" href="/2023/07/06/DOM,BOM/" title="DOM,BOM 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/DOM-BOM.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-06</div><div class="info-item-2">DOM,BOM 学习笔记</div></div><div class="info-2"><div class="info-item-1">DOM（Document Object Model——文档对象模型）DOM 介绍 **介绍:**什么是DOM，简单的说DOM是一套对文档的内容进行抽象和概念化的方法。DOM（Document Object Model——文档对象模型）是用来呈现以及与任意 HTML 或 XML文档交互的API。DOM 是载入到浏览器中的文档模型，以节点树的形式来表现文档，每个节点代表文档的构成部分（例如:页面元素、字符串或注释等等）。DOM 是万维网上使用最为广泛的API之一，因为它允许运行在浏览器中的代码访问文件中的节点并与之交互。节点可以被创建，移动或修改。节点可以关联上事件处理器，一旦某一事件被触发了，那些事件处理器就会被执行。  DOM主要用于操作网页的标签内容,标签样式,标签属性,以及标签(增删改查)  DOM学习的最终目的 完成一些常见网页特效  轮播图 选项卡…  **注意：**DOM既不是HTML的一部分,也不是JavaScript一部分,而是浏览器厂商都实现了的一些独立的规则，并允许JavaScript可以访问和操作存储在DOM中的内容（DOM 也可以使用其他的语言来实现）  什...</div></div></div></a><a class="pagination-related" href="/1970/01/01/Next-js/" title="Next.js"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Next.js.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 1970-01-01</div><div class="info-item-2">Next.js</div></div><div class="info-2"><div class="info-item-1">哥们还没学过，因为logo可爱所以就放上来了😄 </div></div></div></a><a class="pagination-related" href="/2023/07/06/HTML5/" title="HTML5 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-html.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-06</div><div class="info-item-2">HTML5 学习笔记</div></div><div class="info-2"><div class="info-item-1">HTML5 简介HTML5 不仅是定义 HTML 标准的最新的版本，还是一系列用来制作现代富web内容的相关技术总称。 HTML5 具有新的元素，属性和行为，并具有更大的技术集，允许构建更多样化和更强大的网站和应用程序。这个集合有时称为HTML5和它的朋友们，不过大多数时候仅缩写为一个词 HTML5。 HTML5 及其相关技术是作为一系列小型标准而制定的甚至为某些技术进行了高度的细化，其标准内容设计为所有Open Web开发人员都可以使用，但是这样做的弊端是难以全面掌握指定的各个标准情况并且部分标准还存在一些歧义，导致浏览器中表现不一致。 我们将根据HTML5功能分为以下8大类：  语义：开发者可以更细致的描述文档结构，提高文档的可读性与对搜索引擎的友好。 通信：能够让你和服务器之间通过创新的新技术方法进行通信。 离线 &amp; 存储：能够让网页在客户端本地存储数据以及更高效地离线运行。 多媒体：使 video 和 audio 成为了在所有 Web 中的一等公民。 2D&#x2F;3D 绘图 &amp; 效果：提供了一个更加分化范围的呈现选择。 性能 &amp; 集成：提供了非...</div></div></div></a><a class="pagination-related" href="/1970/01/01/React/" title="React"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/React.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 1970-01-01</div><div class="info-item-2">React</div></div><div class="info-2"><div class="info-item-1">哥们还没学过，因为logo可爱所以就放上来了😄 </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">肉食者鄙，未能远谋。😤<br/>Do Nothing, Win. 🤯</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/08/27/redmi-note12-turbo-root-%E6%95%99%E7%A8%8B/" title="RedmiNote12Turbo 个人玩机优化记录(祭奠澎湃牢米)"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/RedmiNote12TurboRecord01.jpg" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="RedmiNote12Turbo 个人玩机优化记录(祭奠澎湃牢米)"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/08/27/redmi-note12-turbo-root-%E6%95%99%E7%A8%8B/" title="RedmiNote12Turbo 个人玩机优化记录(祭奠澎湃牢米)">RedmiNote12Turbo 个人玩机优化记录(祭奠澎湃牢米)</a><time datetime="2025-08-26T17:50:03.000Z" title="发表于 2025-08-27 01:50:03">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/18/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/" title="划词翻译样式分享"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/hcfy01.png" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="划词翻译样式分享"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/05/18/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/" title="划词翻译样式分享">划词翻译样式分享</a><time datetime="2025-05-18T08:25:18.000Z" title="发表于 2025-05-18 16:25:18">2025-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/14/%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/" title="简历制作工具合集"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/resume-tools01.png" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="简历制作工具合集"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/04/14/%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/" title="简历制作工具合集">简历制作工具合集</a><time datetime="2025-04-14T10:17:00.000Z" title="发表于 2025-04-14 18:17:00">2025-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/04/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" title="前端各个包管理器的优缺点"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1760px-Npm-logo.svg.png" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="前端各个包管理器的优缺点"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/03/04/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" title="前端各个包管理器的优缺点">前端各个包管理器的优缺点</a><time datetime="2025-03-04T02:00:00.000Z" title="发表于 2025-03-04 10:00:00">2025-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/08/%E7%AD%89%E8%BA%AB%E6%8A%B1%E6%9E%95-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A0%B4%E4%BA%A7/" title="【转载】等身抱枕-从入门到破产"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/ilovedakimakura.jpg" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="【转载】等身抱枕-从入门到破产"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/02/08/%E7%AD%89%E8%BA%AB%E6%8A%B1%E6%9E%95-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A0%B4%E4%BA%A7/" title="【转载】等身抱枕-从入门到破产">【转载】等身抱枕-从入门到破产</a><time datetime="2025-02-07T20:21:19.000Z" title="发表于 2025-02-08 04:21:19">2025-02-08</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(to top, rgba(55, 236, 186, .6) 0%, rgb(114, 175, 211, .6) 100%);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By make逸努</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div><div class="footer_custom_text"><a href="https://icp.gov.moe/?keyword=20243739" target="_blank"><span>萌ICP备20243739号</span></a></div></div></footer></div><div class="js-pjax"><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="fas fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="fas fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="fa-solid fa-arrows-rotate"></i></div><div class="rightMenu-item" id="menu-darkmode"><i class="fas fa-adjust"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPost"><div class="rightMenu-item" id="menu-reading"><i class="fa-solid fa-book"></i><span>阅读模式</span></div><div class="rightMenu-item" id="menu-commentBarrage"><i class="fa-solid fa-fire"></i><span>热评开关</span></div><div class="rightMenu-item" id="menu-postlink"><i class="fa-regular fa-copy"></i><span>复制本文地址</span></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="fa-solid fa-copy"></i><span>复制内容</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="fa-solid fa-paste"></i><span>粘贴内容</span></div><div class="rightMenu-item" id="menu-commenttext"><i class="iconfont icat-message"></i><span>引用评论</span></div><div class="rightMenu-item" id="menu-search"><i class="fa-brands fa-searchengin"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="fa-brands fa-google"></i><span>谷歌搜索</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="fa-regular fa-newspaper"></i><span>新建窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="fa-solid fa-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="fa-solid fa-copy"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="fa-solid fa-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-copylinkimg"><i class="fa-solid fa-link"></i><span>复制图片链接</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-randomPost"><i class="fa-solid fa-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item" id="menu-translate"><i class="fa-regular fa-handshake"></i><span>繁简转换</span></a><div class="rightMenu-item" id="menu-asidehide"><i class="fa-solid fa-list"></i><span>边栏控制</span></div></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="/privacy/"><i class="fa-solid fa-shield-halved"></i><span>隐私协议</span></a><a class="rightMenu-item" href="/cc/"><i class="fa-solid fa-copyright"></i><span>版权协议</span></a></div></div><div id="rightMenu-mask"></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://main--boisterous-crumble-3bf31b.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://main--boisterous-crumble-3bf31b.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'src'
+          const lazyloadNative = 'loading="lazy"'
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative} loading='lazy'></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'twikoo-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const getComment = ele => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://main--boisterous-crumble-3bf31b.netlify.app/.netlify/functions/twikoo',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(res => {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        btf.saveToLocal.set(keyName, JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray, ele)
+      }).catch(err => {
+        console.error(err)
+        ele.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  run(keyName, getComment)
+})</script><script src="/inject/rightmenu.js"></script><script src="/zhheo/random.js"></script><script src="/inject/self.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/whitehair-failure/live2D-models/chino/model.json"},"display":{"position":"left","width":200,"height":250,"hOffset":-30,"vOffset":0},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

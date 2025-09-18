@@ -1,0 +1,979 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>HTML5 学习笔记 | make逸努お宅</title><meta name="author" content="make逸努"><meta name="copyright" content="make逸努"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="HTML5 简介HTML5 不仅是定义 HTML 标准的最新的版本，还是一系列用来制作现代富web内容的相关技术总称。 HTML5 具有新的元素，属性和行为，并具有更大的技术集，允许构建更多样化和更强大的网站和应用程序。这个集合有时称为HTML5和它的朋友们，不过大多数时候仅缩写为一个词 HTML5。 HTML5 及其相关技术是作为一系列小型标准而制定的甚至为某些技术进行了高度的细化，其标准内容设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5 学习笔记">
+<meta property="og:url" content="https://lolimama.love/2023/07/06/HTML5/index.html">
+<meta property="og:site_name" content="make逸努お宅">
+<meta property="og:description" content="HTML5 简介HTML5 不仅是定义 HTML 标准的最新的版本，还是一系列用来制作现代富web内容的相关技术总称。 HTML5 具有新的元素，属性和行为，并具有更大的技术集，允许构建更多样化和更强大的网站和应用程序。这个集合有时称为HTML5和它的朋友们，不过大多数时候仅缩写为一个词 HTML5。 HTML5 及其相关技术是作为一系列小型标准而制定的甚至为某些技术进行了高度的细化，其标准内容设">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-html.jpg">
+<meta property="article:published_time" content="2023-07-06T02:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-18T01:57:03.182Z">
+<meta property="article:author" content="make逸努">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-html.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HTML5 学习笔记",
+  "url": "https://lolimama.love/2023/07/06/HTML5/",
+  "image": "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-html.jpg",
+  "datePublished": "2023-07-06T02:00:00.000Z",
+  "dateModified": "2025-09-18T01:57:03.182Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "make逸努",
+      "url": "https://lolimama.love"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://lolimama.love/2023/07/06/HTML5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://www.youtube.com/@wangzhian" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HTML5 学习笔记',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/self.css"><meta name="generator" content="Hexo 8.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-image: url(https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Happy%20Birthday%EF%BC%81%EF%BC%812024%20-%20KusanagiKusanagi_Nene.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Char.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-lightbulb"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/About/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-html.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">make逸努お宅</span></a><a class="nav-page-title" href="/"><span class="site-name">HTML5 学习笔记</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-lightbulb"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/About/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">HTML5 学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-06T02:00:00.000Z" title="发表于 2023-07-06 10:00:00">2023-07-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-18T01:57:03.182Z" title="更新于 2025-09-18 09:57:03">2025-09-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">10k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>36分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="HTML5-简介"><a href="#HTML5-简介" class="headerlink" title="HTML5 简介"></a>HTML5 简介</h2><p>HTML5 不仅是定义 HTML 标准的最新的版本，还是一系列用来制作现代富web内容的相关技术总称。</p>
+<p>HTML5 具有新的元素，属性和行为，并具有更大的技术集，允许构建更多样化和更强大的网站和应用程序。这个集合有时称为HTML5和它的朋友们，不过大多数时候仅缩写为一个词 <strong>HTML5</strong>。</p>
+<p>HTML5 及其相关技术是作为一系列小型标准而制定的甚至为某些技术进行了高度的细化，其标准内容设计为所有Open Web开发人员都可以使用，但是这样做的弊端是难以全面掌握指定的各个标准情况并且部分标准还存在一些歧义，导致浏览器中表现不一致。</p>
+<p>我们将根据HTML5功能分为以下8大类：</p>
+<ul>
+<li><strong>语义</strong>：开发者可以更细致的描述文档结构，提高文档的可读性与对搜索引擎的友好。</li>
+<li><strong>通信</strong>：能够让你和服务器之间通过创新的新技术方法进行通信。</li>
+<li><strong>离线 &amp; 存储</strong>：能够让网页在客户端本地存储数据以及更高效地离线运行。</li>
+<li><strong>多媒体</strong>：使 video 和 audio 成为了在所有 Web 中的一等公民。</li>
+<li><strong>2D&#x2F;3D 绘图 &amp; 效果</strong>：提供了一个更加分化范围的呈现选择。</li>
+<li><strong>性能 &amp; 集成</strong>：提供了非常显著的性能优化和更有效的计算机硬件使用。</li>
+<li><strong>设备访问</strong>：能够处理各种输入和输出设备。</li>
+<li><strong>CSS3</strong>: 让作者们来创作更加复杂的主题吧！</li>
+</ul>
+<h2 id="新增语义标签"><a href="#新增语义标签" class="headerlink" title="新增语义标签"></a>新增语义标签</h2><p><strong>概念</strong>：HTML5 引入了新的HTML元素，通过使用标准语义去描述web文档的结构，使得文档更精确，提高SEO性能与用户体验。</p>
+<ul>
+<li><code>&lt;header&gt;</code>(常用)：标签定义文档的页眉（介绍信息）。</li>
+<li><code>&lt;main&gt;</code>： 标签规定文档的主要内容。元素中的内容对于文档来说应当是唯一的。它不应包含在文档中重复出现的内容，比如侧栏、导航栏、版权信息、站点标志或搜索表单。</li>
+<li><code>&lt;footer&gt;</code>(常用)：标签定义文档或节的页脚，通常包含版权或法律声明，有时还包含一些链接。在部分的情况下，页脚可能包含切片内容的发布日期，许可证信息等。<code>&lt;article&gt;</code>，<code>&lt;section&gt;</code>，<code>&lt;aside&gt;</code>，和<code>&lt;nav&gt;</code>可以有自己的<code>&lt;footer&gt;</code>。尽管有页脚的名称，页脚也不一定位于页面或节的末尾。</li>
+<li><code>&lt;section&gt;</code>(常用)：标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分根据语义进行相关分组。</li>
+<li><code>&lt;article&gt;</code>(常用)：标签规定独立的自包含内容。它不单指主要内容，还可以用于注释和小部件。该标签常用环境：论坛帖子、报纸文章、博客条目、用户评论。</li>
+<li><code>&lt;nav&gt;</code>(常用)：包含经常出现在网站上的导航链接。导航可以具有主菜单和辅助菜单，但是<strong>不能</strong>将一个<code>&lt;nav&gt;</code>元素嵌套在另一个 <code>&lt;nav&gt;</code>元素中。</li>
+<li><code>&lt;aside&gt;</code>(常用)：元素表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者标注框。</li>
+<li><code>&lt;hgroup&gt;</code>(常用)： 代表文档章节所属的多级别的目录，它将多个<code>&lt;h1&gt;</code>至<code>&lt;h6&gt;</code>的子元素组装到一起。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hgroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>HTML5标准 — Last Updated 12 August 2020<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This course will start with a brief introduction about the limit of a function. Then we will describe how the idea of derivative emerges in the Physics and Geometry fields. After that, we will explain that the key to master calculus is …<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;figure&gt;</code>(常用)： 标签规定独立的流内容（图像、图表、照片、代码等等）。 经常与说明（caption） <code>&lt;figcaption&gt;</code> 配合使用, 并且作为一个独立的引用单元</li>
+<li><code>&lt;figcation&gt;</code>(常用)： 是与其相关联的图片的说明&#x2F;标题，用于描述其父节点 <code>&lt;figure&gt;</code> 元素里的其他数据。该标签在<code>&lt;figure&gt;</code>块里是第一个或最后一个。并且该元素是可选的；如果没有该元素，这个父节点的图片只是会没有说明&#x2F;标题。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/src/images/cat.jpg&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">alt</span>=<span class="string">&quot;一只正在睡觉的猫&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span>一只正在睡觉的猫<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;time&gt;</code>(常用)： 用来表示24小时制时间或者公历日期，若表示日期则也可包含时间和时区。此元素内必须包含一个机器可读的格式表示日期或时间，有安排日程表功能的应用可以利用这一点。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The concert starts at <span class="tag">&lt;<span class="name">time</span>&gt;</span>20:00<span class="tag">&lt;/<span class="name">time</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The concert took place on <span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">&quot;2001-05-15 19:00&quot;</span>&gt;</span>May 15<span class="tag">&lt;/<span class="name">time</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;mark&gt;</code>：标记文本元素，该标签代表突出显示的文字，例如可以为了标记特定上下文中的文本而使用这个标签。 举个例子，它可以用来显示搜索引擎搜索后关键词。</li>
+</ul>
+<blockquote>
+<p>注意： 不要把 <code>&lt;mark&gt;</code> 元素和 <code>&lt;strong&gt;</code> 元素搞混淆；<code>&lt;strong&gt;</code> 元素用来表示文本在上下文的重要性的， 而 <code>&lt;mark&gt;</code> 元素是用来表示上下文的关联性的。</p>
+</blockquote>
+<ul>
+<li><code>&lt;data&gt;</code>：元素将一个指定内容和<strong>机器可读的翻译</strong>(例商品的编码)联系在一起。但是，如果内容是与时间或者日期相关的，则一定要使用 <code>&lt;time&gt;</code>。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>新产品<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">data</span> <span class="attr">value</span>=<span class="string">&quot;0100398&quot;</span>&gt;</span>迷你安格斯牛排堡<span class="tag">&lt;/<span class="name">data</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">data</span> <span class="attr">value</span>=<span class="string">&quot;0100399&quot;</span>&gt;</span>巨无安格斯牛排堡<span class="tag">&lt;/<span class="name">data</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">data</span> <span class="attr">value</span>=<span class="string">&quot;0100400&quot;</span>&gt;</span>三层巨无霸安格斯牛排堡<span class="tag">&lt;/<span class="name">data</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;progress&gt;</code>：元素用来显示一项任务的完成进度。虽然规范中没有规定该元素具体如何显示，浏览器开发商可以自己决定，但通常情况下，该元素都显示为一个进度条形式。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">progress</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">value</span>=<span class="string">&quot;70&quot;</span>&gt;</span> 70% <span class="tag">&lt;/<span class="name">progress</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;meter&gt;</code>：元素用来显示已知范围的标量值或者分数值。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>加热烤箱至 <span class="tag">&lt;<span class="name">meter</span> <span class="attr">min</span>=<span class="string">&quot;200&quot;</span> <span class="attr">max</span>=<span class="string">&quot;500&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">value</span>=<span class="string">&quot;350&quot;</span>&gt;</span>350 度<span class="tag">&lt;/<span class="name">meter</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML5改进标签"><a href="#HTML5改进标签" class="headerlink" title="HTML5改进标签"></a>HTML5改进标签</h2><h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><p><strong>概念</strong>：在 HTML5 中对 web 表单进行了部分改进，增加了一些新的属性，一些新的<code>&lt;input&gt;</code>元素type 属性值，新的表单元素以及强制校验API。</p>
+<p><strong>新增属性</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>autocomplete</td>
+<td>input元素，用于表单的自动填充功能</td>
+</tr>
+<tr>
+<td>autofocus</td>
+<td>input元素,页面加载时自动聚焦到此表单控件</td>
+</tr>
+<tr>
+<td>form</td>
+<td>input元素,将控件和一个form元素联系在一起</td>
+</tr>
+<tr>
+<td>formaction</td>
+<td>当input元素<strong>type为image, submit</strong>时，用于提交表单的URL</td>
+</tr>
+<tr>
+<td>formenctype</td>
+<td>当input元素<strong>type为image, submit</strong>时，表单数据集的编码方式，用于表单提交</td>
+</tr>
+<tr>
+<td>formmethod</td>
+<td>当input元素<strong>type为image, submit</strong>时，用于表单提交的HTTP方法</td>
+</tr>
+<tr>
+<td>formnovalidate</td>
+<td>当input元素<strong>type为image, submit</strong>时，提交表单时绕过对表单控件的验证</td>
+</tr>
+<tr>
+<td>formtarget</td>
+<td>当input元素<strong>type为image, submit</strong>时，表单提交的浏览上下文</td>
+</tr>
+<tr>
+<td>height 和 width</td>
+<td>当input元素<strong>type为image</strong>时，设置元素的宽高</td>
+</tr>
+<tr>
+<td>list</td>
+<td><strong>绝大部分</strong>input元素,自动填充选项的 <code>&lt;datalist&gt;</code> 的id值</td>
+</tr>
+<tr>
+<td>min 和 max</td>
+<td>当input元素<strong>type为number</strong>时，当前数字表单元素可以输入的最小最大值</td>
+</tr>
+<tr>
+<td>multiple</td>
+<td>当input元素<strong>type为email, file</strong>时。是否允许多个值(布尔值)</td>
+</tr>
+<tr>
+<td>pattern (regexp)</td>
+<td>当input元素<strong>type为password, text, tel</strong>，匹配有效 value 的模式（pattern）</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>当input元素<strong>type为password, search, tel, text, url</strong>时，当表单控件为空时，控件中显示的内容</td>
+</tr>
+<tr>
+<td>required</td>
+<td><strong>绝大部分</strong>input元素,表示此值为必填项或者提交表单前必须先检查该值(布尔值)</td>
+</tr>
+<tr>
+<td>step</td>
+<td>当input元素<strong>type为number</strong>时，当前数字表单元素有效的递增值</td>
+</tr>
+<tr>
+<td>novalidate</td>
+<td>from元素关闭浏览器的自动校验，这允许我们使用脚本控制表单校验。</td>
+</tr>
+</tbody></table>
+<p><strong>新增type</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>类型名</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>用于指定颜色的控件；在支持的浏览器中，激活时会打开取色器。</td>
+</tr>
+<tr>
+<td>date</td>
+<td>输入日期的控件（年、月、日，不包括时间）。在支持的浏览器激活时会打开日期选择器或年月日的数字滚轮。</td>
+</tr>
+<tr>
+<td>time</td>
+<td>于输入时间的控件，不包括时区。</td>
+</tr>
+<tr>
+<td>week</td>
+<td>用于输入以年和周数组成的日期，不带时区。</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>于输入时间的控件，不包括时区。</td>
+</tr>
+<tr>
+<td>datetime-local</td>
+<td>输入日期和时间的控件，使用户所在时区。在支持的浏览器激活时打开日期选择器或年月日的数字滚轮。(目前支持的浏览器为数不多)</td>
+</tr>
+<tr>
+<td>email</td>
+<td>编辑邮箱地址的输入框。类似 text 输入，但在支持的浏览器上会有邮箱格式的规则验证提示。</td>
+</tr>
+<tr>
+<td>month</td>
+<td>输入年和月的控件，不带时区。</td>
+</tr>
+<tr>
+<td>number</td>
+<td>只能输入数字的输入框。</td>
+</tr>
+<tr>
+<td>range</td>
+<td>此控件用于输入不需要精确的数字。控件是一个范围组件，默认值为正中间的值。同时使用min 和 max来规定值的范围。</td>
+</tr>
+<tr>
+<td>search</td>
+<td>用于搜索字符串的单行文字区域。输入文本中的换行会被自动去除。在支持的浏览器中可能有一个删除按钮，用于清除整个区域。拥有动态键盘的设备上的回车图标会变成搜索图标。</td>
+</tr>
+<tr>
+<td>tel</td>
+<td>用于输入电话号码的控件。拥有动态键盘的设备上会显示电话数字键盘。</td>
+</tr>
+<tr>
+<td>url</td>
+<td>用于输入 URL 的控件。类似 text 输入，在支持的浏览器上会有URL的规则验证提示，在支持动态键盘的设备上有相应的键盘。</td>
+</tr>
+</tbody></table>
+<p><strong>表单校验</strong>：</p>
+<p><strong>介绍</strong>：当你向 Web 应用输入数据时，应用会验证你输入的数据是否是正确的。如果验证通过，应用允许提交这些数据到服务器并储存到数据库中（通常情况下），如果验证未通过，则 Web 应用会提示你有错误的数据，并且一般都会明确的告诉你错误发生在哪里。</p>
+<p><strong>概念</strong>：HTML5提供一个新功能可以在不写一行脚本代码的情况下，即对用户的输入进行数据校验，这都是通过表单元素的校验属性实现的。这些属性可以让你定义一些规则，用于限定用户的输入，如果表单中输入的数据都符合这些限定规则，那么表示这个表单校验通过，否则则认为校验未通过。</p>
+<blockquote>
+<p>当一个元素校验通过时：</p>
+<p>该元素将可以通过 CSS 伪类 :valid 进行特殊的样式化；</p>
+<p>如果用户尝试提交表单，如果没有其它的控制来阻止该操作（比如JavaScript即可阻止提交），那么该表单的数据会被提交。</p>
+<p>如果一个元素未校验通过：</p>
+<p>该元素将可以通过 CSS 伪类 :invalid 进行特殊的样式化；</p>
+<p>如果用户尝试提交表单，浏览器会展示出错误消息，并停止表单的提交。</p>
+</blockquote>
+<p><strong>表单校检相关属性</strong>:</p>
+<ul>
+<li>required 属性，限制表单为必填</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>minlength 属性和 maxlength 属性，限制输入的长度。 min 和 max 属性，限制输入的数字大小</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;username&quot;</span>&gt;</span>请输入你的用户名?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">required</span> <span class="attr">minlength</span>=<span class="string">&quot;2&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;number&quot;</span>&gt;</span>你的年龄?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">id</span>=<span class="string">&quot;age&quot;</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span> <span class="attr">value</span>=<span class="string">&quot;19&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span> <span class="attr">max</span>=<span class="string">&quot;99&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>pattern 属性, 使用正则表达式作为属性值可以用来对表单的内容进行校检</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--密码长度7-14位，必须以大写字母开头，后面允许输入数字字母下划线和。 --&gt;</span><br><span class="line">&lt;form&gt;</span><br><span class="line">  &lt;label for=&quot;psd&quot;&gt;请输入密码&lt;/label&gt;</span><br><span class="line">  &lt;input id=&quot;psd&quot; name=&quot;psd&quot; required pattern=&quot;^[A-Z][0-9a-zA-Z_/.]&#123;6,13&#125;$&quot;&gt;</span><br><span class="line">  &lt;button&gt;Submit&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自定义错误信息，每次我们提交无效的表单数据时， 浏览器总会显示错误信息。 但是显示的信息取决于你所使用的浏览器（不同浏览器表现不一致）。</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>要自定义这些消息的外观和文本，你必须使用 JavaScript； 不能使用 HTML 和 CSS 来改变。 HTML5 提供 <strong>constraint validation API</strong> 来检测和自定义表单元素的状态。 除此之外，他可以改变错误信息的文本。</li>
+<li>越来越多的浏览器支持限制校验API，并且这逐渐变得可靠。这些 API 由成组的方法和属性构成，可在特定的表单元素接口上调用：<code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>,<code>&lt;fieldset&gt;</code>,<code>&lt;output&gt;</code>,<code>&lt;select&gt;</code>,<code>&lt;textarea&gt;</code></li>
+</ol>
+</blockquote>
+<p>例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;psd&quot;</span>&gt;</span>请输入密码<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;psd&quot;</span> <span class="attr">name</span>=<span class="string">&quot;psd&quot;</span> <span class="attr">required</span> <span class="attr">pattern</span>=<span class="string">&quot;^[A-Z][0-9a-zA-Z_/.]&#123;6,13&#125;$&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> psd = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;psd&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    psd.<span class="title function_">addEventListener</span>(<span class="string">&quot;input&quot;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (psd.<span class="property">validity</span>.<span class="property">patternMismatch</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            psd.<span class="title function_">setCustomValidity</span>(<span class="string">&quot;密码为7到14位必须以大写字母开头只支持数字字母_.请核对格式后认真输入！&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            psd.<span class="title function_">setCustomValidity</span>(<span class="string">&quot;&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>约束校验的 API 的属性</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>validationMessage</td>
+<td>一个本地化消息，描述元素不满足校验条件时（如果有的话）的文本信息。如果元素无需校验（willValidate 为 false），或元素的值满足校验条件时，为空字符串。</td>
+</tr>
+<tr>
+<td>validity</td>
+<td>一个 ValidityState 对象，描述元素的验证状态。</td>
+</tr>
+<tr>
+<td>validity.customError</td>
+<td>如果元素设置了自定义错误，返回 true ；否则返回false。</td>
+</tr>
+<tr>
+<td>validity.patternMismatch</td>
+<td>如果元素的值不匹配所设置的正则表达式，返回 true，否则返回 false。当此属性为 true 时，元素将命中 :invalid CSS 伪类。</td>
+</tr>
+<tr>
+<td>validity.rangeOverflow</td>
+<td>如果元素的值高于所设置的最大值，返回 true，否则返回 false。当此属性为 true 时，元素将命中 :invalid CSS 伪类。</td>
+</tr>
+<tr>
+<td>validity.rangeUnderflow</td>
+<td>如果元素的值低于所设置的最小值，返回 true，否则返回 false。当此属性为 true 时，元素将命中 :invalid CSS 伪类。</td>
+</tr>
+<tr>
+<td>validity.stepMismatch</td>
+<td>如果元素的值不符合 step 属性的规则，返回 true，否则返回 false。当此属性为 true 时，元素将命中 :invalid CSS 伪类。</td>
+</tr>
+<tr>
+<td>validity.tooLong</td>
+<td>如果元素的值超过所设置的最大长度，返回 true，否则返回 false。当此属性为 true 时，元素将命中 :invalid CSS 伪类。</td>
+</tr>
+<tr>
+<td>validity.typeMismatch</td>
+<td>如果元素的值出现语法错误，返回 true，否则返回 false。当此属性为 true 时，元素将命中 :invalid CSS 伪类。</td>
+</tr>
+<tr>
+<td>validity.valid</td>
+<td>如果元素的值不存在校验问题，返回 true，否则返回 false。当此属性为 true 时，元素将命中 :valid CSS 伪类，否则命中 :invalid CSS 伪类。</td>
+</tr>
+<tr>
+<td>validity.valueMissing</td>
+<td>如果元素设置了 required 属性且值为空，返回 true，否则返回 false。当此属性为 true 时，元素将命中 :invalid CSS 伪类。</td>
+</tr>
+<tr>
+<td>willValidate</td>
+<td>如果元素在表单提交时将被校验，返回 true，否则返回 false。</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">ValidityState</span> = &#123;</span><br><span class="line">    <span class="attr">badInput</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读 true 表示用户提供了浏览器不能转换的输入。 如 number表单输入了中文</span></span><br><span class="line">    <span class="attr">customError</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读 </span></span><br><span class="line">    <span class="attr">patternMismatch</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读</span></span><br><span class="line">    <span class="attr">rangeOverflow</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读</span></span><br><span class="line">    <span class="attr">rangeUnderflow</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读</span></span><br><span class="line">    <span class="attr">stepMismatch</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读</span></span><br><span class="line">    <span class="attr">tooLong</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读</span></span><br><span class="line">    <span class="attr">tooShort</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读</span></span><br><span class="line">    <span class="attr">typeMismatch</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读</span></span><br><span class="line">    <span class="attr">valid</span>: <span class="title class_">Boolean</span>, <span class="comment">// 只读</span></span><br><span class="line">    <span class="attr">valueMissing</span>: <span class="title class_">Boolean</span> <span class="comment">// 只读</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>约束校验 API 的方法</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>checkValidity()</td>
+<td>如果元素的值校验合法，返回 true，否则返回 false。如果元素校验失败，此方法会触发invalid 事件。</td>
+</tr>
+<tr>
+<td>HTMLFormElement.reportValidity()</td>
+<td>如果元素或它的子元素控件符合校验的限制，返回 true . 当返回为 false 时, 对每个无效元素可撤销 invalid 事件会被唤起并且校验错误会报告给用户 。</td>
+</tr>
+<tr>
+<td>setCustomValidity(message)</td>
+<td>为元素添加一个自定义的错误消息；如果设置了自定义错误消息，该元素被认为是无效的，则显示指定的错误。这允许你使用 JavaScript 代码来建立校验失败，而不是用标准约束校验 API 所提供的。这些自定义信息将在向用户报告错误时显示。如果参数为空，则清空自定义错误。</td>
+</tr>
+</tbody></table>
+<p><strong>新增表单元素</strong>：</p>
+<ul>
+<li><code>&lt;output&gt;</code>：标签表示计算或用户操作的结果。</li>
+</ul>
+<blockquote>
+<p>output 元素的属性：</p>
+<ul>
+<li>for： 以空格分隔的其他元素列表id，其它影响计算结果的标签的ID，可以多个。。</li>
+<li>form： 与当前标签有关联的form（从属的表单）。该属性的值必须是当前文档内的表单元素的ID。如果未指明该属性，output标签必须是一个form的后代标签。该属性的用处在于可以让output标签脱离form标签，存在于一个网页文档的任意位置。</li>
+<li>name： 元素的名称</li>
+</ul>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">oninput</span>=<span class="string">&quot;x.value=parseInt(a.value)+parseInt(b.value)&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span> <span class="attr">name</span>=<span class="string">&quot;a&quot;</span> <span class="attr">value</span>=<span class="string">&quot;50&quot;</span> /&gt;</span> +</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span> <span class="attr">name</span>=<span class="string">&quot;b&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10&quot;</span> /&gt;</span> =</span><br><span class="line">    <span class="tag">&lt;<span class="name">output</span> <span class="attr">name</span>=<span class="string">&quot;x&quot;</span> <span class="attr">for</span>=<span class="string">&quot;a b&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">output</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;fieldset&gt;</code>： 元素用于对表单中的控制元素进行分组（也包括 label 元素）</li>
+</ul>
+<blockquote>
+<p>fieldset 元素的属性：</p>
+<ul>
+<li>disabled： 如果设置了这个 bool 值属性, <code>&lt;fieldset&gt;</code> 的所有子代表单控件也会继承这个属性。这意味着它们不可编辑，</li>
+<li>form： 将该值设为一个 <code>&lt;form&gt;</code> 元素的 id 属性值以将 <code>&lt;fieldset&gt;</code> 设置成这个 <code>&lt;form&gt;</code> 的一部分。</li>
+<li>name： 元素分组的名称</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>&lt;legend&gt;</code>: 元素为 <code>&lt;fieldset&gt;</code> 元素定义标题（caption）。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">legend</span>&gt;</span>选择你最喜欢吃的水果<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;apple&quot;</span> <span class="attr">name</span>=<span class="string">&quot;fruits&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;apple&quot;</span>&gt;</span> 苹果 <span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;cherry&quot;</span> <span class="attr">name</span>=<span class="string">&quot;fruits&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;cherry&quot;</span>&gt;</span> 樱桃 <span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;banana&quot;</span> <span class="attr">name</span>=<span class="string">&quot;fruits&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;banana&quot;</span>&gt;</span> 香蕉 <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="新增属性data"><a href="#新增属性data" class="headerlink" title="新增属性data-*"></a>新增属性data-*</h3><p><strong>介绍</strong>：data-* 全局属性 是一类被称为自定义数据属性的属性，它赋予我们在所有 HTML 元素上嵌入自定义数据属性的能力，并可以通过脚本在 HTML 与 DOM 表现之间进行专有数据的交换。</p>
+<p><strong>概念</strong>：自定义数据属性都可以通过所属元素的DOM接口来访问。 HTMLElement.dataset 属性可以访问它们。 * 可以使用遵循 <strong>xml名称生产规则</strong> 的任何名称来被替换，并具有以下限制：</p>
+<ol>
+<li>该名称不能以xml开头，无论这些字母是大写还是小写。</li>
+<li>该名称不能包含任何分号 (U+003A)。</li>
+<li>该名称不能包含A至Z的大写字母。</li>
+</ol>
+<blockquote>
+<p>自定义属性名只可以包含字母，数字和下面的字符： dash (-), dot (.), colon ( : ), underscore (_)。此外不应包含ASCII 码大写字母。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-version-date</span>=<span class="string">&quot;v1-2020&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;10784&quot;</span>&gt;</span>Jason Walters, 003: Found dead in &quot;A View to a Kill&quot;.<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-id</span>=<span class="string">&quot;97865&quot;</span>&gt;</span>Alex Trevelyan, 006: Agent turned terrorist leader; James&#x27; nemesis in &quot;Goldeneye&quot;.<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-id</span>=<span class="string">&quot;45732&quot;</span>&gt;</span>James Bond, 007: The main man; shaken but not stirred.<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>HTMLElement.dataset</strong>：属性允许访问在 HTML或 DOM中的元素上设置的所有自定义数据属性(data-*)集。</p>
+<blockquote>
+<p><strong>注意</strong>：dataset 属性本身可以被读取，但不能直接写入。相反，所有的写入必须是它的“属性”，这反过来表示数据自定义属性。</p>
+</blockquote>
+<p>dataset方法会将自定义的data 属性名称转化成 DOMStringMap 的键值时会遵循下面的规则：</p>
+<ol>
+<li>前缀 data- 被去除(包括减号)；</li>
+<li>对于每个在ASCII小写字母 a到 z前面的减号 (U+002D)，减号会被去除，并且字母会转变成对应的大写字母(驼峰命名法)。</li>
+<li>其他字符（包含其他减号）都不发生变化</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;1234567890&quot;</span> <span class="attr">data-user</span>=<span class="string">&quot;johndoe&quot;</span> <span class="attr">data-date-of-birth</span>&gt;</span>John Doe</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> el = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#user&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// el.id == &#x27;user&#x27;</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// el.dataset.id === &#x27;1234567890&#x27;</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// el.dataset.user === &#x27;johndoe&#x27;</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// el.dataset.dateOfBirth === &#x27;&#x27;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">el.<span class="property">dataset</span>.<span class="property">dateOfBirth</span> = <span class="string">&#x27;1960-10-03&#x27;</span>; <span class="comment">// set the DOB.</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 给元素添加一个新的自定义属性</span></span></span><br><span class="line"><span class="language-javascript">el.<span class="property">dataset</span>.<span class="property">someDataAttr</span> = <span class="string">&#x27;mydata&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>自定义属性同样可以通过setAttribute()与getAttribute()操作</p>
+</blockquote>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h3 id="数据持久化-DOM存储"><a href="#数据持久化-DOM存储" class="headerlink" title="数据持久化 DOM存储"></a>数据持久化 DOM存储</h3><p><strong>介绍</strong>：DOM存储的机制是通过存储字符串类型的键&#x2F;值对，来提供一种安全的存取方式。HTML5提供了两个全局对象（window 对象的属性）localStorage、SessionStorage实现DOM存储</p>
+<p><strong>概念</strong>：通过全局对象（localStorage、SessionStorage）访问本地存储功能时。该属性会返回一个 Storage 对象，Storage对象的接口属性方法如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">interface <span class="title class_">Storage</span> &#123;</span><br><span class="line">    <span class="attr">length</span>: <span class="title class_">Number</span>, <span class="comment">// 只读属性</span></span><br><span class="line">        <span class="title function_">key</span>(index),  <span class="comment">// 获取指定索引对应的key名</span></span><br><span class="line">        <span class="title function_">getItem</span>(key), <span class="comment">// 获取指定key名对应的value值</span></span><br><span class="line">        <span class="title function_">setItem</span>(key, value), <span class="comment">// 添加、修改一个指定key名的键值对值为value</span></span><br><span class="line">        <span class="title function_">removeItem</span>(key), <span class="comment">// 移除指定key名对应的键值对</span></span><br><span class="line">        <span class="title function_">clear</span>() <span class="comment">// 移除所有键值对</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：Storage对象中使用键值对存储数据时，key与value必须是字符串且key名唯一（如果key名冲突新的键值对会覆盖旧的键值对）。</p>
+<blockquote>
+<p>需要时刻注意的一点是，所有数据在被保存到下面将要介绍的任何一个存储器之前，都将通过它的 .toString 方法被转换成字符串。所以一个普通对象将会被存储为 “[object Object]”，而不是对象本身或者它的 JSON 形式。使用浏览器自身提供的 JSON 解析和序列化方法来存取对象是比较好的，也是比较常见的方法。</p>
+</blockquote>
+<p><strong>兼容性</strong>: Storage 对象最近刚被加入标准当中，所以并不是所有的浏览器都支持。</p>
+<ul>
+<li><strong>sessionStorage</strong><br><strong>概念</strong>：sessionStorage（会话存储）是个全局对象，它维护着在页面会话(page session)期间有效的存储空间。只要浏览器会话窗口不关闭，页面会话周期就会一直持续。即使页面重新载入(reload)或者被恢复(restores)时，页面会话也是一直存在的。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到当前会话的存储空间</span></span><br><span class="line"><span class="variable language_">sessionStorage</span>.<span class="title function_">setItem</span>(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;John&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问数据</span></span><br><span class="line"><span class="keyword">var</span> item = <span class="variable language_">sessionStorage</span>.<span class="title function_">getItem</span>(<span class="string">&quot;username&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取对应index的key</span></span><br><span class="line"><span class="keyword">var</span> key = <span class="variable language_">sessionStorage</span>.<span class="title function_">key</span>(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除指定数据</span></span><br><span class="line"><span class="variable language_">sessionStorage</span>.<span class="title function_">removeItem</span>(key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清除所有当前会话存储的数据</span></span><br><span class="line"><span class="variable language_">sessionStorage</span>.<span class="title function_">clear</span>()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>localStorage</strong></li>
+</ul>
+<p><strong>概念</strong>：localStorage(本地存储) 与会话存储的工作方式很接近，不同之处在于它将数据存储在本地浏览器中持久储存。</p>
+<blockquote>
+<p>当浏览器进入私人模式(private browsing mode，Google Chrome 上对应的应该是叫隐身模式)的时候，会创建一个新的、临时的、空的数据库，用以存储本地数据(local storage data)。当浏览器关闭时，里面的所有数据都将被丢弃。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到当本地的存储空间</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;John&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问数据</span></span><br><span class="line"><span class="keyword">var</span> item = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&quot;username&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取对应index的key</span></span><br><span class="line"><span class="keyword">var</span> key = <span class="variable language_">localStorage</span>.<span class="title function_">key</span>(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除指定数据</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">removeItem</span>(key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清除所有当前会话存储的数据</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">clear</span>()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>面试题 sessionStorage、locaStorage、cookie的区别</p>
+<ol>
+<li>cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递，而sessionStorage和localStorage不会自动把数据发送给服务器，仅在本地保存。cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下</li>
+<li>存储大小限制也不同，cookie数据不能超过4K，同时因为每次http请求都会携带cookie、所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大</li>
+<li>数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭之前有效；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie：只在设置的cookie过期时间之前有效，即使窗口关闭或浏览器关闭</li>
+<li>作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localstorage在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的</li>
+<li>web Storage支持事件通知机制，可以将数据更新的通知发送给监听者</li>
+<li>web Storage的api接口使用更方便</li>
+</ol>
+</blockquote>
+<h2 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h2><p><strong>介绍</strong>：在HTML 5之前，要在网页上展示音频、视频、动画，除了使用第三方播放器以外，使用最多的是Adobe Flash插件。Flash插件在浏览器中不但需要经常更新还会出现一些问题导致机器锁死。HTML5的出现使得浏览器支持直接播放视频和音频文件，提供了音频视频的标准接口而无需安装插件。</p>
+<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><p><strong>概念</strong>：HTML5允许你使用<code>&lt;video&gt;</code>元素在网页中嵌入视频内容。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;https://f.video.weibocdn.com/003eXQhUgx07IsUtjXeM010412037ODj0E020.mp4?label=mp4_1080p&amp;template=1920x1080.25.0&amp;trans_finger=0bde055d9aa01b9f6bc04ccac8f0b471&amp;media_id=4577795490119695&amp;tp=8x8A3El:YTkl0eM8&amp;us=0&amp;ori=1&amp;bf=3&amp;ot=h&amp;ps=3lckmu&amp;uid=3ZoTIp&amp;ab=3915-g1,966-g1,3370-g1,1493-g0,1192-g0,1191-g0,1046-g2,1258-g0&amp;Expires=1607049593&amp;ssig=4cByzMWZP3&amp;KID=unistore,video&quot;</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>你的浏览器不支持 HTML5 视频。可点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://f.video.weibocdn.com/003eXQhUgx07IsUtjXeM010412037ODj0E020.mp4?label=mp4_1080p&amp;template=1920x1080.25.0&amp;trans_finger=0bde055d9aa01b9f6bc04ccac8f0b471&amp;media_id=4577795490119695&amp;tp=8x8A3El:YTkl0eM8&amp;us=0&amp;ori=1&amp;bf=3&amp;ot=h&amp;ps=3lckmu&amp;uid=3ZoTIp&amp;ab=3915-g1,966-g1,3370-g1,1493-g0,1192-g0,1191-g0,1046-g2,1258-g0&amp;Expires=1607049593&amp;ssig=4cByzMWZP3&amp;KID=unistore,video&quot;</span>&gt;</span>此链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>观看<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>属性</strong>：以下是 <code>&lt;video&gt;</code> 元素支持的属性：</p>
+<ul>
+<li>controls： 设置是否显示浏览器标准控制器</li>
+<li>autoplay： 是否在视频&#x2F;音频加载完成后自动播放</li>
+<li>src： 视频音频文件路径 只加载 媒体元数据(媒体字节数,第一帧,播放列表,持续时间)</li>
+<li>preload： 音频视频是否预加载 auto 加载全部视频音频</li>
+<li>poster(video元素独有)： 视频不可用,第一次加载完成没有播放时,将会在空白区域展示该属性指向的图片</li>
+<li>loop： 循环播放</li>
+<li>height width (video元素独有)： 设置视频的宽度高度</li>
+<li>muted： 这个属性会导致媒体播放时，默认关闭声音。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">muted</span>=<span class="string">&quot;muted&quot;</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span> <span class="attr">width</span>=<span class="string">&quot;375&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://overwatch.nosdn.127.net/1/assets/img/pages/home/anniversary/header.webm&quot;</span>  <span class="attr">autoplay</span>=<span class="string">&quot;autoplay&quot;</span> <span class="attr">loop</span>=<span class="string">&quot;loop&quot;</span> <span class="attr">poster</span>=<span class="string">&quot;https://overwatch.nosdn.127.net/1/assets/img/pages/home/header-video-poster.jpg&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用多个播放源以提高兼容性"><a href="#使用多个播放源以提高兼容性" class="headerlink" title="使用多个播放源以提高兼容性"></a>使用多个播放源以提高兼容性</h4><p><strong>介绍</strong>：不同的浏览器之间并不全支持相同的媒体文件格式，所以你得使用几个不同格式的文件来兼容不同的浏览器。如果你使用的格式都得不到浏览器的支持，那么媒体文件将不会播放。例如:</p>
+<ul>
+<li>WebM 格式文件通常包括了 Opus 或 Vorbis 音频和 VP8&#x2F;VP9 视频。这在所有的现代浏览器中都支持，除了他们的老版本。</li>
+<li>MP4 格式文件通常包括 AAC 以及 MP3 音频和 H.264 视频。这在所有的现代浏览器中都支持，还有 Internet Explorer。</li>
+<li>Ogg 格式文件往往支持 Ogg Vorbis 音频和 Ogg Theora 视频。主要在 Firefox 和 Chrome 当中支持，不过这个容器已经被更强大的 WebM 容器所取代。</li>
+</ul>
+<p><strong>概念</strong>：通过在<code>&lt;video&gt;</code>标签中将 src 属性移除，转而将它放在 <code>&lt;video&gt;</code> 内部几个单独的标签 <code>&lt;source&gt;</code> 当中。浏览器将会检查 <code>&lt;source&gt;</code> 标签，并且播放第一个浏览器自身支持的媒体文件，一般我们推荐视频源中应当包含WebM和MP4两种格式（这两种格式目前已经支持绝大多数平台和浏览器）</p>
+<blockquote>
+<p><code>&lt;source&gt;</code> 标签包含两个属性</p>
+<ol>
+<li>src 音视频文件的路径</li>
+<li>type （可选属性）表示音视频文件的 MIME 类型，浏览器也会通过检查这个属性来迅速的跳过那些不支持的格式。如果你没有添加 type 属性，浏览器会尝试加载每一个文件，直到找到一个能正确播放的格式，这样会消耗掉大量的时间和资源。</li>
+</ol>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">muted</span>=<span class="string">&quot;muted&quot;</span> <span class="attr">width</span>=<span class="string">&quot;375&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>  <span class="attr">src</span>=<span class="string">&quot;https://overwatch.nosdn.127.net/1/assets/img/pages/home/anniversary/header.webm&quot;</span>  <span class="attr">autoplay</span>=<span class="string">&quot;autoplay&quot;</span> <span class="attr">loop</span>=<span class="string">&quot;loop&quot;</span> <span class="attr">poster</span>=<span class="string">&quot;https://overwatch.nosdn.127.net/1/assets/img/pages/home/header-video-poster.jpg&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;https://overwatch.nosdn.127.net/1/assets/img/pages/home/anniversary/header.webm&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/webm&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;https://overwatch.nosdn.127.net/1/assets/img/pages/home/anniversary/header.mp4&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/mp4&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>你的浏览器不支持 HTML5 视频。请更换浏览器<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h3><p><strong>概念</strong>：HTML5允许你使用<code>&lt;audio&gt;</code>元素在网页中嵌入音频。 <code>&lt;audio&gt;</code>与<code>&lt;video&gt;</code>标签使用方式完全相同，只有一些细微差别。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;viper.mp3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mp3&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;viper.ogg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/ogg&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>你的浏览器不支持 HTML5 音频，可点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;viper.mp3&quot;</span>&gt;</span>此链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span>收听。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>属性</strong>：音频播放器没有视觉部件 — 你只需要显示出能控制音频播放的控件。以下是 <code>&lt;audio&gt;</code> 元素支持的属性：</p>
+<ul>
+<li>controls： 设置是否显示浏览器标准控制器</li>
+<li>autoplay： 是否在视频&#x2F;音频加载完成后自动播放</li>
+<li>src： 视频音频文件路径 只加载 媒体元数据(媒体字节数,第一帧,播放列表,持续时间)</li>
+<li>preload： 音频视频是否预加载 auto 加载全部视频音频</li>
+<li>loop： 循环播放</li>
+<li>muted： 这个属性会导致媒体播放时，默认关闭声音。</li>
+</ul>
+<h3 id="编程式多媒体"><a href="#编程式多媒体" class="headerlink" title="编程式多媒体"></a>编程式多媒体</h3><p><strong>获取媒体信息</strong><br><strong>介绍</strong>：多媒体元素除了上述可以在HTML中指定的属性外，还支持一些其他可以通过js读写的属性</p>
+<ul>
+<li>error(只读): 表示最近的错误，如果没有错误则值为 null。</li>
+<li>networkState: 媒体数据加载过程中,媒体元素networkState得到当前网络状态<ul>
+<li>0: 元素处于初始状态</li>
+<li>1: 浏览器已经选择好用什么编码格式来播放媒体,未建立网络连接</li>
+<li>2: 媒体数据加载中</li>
+<li>3: 没有支持的编码格式,不执行加载</li>
+</ul>
+</li>
+<li>currentSrc (只读) 读取媒体元素 播放中的数据URL地址</li>
+<li>currentTime 用来获取、设置多媒体当前播放时间</li>
+<li>buffered(只读) 媒体元素通过该属性返回一个对象,这个对象实现TimeRanges接口,确认浏览器是否已缓存媒体数据</li>
+</ul>
+<blockquote>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TimeRanges表示一个时间的范围,大多数情况下是一个单一的以0开始的范围,</span><br><span class="line">如果浏览器发出rang requests请求,这时TimeRanges 会有多个事件范围</span><br><span class="line">TimeRanges对象具有一个length属性,表示有多少个时间范围,</span><br><span class="line">该对象存在两个方法 TimeRanges.start(index)(从什么时间开始缓存)  TimeRanges.end(index)(从什么时间结束缓存)</span><br></pre></td></tr></table></figure></blockquote>
+<ul>
+<li>readyState(只读) 媒体元素播放当前位置 就绪状态<ul>
+<li>0: 没有获取到媒体的任何信息</li>
+<li>1: 已获取到了足够的媒体数据,但是当前播放位置没有有效媒体数据(获取到的媒体数据无效)</li>
+<li>2: 当前播放位置已经有数据可以播放,但是没有获取到让播放器前进的数据(当前播放的时缓冲的最后一帧)</li>
+<li>3: 当前播放位置已经有数据可以播放,页获取到让播放器前进的数据</li>
+<li>4:当前播放位置已经有数据可以播放,页获取到让播放器前进的数据,而且浏览器确认媒体数据以一种速度进行加载(保证后面的数据可以持续进行播放)</li>
+</ul>
+</li>
+<li>volume 表示音频的音量。值从0.0（静音）到1.0（最大音量）。</li>
+<li>defaultPlaybackRate 控制媒体的默认播放速度。1.0表示正常的播放速度，如果值小于1.0，则播放速度会比”正常速度“慢，如果值大于1.0，则播放速度会比”正常速度“快。0.0是一个无效的值，并且会抛出 NOT_SUPPORTED_ERR 错误。</li>
+<li>playbackRate 控制媒体当前的播放速度。1.0表示正常的播放速度，如果值小于1.0，则播放速度会比”正常速度“慢，如果值大于1.0，则播放速度会比”正常速度“快。</li>
+<li>duration(只读) 媒体以秒为单位的总长度时间，如果媒体不可用，则为0. 如果媒体可用，但时间长度未知, 值为NAN.</li>
+</ul>
+<p><strong>控制媒体播放</strong></p>
+<ul>
+<li>canPlayType(in DOMString type) 方法浏览器是否能播放指定的音频&#x2F;视频类型。方法可返回下列值之一：<ol>
+<li>“probably” - 浏览器最可能支持该音频&#x2F;视频类型</li>
+<li>“maybe” - 浏览器也许支持该音频&#x2F;视频类型,只有播放了才知道能不能播放</li>
+<li>“” - （空字符串）浏览器不支持该音频&#x2F;视频类型</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">myVid=<span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;video&#x27;</span>);</span><br><span class="line"><span class="comment">// 检测视频/音频</span></span><br><span class="line">isSupp=myVid.<span class="title function_">canPlayType</span>(<span class="string">&#x27;video/webm&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(isSupp)</span><br><span class="line"><span class="comment">// 检测视频/音频,和解编码器，如果包含解编码器不会返回maybe</span></span><br><span class="line">isSupp=myVid.<span class="title function_">canPlayType</span>(<span class="string">&#x27;video/webm; codecs=&quot;vp8.0, vorbis&quot;&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(isSupp)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>load() 方法重新加载音频&#x2F;视频元素。方法用于在更改来源或其他设置后对音频&#x2F;视频元素进行更新。</li>
+<li>pause() 暂停播放</li>
+<li>play() 开始播放。</li>
+</ul>
+<p><strong>媒体事件处理</strong></p>
+<ul>
+<li>loadstart 浏览器在网上寻找媒体数据</li>
+<li>progress 浏览器正在获取媒体数据</li>
+<li>suspend 浏览器暂停获取媒体数据,但是下载过程并没有正常结束</li>
+<li>abort 浏览器在下载完全部媒体数据之前终止数据获取(但是并不是由错误引起)</li>
+<li>error 获取媒体数据过程中出错</li>
+<li>emptied 媒体元素所在网络突然变成未初始化状态(载入媒体过程中突然发生致命错误或者浏览器正选择播放格式时,又调用了load方法)</li>
+<li>stalled 浏览器尝试获取媒体数据失败</li>
+<li>play 即将开始播放,执行了play方法时触发</li>
+<li>pause 播放暂停,执行了pause方法</li>
+<li>loadedmetadata 浏览器获取完媒体的时长和字节数</li>
+<li>loadeddata 浏览器已加载完毕当前播放位置的媒体数据,准备播放</li>
+<li>waiting 浏览器得不到下一帧而暂停播放,但很快能得到下一帧</li>
+<li>playing 正在播放(只执行一次)</li>
+<li>canplay 浏览器能够播放数据,但是播放期间需要缓冲</li>
+<li>canplaythrough 浏览器能够播放数据,播放期间不需要缓冲</li>
+<li>seeking 浏览器正在请求数据</li>
+<li>seeked 浏览器停止请求数据</li>
+<li>ended 播放结束后停止播放</li>
+<li>ratechange 默认播放速率(defaultpalybackRate),当前播放速率(palybackRate)发生改变</li>
+<li>durationchange 播放时长被改变</li>
+<li>volumechange 音量被改变或者静音状态改变</li>
+<li>timeupdate 当前播放位置被改变，可能是播放中自然改变，也可能人为拖拽进度条改变等</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">&quot;video&quot;</span> <span class="attr">controls</span> <span class="attr">preload</span>=<span class="string">&quot;metadata&quot;</span> <span class="attr">poster</span>=<span class="string">&quot;server/下载.jpg&quot;</span> <span class="attr">autoplay</span> <span class="attr">loop</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;http://qncdn.miaopai.com/stream/NKOc-R~B4hf~klqqJ7Ix6fIGFraJnvDxyPfdWQ___0_1502864324.mp4?ssig=248461eb48ca1ff86e911529bec2ee39&amp;time_stamp=1502877154402&quot;</span> <span class="attr">type</span>=<span class="string">&quot;video/mp4&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> video = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;video&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    video.<span class="title function_">addEventListener</span>(<span class="string">&#x27;progress&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> timeRanges   =   video.<span class="property">buffered</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> networkState = video.<span class="property">networkState</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(timeRanges,timeRanges.<span class="title function_">start</span>(<span class="number">1</span>))</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript">    video.<span class="title function_">addEventListener</span>(<span class="string">&#x27;error&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> error = video.<span class="property">error</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">switch</span> (error.<span class="property">code</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">case</span> <span class="number">1</span>:</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">&#x27;视频的下载过程被终止&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">break</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">case</span> <span class="number">2</span>:</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">&#x27;网络发生故障,视频的下载过程被终止&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">break</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">case</span> <span class="number">3</span>:</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">&#x27;解码失败&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">break</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">case</span> <span class="number">4</span>:</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">&#x27;不支持播放的视频格式&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">break</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;,<span class="literal">false</span>)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><h3 id="Web-Workers"><a href="#Web-Workers" class="headerlink" title="Web Workers"></a>Web Workers</h3><p><strong>介绍</strong>：Web Worker为Web内容在后台线程中运行脚本提供了一种简单的方法。线程可以执行任务而不干扰用户界面。通过将耗时较长的处理交给后台线程运行，从而解决页面因长耗时js处理导致页面被阻塞的问题。</p>
+<p><strong>概念</strong>：HTML5 提供了一个 Worker 构造函数，通过该构造函数新建 Worker 对象并将需要交给后台线程处理的脚本文件 URL 传递给该对象，指定URL脚本文件就会在后台线程中执行了。</p>
+<p><strong>注意</strong>：workers 运行在另一个全局上下文中,不同于当前的window. 因此，在 Worker 内通过 window获取全局作用域将返回错误。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 检测当前浏览器是否支持Worker API</span><br><span class="line">if(window.Worker) &#123;</span><br><span class="line"></span><br><span class="line">    var myWorker = new Worker(&#x27;worker1.js&#x27;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Worker中的消息接受与发送"><a href="#Worker中的消息接受与发送" class="headerlink" title="Worker中的消息接受与发送"></a>Worker中的消息接受与发送</h4><ul>
+<li>postMessage(data) 消息发送：通过该方法可以使得worker实例对象与后台线程的脚本文件互相发送消息</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// myWorker向后台线程脚本发送消息 100</span><br><span class="line">myWorker.postMessage(100)</span><br><span class="line"></span><br><span class="line">// worker1.js</span><br><span class="line">// 后台线程脚本向主线程Worker实例对象发送消息 &#x27;hello world&#x27;</span><br><span class="line">postMessage(&#x27;hello world&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>onmessage 接收消息：worker实例对象与后台线程的脚本文件可以通过该事件方法接受对方通过 postMessage 发送的消息。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">myWorker.onmessage = function(evt) &#123;</span><br><span class="line">    console.log(&#x27;收到后台发送过来的消息&#x27;, evt.data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// worker1.js</span><br><span class="line">onmessage = function(evt) &#123;</span><br><span class="line">   // 收到主线程 Worker 实例对象发送过来的数据</span><br><span class="line">   var msg = evt.data</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="「练习」"><a href="#「练习」" class="headerlink" title="「练习」"></a>「练习」</h2><blockquote>
+<p><strong>使用web worker实现后台计算数字累加功能</strong></p>
+<p><img src="http://edu.yueqian.com.cn/group1/M00/00/E3/wKgA3V_YZYeAOIe6AABNEUucbeY694.gif" alt="worker练习.gif" loading='lazy'></p>
+<p><strong>要求</strong>：</p>
+<ol>
+<li>页面中包含一个 type&#x3D;“number” 的 input 表单元素，用户可以在该表单中输入任意数字</li>
+<li>页面包含一个”计算累加”的 button 按钮，当button按钮被点击是，如果 input 值合法将该值发送到后台工作线程中</li>
+<li>后台工作线程接收到Worker发送的数字后开始从1循环累加到接收到的数字。累加完毕将累加结果发送回主线程</li>
+<li>主线程接受到结果后渲染到页面上</li>
+</ol>
+</blockquote>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://lolimama.love">make逸努</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://lolimama.love/2023/07/06/HTML5/">https://lolimama.love/2023/07/06/HTML5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://lolimama.love" target="_blank">make逸努お宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post-share"><div class="social-share" data-image="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-html.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/07/06/CSS3/" title="CSS3 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-css.png" onerror="onerror=null;src='/img/404_NotFound.png'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CSS3 学习笔记</div></div><div class="info-2"><div class="info-item-1"> 参考文档:CSS教程（精讲版） (biancheng.net) 单位绝对长度单位以下都是绝对长度单位——它们与其他任何东西都没有关系，通常被认为总是相同的大小。    单位 名称 等价换算    cm 厘米 1cm &#x3D; 37.8px &#x3D; 25.2&#x2F;64in   mm 毫米 1mm &#x3D; 1&#x2F;10th of 1cm   Q 四分之一毫米 1Q &#x3D; 1&#x2F;40th of 1cm   in 英寸 1in &#x3D; 2.54cm &#x3D; 96px   pc 派卡 1pc &#x3D; 1&#x2F;6th of 1in   pt 点 1pt &#x3D; 1&#x2F;72th of 1in   px 像素 1px &#x3D; 1&#x2F;96th of 1in   相对长度单位相对长度单位相对于其他一些东西，比如父元素的字体大小，或者视图端口的大小。使用相对单位的好处是，经过一些仔细的规划，你可以使文本或其他元素的大小与页面上的其他内容相对应。下表列出了 web 开发中一些最有用的单位。    单位 相对...</div></div></div></a><a class="pagination-related" href="/2023/07/06/DOM,BOM/" title="DOM,BOM 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/DOM-BOM.png" onerror="onerror=null;src='/img/404_NotFound.png'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">DOM,BOM 学习笔记</div></div><div class="info-2"><div class="info-item-1">DOM（Document Object Model——文档对象模型）DOM 介绍 **介绍:**什么是DOM，简单的说DOM是一套对文档的内容进行抽象和概念化的方法。DOM（Document Object Model——文档对象模型）是用来呈现以及与任意 HTML 或 XML文档交互的API。DOM 是载入到浏览器中的文档模型，以节点树的形式来表现文档，每个节点代表文档的构成部分（例如:页面元素、字符串或注释等等）。DOM 是万维网上使用最为广泛的API之一，因为它允许运行在浏览器中的代码访问文件中的节点并与之交互。节点可以被创建，移动或修改。节点可以关联上事件处理器，一旦某一事件被触发了，那些事件处理器就会被执行。  DOM主要用于操作网页的标签内容,标签样式,标签属性,以及标签(增删改查)  DOM学习的最终目的 完成一些常见网页特效  轮播图 选项卡…  **注意：**DOM既不是HTML的一部分,也不是JavaScript一部分,而是浏览器厂商都实现了的一些独立的规则，并允许JavaScript可以访问和操作存储在DOM中的内容（DOM 也可以使用其他的语言来实现）  什...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2023/07/06/CSS/" title="CSS 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-css.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-06</div><div class="info-item-2">CSS 学习笔记</div></div><div class="info-2"><div class="info-item-1">CSS介绍 ​    HTML主要用于描述网页的结构和内容  ​    CSS美化网页,给网页化妆  ​    所以需要先有HTML结构, 再写CSS样式  ​    CSS 的全称是 Cascading Style Sheet（层叠样式表），它主要用来控制网页的样式（美化网页）。CSS 早已被所有主流浏览器采用，它允许你轻松控制以下样式：  颜色 color  背景 background  字体 font  浮动 float  位置 position  显示 display  边框 border  内边距 padding  外边距 margin  行高 line-height  装饰 text-decoration  过渡 transtion  变化 transform  动画 animation   页面样式的属性有几百个，但常用的不过几十个  CSS需要学习两大内容(CSS选择器, CSS属性)  CSS选择器用于选择目标标签使用,一个网页可以有很多很多标签,给某个或者某些标签设置样式,就需要用到选择器  CSS属性就是用什么工具化妆   CSS的书写位置 嵌入式也可以叫内...</div></div></div></a><a class="pagination-related" href="/2023/07/06/HTML/" title="HTML 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/sta-je-html.jpg" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-06</div><div class="info-item-2">HTML 学习笔记</div></div><div class="info-2"><div class="info-item-1">介绍HTML(hypertext markup langage)超文本标记语言 主要用于描述网页的结构和内容 学习HTML主要学习HTML标签以及标签对应的属性, 标签就是一些特殊的符号   比如    img图片标签(属性src,width,height,alt,tilte),在网页中显示图片   a超链接标签(属性href, target ), 实现网页的跳转   html文件名后缀名是.html , 使用浏览器可以直接解析html文件,因为浏览器里面有一个渲染引擎 基本结构123456789101112131415&lt;!DOCTYPE html&gt;&lt;!-- 文档类型 doc=&gt;document文档 type类型的意思   就是告诉别人,我这个文档是html --&gt;&lt;html&gt;    &lt;!-- head头部标签,这标签里面放的是,修饰网页的东西 比如引入样式表,引入js脚本文件,设置字符集,设置页面标题 --&gt;    &lt;head&gt;        &lt;!-- title标签设置的是网页的标题 --&gt;    ...</div></div></div></a><a class="pagination-related" href="/2023/07/06/DOM,BOM/" title="DOM,BOM 学习笔记"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/DOM-BOM.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-06</div><div class="info-item-2">DOM,BOM 学习笔记</div></div><div class="info-2"><div class="info-item-1">DOM（Document Object Model——文档对象模型）DOM 介绍 **介绍:**什么是DOM，简单的说DOM是一套对文档的内容进行抽象和概念化的方法。DOM（Document Object Model——文档对象模型）是用来呈现以及与任意 HTML 或 XML文档交互的API。DOM 是载入到浏览器中的文档模型，以节点树的形式来表现文档，每个节点代表文档的构成部分（例如:页面元素、字符串或注释等等）。DOM 是万维网上使用最为广泛的API之一，因为它允许运行在浏览器中的代码访问文件中的节点并与之交互。节点可以被创建，移动或修改。节点可以关联上事件处理器，一旦某一事件被触发了，那些事件处理器就会被执行。  DOM主要用于操作网页的标签内容,标签样式,标签属性,以及标签(增删改查)  DOM学习的最终目的 完成一些常见网页特效  轮播图 选项卡…  **注意：**DOM既不是HTML的一部分,也不是JavaScript一部分,而是浏览器厂商都实现了的一些独立的规则，并允许JavaScript可以访问和操作存储在DOM中的内容（DOM 也可以使用其他的语言来实现）  什...</div></div></div></a><a class="pagination-related" href="/1970/01/01/Next-js/" title="Next.js"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Next.js.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 1970-01-01</div><div class="info-item-2">Next.js</div></div><div class="info-2"><div class="info-item-1">哥们还没学过，因为logo可爱所以就放上来了😄 </div></div></div></a><a class="pagination-related" href="/1970/01/01/Node-js/" title="Node.js"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Node.js.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 1970-01-01</div><div class="info-item-2">Node.js</div></div><div class="info-2"><div class="info-item-1">哥们还没学过，因为logo可爱所以就放上来了😄 </div></div></div></a><a class="pagination-related" href="/1970/01/01/React/" title="React"><img class="cover" src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/React.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 1970-01-01</div><div class="info-item-2">React</div></div><div class="info-2"><div class="info-item-1">哥们还没学过，因为logo可爱所以就放上来了😄 </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">肉食者鄙，未能远谋。😤<br/>Do Nothing, Win. 🤯</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">HTML5 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E8%AF%AD%E4%B9%89%E6%A0%87%E7%AD%BE"><span class="toc-number">2.</span> <span class="toc-text">新增语义标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5%E6%94%B9%E8%BF%9B%E6%A0%87%E7%AD%BE"><span class="toc-number">3.</span> <span class="toc-text">HTML5改进标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95"><span class="toc-number">3.1.</span> <span class="toc-text">表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E5%B1%9E%E6%80%A7data"><span class="toc-number">3.2.</span> <span class="toc-text">新增属性data-*</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8"><span class="toc-number">4.</span> <span class="toc-text">存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96-DOM%E5%AD%98%E5%82%A8"><span class="toc-number">4.1.</span> <span class="toc-text">数据持久化 DOM存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%AA%92%E4%BD%93"><span class="toc-number">5.</span> <span class="toc-text">多媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91"><span class="toc-number">5.1.</span> <span class="toc-text">视频</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E6%92%AD%E6%94%BE%E6%BA%90%E4%BB%A5%E6%8F%90%E9%AB%98%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-number">5.1.1.</span> <span class="toc-text">使用多个播放源以提高兼容性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91"><span class="toc-number">5.2.</span> <span class="toc-text">音频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%A4%9A%E5%AA%92%E4%BD%93"><span class="toc-number">5.3.</span> <span class="toc-text">编程式多媒体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD"><span class="toc-number">6.</span> <span class="toc-text">性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-Workers"><span class="toc-number">6.1.</span> <span class="toc-text">Web Workers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Worker%E4%B8%AD%E7%9A%84%E6%B6%88%E6%81%AF%E6%8E%A5%E5%8F%97%E4%B8%8E%E5%8F%91%E9%80%81"><span class="toc-number">6.1.1.</span> <span class="toc-text">Worker中的消息接受与发送</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8C%E7%BB%83%E4%B9%A0%E3%80%8D"><span class="toc-number">7.</span> <span class="toc-text">「练习」</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/08/27/redmi-note12-turbo-root-%E6%95%99%E7%A8%8B/" title="RedmiNote12Turbo 个人玩机优化记录(祭奠澎湃牢米)"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/RedmiNote12TurboRecord01.jpg" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="RedmiNote12Turbo 个人玩机优化记录(祭奠澎湃牢米)"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/08/27/redmi-note12-turbo-root-%E6%95%99%E7%A8%8B/" title="RedmiNote12Turbo 个人玩机优化记录(祭奠澎湃牢米)">RedmiNote12Turbo 个人玩机优化记录(祭奠澎湃牢米)</a><time datetime="2025-08-26T17:50:03.000Z" title="发表于 2025-08-27 01:50:03">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/18/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/" title="划词翻译样式分享"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/hcfy01.png" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="划词翻译样式分享"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/05/18/%E5%88%92%E8%AF%8D%E7%BF%BB%E8%AF%91/" title="划词翻译样式分享">划词翻译样式分享</a><time datetime="2025-05-18T08:25:18.000Z" title="发表于 2025-05-18 16:25:18">2025-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/14/%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/" title="简历制作工具合集"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/resume-tools01.png" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="简历制作工具合集"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/04/14/%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/" title="简历制作工具合集">简历制作工具合集</a><time datetime="2025-04-14T10:17:00.000Z" title="发表于 2025-04-14 18:17:00">2025-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/04/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" title="前端各个包管理器的优缺点"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1760px-Npm-logo.svg.png" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="前端各个包管理器的优缺点"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/03/04/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" title="前端各个包管理器的优缺点">前端各个包管理器的优缺点</a><time datetime="2025-03-04T02:00:00.000Z" title="发表于 2025-03-04 10:00:00">2025-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/08/%E7%AD%89%E8%BA%AB%E6%8A%B1%E6%9E%95-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A0%B4%E4%BA%A7/" title="【转载】等身抱枕-从入门到破产"><img src="https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/ilovedakimakura.jpg" onerror="this.onerror=null;this.src='/img/404_NotFound.png'" alt="【转载】等身抱枕-从入门到破产"/ loading='lazy'></a><div class="content"><a class="title" href="/2025/02/08/%E7%AD%89%E8%BA%AB%E6%8A%B1%E6%9E%95-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%A0%B4%E4%BA%A7/" title="【转载】等身抱枕-从入门到破产">【转载】等身抱枕-从入门到破产</a><time datetime="2025-02-07T20:21:19.000Z" title="发表于 2025-02-08 04:21:19">2025-02-08</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(to top, rgba(55, 236, 186, .6) 0%, rgb(114, 175, 211, .6) 100%);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By make逸努</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.0.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div><div class="footer_custom_text"><a href="https://icp.gov.moe/?keyword=20243739" target="_blank"><span>萌ICP备20243739号</span></a></div></div></footer></div><div class="js-pjax"><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="fas fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="fas fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="fa-solid fa-arrows-rotate"></i></div><div class="rightMenu-item" id="menu-darkmode"><i class="fas fa-adjust"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPost"><div class="rightMenu-item" id="menu-reading"><i class="fa-solid fa-book"></i><span>阅读模式</span></div><div class="rightMenu-item" id="menu-commentBarrage"><i class="fa-solid fa-fire"></i><span>热评开关</span></div><div class="rightMenu-item" id="menu-postlink"><i class="fa-regular fa-copy"></i><span>复制本文地址</span></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="fa-solid fa-copy"></i><span>复制内容</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="fa-solid fa-paste"></i><span>粘贴内容</span></div><div class="rightMenu-item" id="menu-commenttext"><i class="iconfont icat-message"></i><span>引用评论</span></div><div class="rightMenu-item" id="menu-search"><i class="fa-brands fa-searchengin"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="fa-brands fa-google"></i><span>谷歌搜索</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="fa-regular fa-newspaper"></i><span>新建窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="fa-solid fa-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="fa-solid fa-copy"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="fa-solid fa-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-copylinkimg"><i class="fa-solid fa-link"></i><span>复制图片链接</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-randomPost"><i class="fa-solid fa-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item" id="menu-translate"><i class="fa-regular fa-handshake"></i><span>繁简转换</span></a><div class="rightMenu-item" id="menu-asidehide"><i class="fa-solid fa-list"></i><span>边栏控制</span></div></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="/privacy/"><i class="fa-solid fa-shield-halved"></i><span>隐私协议</span></a><a class="rightMenu-item" href="/cc/"><i class="fa-solid fa-copyright"></i><span>版权协议</span></a></div></div><div id="rightMenu-mask"></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://main--boisterous-crumble-3bf31b.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://main--boisterous-crumble-3bf31b.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'src'
+          const lazyloadNative = 'loading="lazy"'
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative} loading='lazy'></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'twikoo-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const getComment = ele => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://main--boisterous-crumble-3bf31b.netlify.app/.netlify/functions/twikoo',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(res => {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        btf.saveToLocal.set(keyName, JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray, ele)
+      }).catch(err => {
+        console.error(err)
+        ele.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  run(keyName, getComment)
+})</script><script src="/inject/rightmenu.js"></script><script src="/zhheo/random.js"></script><script src="/inject/self.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/whitehair-failure/live2D-models/chino/model.json"},"display":{"position":"left","width":200,"height":250,"hOffset":-30,"vOffset":0},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
