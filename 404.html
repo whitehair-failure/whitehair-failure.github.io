@@ -161,8 +161,20 @@
   if (document.readyState === 'complete') {
     preloader.endLoading()
   } else {
-    window.addEventListener('load', preloader.endLoading)
-    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    //- window.addEventListener('load', preloader.endLoading)
+    //- document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    window.addEventListener('load', () => {
+      const bgImage = new Image();
+      bgImage.src = 'https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Momoka_SS_SSR4.webp';
+      // 当图片加载完成后，显示页面
+      bgImage.onload = setTimeout(preloader.endLoading, 500);
+    })
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgImage = new Image();
+      bgImage.src = 'https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Momoka_SS_SSR4.webp';
+      // 当图片加载完成后，显示页面
+      bgImage.onload = setTimeout(preloader.endLoading, 500);
+    })
     // Add timeout protection: force end after 7 seconds
     setTimeout(preloader.endLoading, 7000)
   }
