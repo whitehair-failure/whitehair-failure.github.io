@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // } else {
   //   document.querySelector(".card-recent-post").style.display = "block";
   // }
+  console.log("GLOBAL_CONFIG_SITE——DOMContentLoaded", GLOBAL_CONFIG_SITE); // 输出是否为文章页
 
   if (GLOBAL_CONFIG_SITE.pageType !== 'home') {
     let contentInner = document.querySelector("#content-inner");
