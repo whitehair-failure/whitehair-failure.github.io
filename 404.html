@@ -141,18 +141,113 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'page'
-}</script><link rel="stylesheet" href="/font/subset/subset.css"><link rel="stylesheet" href="/css/self.css"><meta name="generator" content="Hexo 8.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+}</script><link rel="stylesheet" href="/font/subset/subset.css"><link rel="stylesheet" href="/css/self.css"><script src="/inject/gsap.min.js"></script><script src="/inject/MotionPathPlugin.min.js"></script><meta name="generator" content="Hexo 8.1.1"></head><body><div id="loading-box"><div class="loading-bg-top"></div><div class="loading-bg-bottom"></div><div class="spinner-box"><div class="ai-matrix-loader"><svg class="ai-loader-path" width="400" height="300" viewBox="0 0 400 300" style="position: absolute; pointer-events: none; opacity: 0;"><path id="orbit-path" d="M 200 210 A 130 60 0 1 1 200.01 210 Z" fill="none"></path></svg><div class="ai-text"><span class="text">thinking</span><span class="dots">...</span></div><div class="ai-logos"><div class="ai-logo" style="background-image: url('/img/loading/chatgpt.svg')"></div><div class="ai-logo" style="background-image: url('/img/loading/claude.svg')"></div><div class="ai-logo" style="background-image: url('/img/loading/deepseek.svg')"></div><div class="ai-logo" style="background-image: url('/img/loading/gemini.svg')"></div><div class="ai-logo" style="background-image: url('/img/loading/grok.svg')"></div></div></div></div></div><script>(()=>{
   const $loadingBox = document.getElementById('loading-box')
   const $body = document.body
+  
+  // GSAP 动画初始化
+  if (window.gsap && window.MotionPathPlugin) {
+    gsap.registerPlugin(MotionPathPlugin);
+
+    const logos = gsap.utils.toArray('.ai-logo');
+    
+    // 让各个 Logo 延轨道错开分布并运动
+    const mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      logos.forEach((logo, i) => {
+        const tl = gsap.timeline({ repeat: -1 });
+        
+        tl.to(logo, {
+          motionPath: {
+            path: "#orbit-path",
+            align: "#orbit-path",
+            alignOrigin: [0.5, 0.5]
+          },
+          duration: 4,
+          ease: "none"
+        }, 0);
+        
+        // Hardware-accelerated Pseudo 3D depth with morphing
+        tl.to(logo, {
+          scale: 0.4,
+          opacity: 0.2,
+          z: -100, // Move backward in 3D space instead of z-index layout thrashing
+          duration: 2,
+          ease: "power1.inOut",
+          yoyo: true,
+          repeat: 1
+        }, 0);
+        
+        tl.progress(i / logos.length);
+      });
+
+      // 文本点点呼吸动画
+      gsap.to('.ai-text .dots', {
+        opacity: 0.2,
+        duration: 0.8,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1
+      });
+    });
+  }
+
   const preloader = {
     endLoading: () => {
       if ($loadingBox.classList.contains('loaded')) return
-      $body.style.overflow = ''
-      $loadingBox.classList.add('loaded')
+      
+      // 核心优化：长文章解析和渲染会严重阻塞主线程 (Main Thread)，导致 GSAP 丢帧卡顿。
+      // 这里使用 setTimeout 配合 requestAnimationFrame，强行将过场动画的执行推迟到浏览器完成大规模 DOM 绘制和 Layout 之后。
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          $body.style.overflow = ''
+          
+          if (window.gsap) {
+            const tl = gsap.timeline({
+              onComplete: () => {
+                $loadingBox.classList.add('loaded')
+                $loadingBox.style.display = 'none'
+              }
+            });
+            
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const animDuration = prefersReducedMotion ? 0.1 : 1.2;
+            const fadeDuration = prefersReducedMotion ? 0.1 : 0.8;
+
+            tl.to('.spinner-box', {
+              opacity: 0,
+              scale: 0.9,
+              duration: fadeDuration,
+              ease: "power3.out"
+            }, 0);
+            
+            tl.to('.loading-bg-top', {
+              yPercent: -100,
+              duration: animDuration,
+              ease: prefersReducedMotion ? "power1.out" : "expo.inOut"
+            }, 0.1); // 微微缩减开始过场前的空隙
+            
+            tl.to('.loading-bg-bottom', {
+              yPercent: 100,
+              duration: animDuration,
+              ease: prefersReducedMotion ? "power1.out" : "expo.inOut"
+            }, 0.1);
+          } else {
+            $loadingBox.classList.add('loaded')
+          }
+        });
+      }, 100); // 让出 100ms 的空闲时间给浏览器主线程消化 DOM 树
     },
     initLoading: () => {
       $body.style.overflow = 'hidden'
+      $loadingBox.style.display = ''
       $loadingBox.classList.remove('loaded')
+      
+      // Reset states for PJAX
+      if (window.gsap) {
+        gsap.set('.spinner-box', { opacity: 1, scale: 1 });
+        gsap.set('.loading-bg-top, .loading-bg-bottom', { yPercent: 0 }); // 确保状态复原
+      }
     }
   }
 

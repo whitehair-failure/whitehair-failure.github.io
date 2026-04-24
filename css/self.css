@@ -99,6 +99,13 @@ main#content-inner.layout {
   }
 }
 
+/* 隐藏移动端 live2d-widget */
+@media (max-width: 768px) {
+  #live2d-widget {
+    display: none !important;
+  }
+}
+
 @media (max-width: 480px) and (min-height: 721px) {
   #web_bg {
     background-position-x: -185vw;
