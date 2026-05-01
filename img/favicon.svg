@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <filter id="neonBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <linearGradient id="silkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4060ef;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#9656b4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ed2d7a;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#ca4ebc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a74eff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <path d="M 256 470 C 130 380, 0 300, 0 160 C 0 80, 80 0, 180 0 C 215 0, 240 20, 256 50 C 272 20, 297 0, 332 0 C 432 0, 512 80, 512 160 C 512 300, 382 380, 256 470 Z"
+    fill="url(#silkGradient)" filter="url(#neonBlur)" opacity="0.3" transform="scale(0.8) translate(64, 64)"/>
+
+  <path d="M 256 470 C 130 380, 0 300, 0 160 C 0 80, 80 0, 180 0 C 215 0, 240 20, 256 50 C 272 20, 297 0, 332 0 C 432 0, 512 80, 512 160 C 512 300, 382 380, 256 470 Z"
+    fill="url(#silkGradient)" transform="scale(0.8) translate(64, 64)"/>
+</svg>

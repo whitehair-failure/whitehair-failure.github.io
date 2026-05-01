@@ -1,9 +1,9 @@
-window.addEventListener("load", function () {
+/* window.addEventListener("load", function () {
   // 获取本地存储中的 AdultCertification 值
   const adultCertification = localStorage.getItem("AdultCertification");
 
   // 如果 AdultCertification 不存在或为 0，显示弹窗
-  if ((!adultCertification || adultCertification === "0") && GLOBAL_CONFIG_SITE.isHome) {
+  if ((!adultCertification || adultCertification === "0") && GLOBAL_CONFIG_SITE.pageType === 'home') {
     const body = document.body;
 
     // 动态创建弹窗元素
@@ -61,7 +61,7 @@ window.addEventListener("load", function () {
       window.close(); // 关闭页面
     });
   }
-});
+}); */
 
 // 首页隐藏最新文章侧边栏
 document.addEventListener("DOMContentLoaded", function () {
@@ -71,8 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // } else {
   //   document.querySelector(".card-recent-post").style.display = "block";
   // }
+  console.log("GLOBAL_CONFIG_SITE——DOMContentLoaded", GLOBAL_CONFIG_SITE); // 输出是否为文章页
 
-  if (!GLOBAL_CONFIG_SITE.isHome) {
+  if (GLOBAL_CONFIG_SITE.pageType !== 'home') {
     let contentInner = document.querySelector("#content-inner");
     let firstChildDiv = contentInner.querySelector("div:first-child");
     firstChildDiv.style.transition = "0s";
@@ -92,7 +93,7 @@ document.addEventListener("pjax:success", function () {
   // }
   console.log("GLOBAL_CONFIG_SITE", GLOBAL_CONFIG_SITE); // 输出是否为文章页
 
-  if (!GLOBAL_CONFIG_SITE.isHome) {
+  if (GLOBAL_CONFIG_SITE.pageType !== 'home') {
     let contentInner = document.querySelector("#content-inner");
     let firstChildDiv = contentInner.querySelector("div:first-child");
     firstChildDiv.style.transition = "0s";
@@ -105,10 +106,10 @@ document.addEventListener("pjax:success", function () {
 let counter = 0; // 用于计数触发次数
 
 // 头像 URL 数组
-const avatars = [
-  "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Char.jpg",
-  "https://img.lolimama.love/gh/whitehair-failure/own-picture-bed/blog_img/Madman.png",
-];
+/* const avatars = [
+  "https://img.lolimama.love/blog_img/Char.jpg",
+  "https://img.lolimama.love/blog_img/Madman.png",
+]; */
 
 // ✅ 预加载头像图片
 /* avatars.forEach(url => {
@@ -116,7 +117,7 @@ const avatars = [
   img.src = url;
 }); */
 
-setInterval(() => {
+/* setInterval(() => {
   let asideContent = document.querySelector("#aside-left");
   let avatarBox = asideContent.querySelector(".avatar-img");
   let avatarImg = avatarBox.querySelector("img");
@@ -134,5 +135,5 @@ setInterval(() => {
     // 计数器增加
     counter++;
   }, 2000);
-}, 4000);
+}, 4000); */
 
