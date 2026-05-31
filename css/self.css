@@ -19,12 +19,12 @@
 }
 
 body {
-  font-family: "Heiti SC", sans-serif !important;
+  font-family: "Heiti SC", system-ui, sans-serif !important;
 }
 
 #card-newest-comments .aside-list,
 .card-announcement .announcement_content {
-  font-family: sans-serif !important;
+  font-family: system-ui, sans-serif !important;
 }
 
 #recent-posts .recent-post-items .recent-post-item {
@@ -67,6 +67,10 @@ main#content-inner.layout {
   /* width: 24%; */
 }
 
+#aside-content .card-widget.card-archives {
+  margin-bottom: 0px !important;
+}
+
 #aside-left .custom-iframe {
   margin-top: 15px;
 }
@@ -88,6 +92,7 @@ main#content-inner.layout {
 /* 文章内容使用系统默认字体 */
 #post {
   font-family: system-ui, sans-serif !important;
+  font-size: 16px !important;
 }
 
 /* 使用 px 判断常规屏幕宽度 */
